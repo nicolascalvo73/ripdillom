@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Componentes</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./dl.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Londrina+Solid:wght@400;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>body{margin:0}
+.card{border:2px solid #0D0A0C;box-shadow:5px 5px 0 #0D0A0C;background:#F2EBDD;padding:22px;overflow:hidden;position:relative}
+.h3{font-family:'Londrina Solid',sans-serif;font-weight:900;text-transform:uppercase;font-size:38px;line-height:.9}
+.nb{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:50%;background:#FF2E9A;border:2px solid #0D0A0C;font-weight:700;font-size:12px;color:#0D0A0C;flex:none}
+.lg{display:flex;align-items:center;gap:12px;border-bottom:2px solid #0D0A0C;padding:7px 0;font-size:12px}
+.lg:last-child{border-bottom:0}
+.st{width:130px;flex:none}
+.st .v{position:relative;width:130px;height:128px;overflow:hidden;background:#0D0A0C;border:2px solid #0D0A0C}
+.cap{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin-top:8px}
+</style>
+</helmet>
+<div class="dl paper grain" style="width:1440px;height:1720px;padding:40px 60px">
+
+  <div style="display:flex;align-items:center;gap:24px">
+    <h1 class="fd strap sh" style="font-size:72px;background:#F7E92B;color:#0D0A0C;transform:rotate(1deg);padding:8px 26px 14px">Componentes</h1>
+    <span class="lbl">Hotspots · globos · botones · paneles</span>
+  </div>
+
+  <!-- fila 1 -->
+  <div style="display:grid;grid-template-columns:660px minmax(0,1fr);gap:24px;margin-top:40px;height:700px">
+    <div class="card">
+      <div class="h3">Mapa de zonas</div>
+      <div style="display:flex;gap:20px;margin-top:14px">
+        <div class="abs" style="position:relative;width:296px;height:630px;flex:none;background:#0D0A0C;background-image:radial-gradient(rgba(255,46,154,.45) 1.4px,transparent 1.9px);background-size:7px 7px">
+          <img src="/_blob/eba0fbca276c37c61f69ad67d34ad05e" alt="Muñeco con zonas marcadas" style="position:absolute;left:0;top:0;width:296px;height:629px">
+          <div class="hs dbg" style="left:20%;top:0;width:58%;height:30%"></div>
+          <div class="hs dbg" style="left:19%;top:30.5%;width:57%;height:24%"></div>
+          <div class="hs dbg" style="left:1%;top:31%;width:22%;height:38%"></div>
+          <div class="hs dbg" style="left:76%;top:31%;width:23%;height:39%"></div>
+          <div class="hs dbg" style="left:21%;top:63%;width:29%;height:36%"></div>
+          <div class="hs dbg" style="left:50.5%;top:63%;width:31%;height:36%"></div>
+          <div class="hs dbg" style="left:41.5%;top:62%;width:14%;height:6.7%;background:rgba(247,233,43,.5);outline-color:#F7E92B"></div>
+          <span class="nb abs" style="left:134px;top:80px">1</span>
+          <span class="nb abs" style="left:134px;top:262px">2</span>
+          <span class="nb abs" style="left:22px;top:300px">3</span>
+          <span class="nb abs" style="left:246px;top:300px">4</span>
+          <span class="nb abs" style="left:78px;top:520px">6</span>
+          <span class="nb abs" style="left:190px;top:520px">7</span>
+          <span class="nb abs" style="left:134px;top:384px;background:#F7E92B">9</span>
+        </div>
+        <div style="flex:1;min-width:0">
+          <div class="lg"><span class="nb">1</span><span><b>Cabeza</b> → MÚSICA</span></div>
+          <div class="lg"><span class="nb">2</span><span><b>Pecho</b> → VIDEOS</span></div>
+          <div class="lg"><span class="nb">3</span><span><b>Brazo derecho</b> → REDES</span></div>
+          <div class="lg"><span class="nb">4</span><span><b>Brazo izquierdo</b> → SHOWS</span></div>
+          <div class="lg"><span class="nb">5</span><span><b>Espalda ↻</b> → MERCH</span></div>
+          <div class="lg"><span class="nb">6</span><span><b>Pierna derecha + pie</b> → QUIÉN SOY</span></div>
+          <div class="lg"><span class="nb">7</span><span><b>Pierna izquierda + pie</b> → TATUAJES</span></div>
+          <div class="lg"><span class="nb">8</span><span><b>Billete trasero ↻</b> → TOMÁ $100</span></div>
+          <div class="lg"><span class="nb" style="background:#F7E92B">9</span><span><b>Entrepierna</b> → ¡EPA! (sin panel)</span></div>
+          <p style="margin-top:14px;font-size:11px;line-height:1.5">Derecho e izquierdo son los del muñeco, no los de la pantalla. Las zonas 5 y 8 solo existen cuando el muñeco mira de espaldas.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="h3">Globos</div>
+      <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px 12px;margin-top:20px;justify-items:start">
+        <div class="sh"><span class="bub pk t-bl" style="--r:-3deg;font-size:26px">Música</span></div>
+        <div class="sh"><span class="bub yl t-br" style="--r:4deg;font-size:26px">Videos</span></div>
+        <div class="sh"><span class="bub t-bl" style="--r:-5deg;font-size:26px">Redes</span></div>
+        <div class="sh"><span class="bub pk t-br" style="--r:3deg;font-size:26px">Shows</span></div>
+        <div class="sh"><span class="bub yl t-tl" style="--r:-4deg;font-size:26px">Merch</span></div>
+        <div class="sh"><span class="bub t-tr" style="--r:5deg;font-size:26px">Quién soy</span></div>
+        <div class="sh"><span class="bub bk t-bl" style="--r:-2deg;font-size:26px;box-shadow:none">Tatuajes</span></div>
+        <div class="sh"><span class="bub yl t-br" style="--r:3deg;font-size:26px">Tomá $100</span></div>
+        <div class="sh"><span class="bub pk t-tl" style="--r:-6deg;font-size:26px">¡Epa!</span></div>
+      </div>
+      <div style="margin-top:22px;font-size:12px;line-height:1.6">
+        <div class="lg"><span class="lbl" style="width:90px;flex:none">Forma</span><span>Recorte irregular con cola. 4 colas: abajo-izq., abajo-der., arriba-izq., arriba-der. Siempre apunta a la zona.</span></div>
+        <div class="lg"><span class="lbl" style="width:90px;flex:none">Color</span><span>Rosa, amarillo, hueso y negro. Se alternan; dos globos vecinos no repiten.</span></div>
+        <div class="lg"><span class="lbl" style="width:90px;flex:none">Tamaño</span><span>28 px móvil, 46 px desktop. Rotación al azar entre −6° y 6°. Sombra dura de 4 px.</span></div>
+        <div class="lg"><span class="lbl" style="width:90px;flex:none">Posición</span><span>Hacia el lado con más aire. Nunca tapa la zona que señala.</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- fila 2 -->
+  <div style="display:grid;grid-template-columns:660px minmax(0,1fr);gap:24px;margin-top:24px;height:380px">
+    <div class="card">
+      <div class="h3">Estados de una zona</div>
+      <div style="display:flex;gap:14px;margin-top:16px">
+        <div class="st"><div class="v"><img src="/_blob/eba0fbca276c37c61f69ad67d34ad05e" alt="" style="position:absolute;left:-40px;top:-4px;width:210px;height:446px"></div><div class="cap">Reposo</div><div style="font-size:11px;margin-top:2px">Invisible. Solo el hint.</div></div>
+        <div class="st"><div class="v"><img src="/_blob/eba0fbca276c37c61f69ad67d34ad05e" alt="" style="position:absolute;left:-40px;top:-4px;width:210px;height:446px"><div class="hs on" style="left:2px;top:2px;width:122px;height:62px"></div></div><div class="cap">Hover / 1er toque</div><div style="font-size:11px;margin-top:2px">Semitono + contorno + globo.</div></div>
+        <div class="st"><div class="v"><img src="/_blob/eba0fbca276c37c61f69ad67d34ad05e" alt="" style="position:absolute;left:-40px;top:-4px;width:210px;height:446px"><div class="abs" style="left:2px;top:2px;width:122px;height:62px;border:3px solid #FF2E9A;border-radius:42%;background:rgba(255,46,154,.25)"></div></div><div class="cap">Activo</div><div style="font-size:11px;margin-top:2px">2º toque: fly-to + panel.</div></div>
+        <div class="st"><div class="v"><div class="abs" style="right:0;top:40px;background:#0D0A0C;color:#F2EBDD;border:2px solid #F7E92B;border-right:0;padding:6px 8px;display:flex;align-items:center;gap:6px"><span class="fd" style="font-size:24px;color:#F7E92B">↻</span><span class="lbl" style="font-size:9px;line-height:1.2">Girá<br><span style="color:#FF2E9A">Merch</span></span></div></div><div class="cap">Tapada</div><div style="font-size:11px;margin-top:2px">Indicador en el borde.</div></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="h3">Piezas</div>
+      <div style="display:flex;flex-wrap:wrap;gap:14px;margin-top:16px;align-items:center">
+        <a href="#" class="btn">Primario</a><a href="#" class="btn yl">Amarillo</a><a href="#" class="btn bn">Hueso</a><a href="#" class="btn bk">Negro</a>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:14px;margin-top:18px;align-items:center">
+        <span class="chip f-yl">Hint</span><span class="chip f-pk">Estado</span><span class="chip f-bk">Activo</span><span class="chip">Neutro</span>
+        <div style="position:relative;width:44px;height:44px"><button class="mn" style="left:0;top:0" aria-label="Menú"><i></i><i></i><i></i></button></div>
+        <button class="xb" aria-label="Cerrar"></button>
+        <span class="stamp" style="background:#0D0A0C">Tributo fan<br>no oficial</span>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:12px;margin-top:22px;align-items:center">
+        <span class="sh"><span class="cut c-pk fd" style="font-size:46px;--r:-4deg">D</span></span>
+        <span class="cut c-yl fd" style="font-size:42px;--r:3deg">L</span>
+        <span class="cut c-bn fd" style="font-size:46px;--r:-2deg">I</span>
+        <span class="cut c-bk fd" style="font-size:40px;--r:5deg">O</span>
+        <span class="sh"><span class="strap fd" style="font-size:34px;background:#FF2E9A;color:#0D0A0C;transform:rotate(-1.5deg)">Violencia</span></span>
+        <div style="position:relative;width:96px;height:30px"><div class="tape" style="left:0;top:2px"></div></div>
+        <div style="position:relative;width:96px;height:30px"><div class="tape pk" style="left:0;top:2px"></div></div>
+      </div>
+      <p style="margin-top:18px;font-size:11px;line-height:1.5">Botones y chips en mono 700, mayúsculas, alto mínimo 44 px (chips: 28 px, solo informativos). Sombra dura de 3 px.</p>
+    </div>
+  </div>
+
+  <!-- fila 3: panel -->
+  <div class="card" style="margin-top:24px;height:400px">
+    <div class="h3">Panel</div>
+    <div style="display:flex;gap:40px;margin-top:16px;align-items:flex-start">
+      <!-- móvil -->
+      <div style="position:relative;width:240px;height:300px;flex:none;background:#0D0A0C;background-image:radial-gradient(rgba(255,46,154,.5) 1.4px,transparent 1.9px);background-size:7px 7px;border:2px solid #0D0A0C;overflow:hidden">
+        <img src="/_blob/eba0fbca276c37c61f69ad67d34ad05e" alt="" style="position:absolute;left:30px;top:-20px;width:180px;height:382px">
+        <div class="abs shu" style="left:0;right:0;bottom:0"><div class="sheet paper" style="position:relative;height:170px;padding:22px 14px 0">
+          <div class="abs" style="left:50%;top:12px;width:36px;height:4px;background:#0D0A0C;transform:translateX(-50%)"></div>
+          <div class="ph"><h2 style="font-size:26px;box-shadow:3px 3px 0 #0D0A0C">Título</h2><span class="xb" style="width:32px;height:32px"></span></div>
+          <div class="row" style="margin-top:8px;min-height:30px;font-size:11px;padding:6px 0">Fila de contenido</div><div class="row" style="min-height:30px;font-size:11px;padding:6px 0">Fila de contenido</div>
+        </div></div>
+      </div>
+      <!-- desktop -->
+      <div style="position:relative;width:380px;height:300px;flex:none;background:#0D0A0C;background-image:radial-gradient(rgba(255,46,154,.5) 1.4px,transparent 1.9px);background-size:7px 7px;border:2px solid #0D0A0C;overflow:hidden">
+        <img src="/_blob/eba0fbca276c37c61f69ad67d34ad05e" alt="" style="position:absolute;left:30px;top:-20px;width:180px;height:382px">
+        <div class="abs" style="right:0;top:0;bottom:0;width:170px;filter:drop-shadow(-3px 0 0 #0D0A0C)"><div class="side paper" style="position:absolute;inset:0;width:auto;padding:16px 14px">
+          <div class="ph"><h2 style="font-size:24px;box-shadow:3px 3px 0 #0D0A0C">Título</h2><span class="xb" style="width:30px;height:30px"></span></div>
+          <div class="row" style="margin-top:8px;min-height:30px;font-size:11px;padding:6px 0">Fila</div><div class="row" style="min-height:30px;font-size:11px;padding:6px 0">Fila</div><div class="row" style="min-height:30px;font-size:11px;padding:6px 0">Fila</div>
+        </div></div>
+      </div>
+      <div style="flex:1;min-width:0;font-size:12px;line-height:1.55">
+        <div class="lg"><span class="nb">1</span><span><b>Móvil:</b> bottom sheet, 62 % del alto, borde superior rasgado, manija arriba. Cierra con la X, tocando el muñeco o arrastrando hacia abajo.</span></div>
+        <div class="lg"><span class="nb">2</span><span><b>Desktop:</b> panel lateral de 520 px a la derecha, borde izquierdo rasgado. Cierra con la X o con Esc.</span></div>
+        <div class="lg"><span class="nb">3</span><span><b>Título:</b> tira rosa rotada −1,5°, display 44 px móvil, 64 px desktop.</span></div>
+        <div class="lg"><span class="nb">4</span><span><b>Cierre:</b> cuadrado negro de 44 px con X hueso, siempre arriba a la derecha.</span></div>
+        <div class="lg"><span class="nb">5</span><span><b>Contenido:</b> papel hueso con puntos; scrollea por dentro con un fade al pie. El muñeco queda vivo detrás, desplazado.</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1720}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

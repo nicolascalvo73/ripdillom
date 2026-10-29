@@ -1,0 +1,185 @@
+/* Pantalla de carga (diseño: Carga-m / Carga-d / Carga-entrar). Piezas compartidas copiadas de dl.css. */
+.neb {
+  background:
+    radial-gradient(38% 26% at 8% 20%, rgba(255, 46, 154, 0.78), transparent 72%),
+    radial-gradient(30% 20% at 94% 36%, rgba(247, 233, 43, 0.6), transparent 72%),
+    radial-gradient(52% 30% at 72% 90%, rgba(255, 46, 154, 0.62), transparent 74%),
+    radial-gradient(28% 18% at 14% 74%, rgba(247, 233, 43, 0.3), transparent 72%),
+    radial-gradient(60% 40% at 50% 46%, #2b0f1f, transparent 82%),
+    var(--bk);
+}
+.neb::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: radial-gradient(circle, rgba(13, 10, 12, 0.92) 1.4px, transparent 1.9px);
+  background-size: 6px 6px;
+  -webkit-mask-image: linear-gradient(115deg, #000 0%, transparent 46%, #000 100%);
+  mask-image: linear-gradient(115deg, #000 0%, transparent 46%, #000 100%);
+}
+.carga::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 60;
+  opacity: 0.55;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 .9 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+}
+.paper {
+  background-color: var(--bn);
+  background-image: radial-gradient(rgba(13, 10, 12, 0.08) 1px, transparent 1.4px);
+  background-size: 5px 5px;
+  color: var(--bk);
+}
+.sh { filter: drop-shadow(4px 4px 0 var(--bk)); }
+.tape {
+  position: absolute;
+  width: 84px;
+  height: 26px;
+  opacity: 0.92;
+  background: var(--yl);
+  clip-path: polygon(0 0, 4% 18%, 0 38%, 4% 58%, 0 78%, 3% 100%, 100% 100%, 96% 80%, 100% 60%, 96% 40%, 100% 20%, 97% 0);
+}
+.tape.pk { background: var(--pk); }
+.chip {
+  display: inline-flex;
+  align-items: center;
+  min-height: 28px;
+  padding: 0 10px;
+  border: 2px solid var(--bk);
+  font-weight: 700;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.chip.f-yl { background: var(--yl); color: var(--bk); }
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 0 18px;
+  font-family: var(--fm);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  background: var(--pk);
+  color: var(--bk);
+  border: 2px solid var(--bk);
+  box-shadow: 3px 3px 0 var(--bk);
+  cursor: pointer;
+}
+.btn.yl { background: var(--yl); }
+.scan {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 6px;
+  background: var(--pk);
+  box-shadow: 0 0 0 2px var(--bk), 0 0 22px 6px rgba(255, 46, 154, 0.7);
+}
+
+/* layout */
+.carga {
+  position: fixed;
+  inset: 0;
+  z-index: 30;
+  display: flex;
+  flex-direction: column;
+  padding: max(22px, env(safe-area-inset-top)) 20px max(26px, env(safe-area-inset-bottom));
+  overflow: hidden;
+  color: var(--bn);
+}
+.carga > * { position: relative; z-index: 1; }
+.carga-gris { color: var(--gr); }
+.carga-top { display: flex; gap: 10px; align-items: center; flex: none; }
+
+.carga-hoja-zona { flex: 1; min-height: 0; display: grid; place-items: center; padding: 14px 0; }
+.hoja-wrap {
+  position: relative;
+  height: 100%;
+  max-height: 720px;
+  aspect-ratio: 286 / 566;
+  max-width: 100%;
+}
+.hoja { position: absolute; inset: 0; transform: rotate(1.6deg); }
+.hoja-papel {
+  position: absolute;
+  inset: 0;
+  clip-path: polygon(0 1%, 5% 0, 12% 1.2%, 20% 0, 30% 1%, 41% 0, 52% 1.2%, 63% 0, 74% 1%, 86% 0, 100% 1%, 99% 40%, 100% 99%, 92% 100%, 80% 99%, 66% 100%, 52% 99%, 38% 100%, 24% 99%, 10% 100%, 0 99%, 1% 60%);
+}
+.hoja-img { position: absolute; left: 9%; right: 9%; top: 4%; bottom: 5%; }
+.hoja-img img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 50%; }
+.hoja-img .fantasma { filter: grayscale(1) contrast(1.7) brightness(0.85); opacity: 0.55; }
+
+/* la fotocopiadora tiembla mientras escanea */
+.hoja.copiando { animation: copia 0.24s steps(2, end) infinite; }
+@keyframes copia {
+  0% { transform: rotate(1.6deg) translate(0, 0); }
+  50% { transform: rotate(1.3deg) translate(1.5px, -1px); }
+  100% { transform: rotate(1.6deg) translate(0, 0); }
+}
+
+.entrar-wrap {
+  position: absolute;
+  left: -6%;
+  right: -6%;
+  bottom: 18%;
+  z-index: 30;
+  transform: rotate(-3deg);
+  animation: pop 0.12s ease-out both;
+}
+.entrar {
+  width: 100%;
+  min-height: 84px;
+  border-width: 3px;
+  box-shadow: 6px 6px 0 var(--bk);
+  font-family: var(--fd);
+  font-weight: 900;
+  font-size: 64px;
+  letter-spacing: 0.04em;
+  line-height: 0.9;
+  flex-direction: column;
+  gap: 2px;
+}
+.entrar-sub { font-family: var(--fm); font-size: 10px; letter-spacing: 0.04em; line-height: 1.2; font-weight: 700; text-transform: none; white-space: nowrap; }
+.entrar:hover, .entrar:focus-visible { outline: 3px dashed var(--bk); outline-offset: 3px; transform: translateY(-1px); }
+.entrar:active { transform: translate(2px, 2px); box-shadow: 4px 4px 0 var(--bk); }
+@keyframes pop {
+  0% { transform: rotate(-3deg) scale(0.6); opacity: 0; }
+  70% { transform: rotate(-3deg) scale(1.08); opacity: 1; }
+  100% { transform: rotate(-3deg) scale(1); }
+}
+
+.carga-pie { flex: none; display: flex; align-items: flex-end; justify-content: space-between; gap: 10px; padding-bottom: 18px; }
+.pct { display: flex; align-items: flex-end; gap: 10px; }
+.pct-num { font-size: clamp(96px, 28vw, 132px); color: var(--bn); text-shadow: 6px 6px 0 var(--pk); line-height: 0.8; font-variant-numeric: tabular-nums; }
+.pct-sig { font-size: 54px; color: var(--yl); padding-bottom: 6px; }
+.carga-txt { text-align: right; padding-bottom: 6px; min-width: 0; }
+
+.barra { position: relative; flex: none; height: 20px; border: 3px solid var(--bn); background: var(--bk); }
+.barra-lleno { height: 100%; background: var(--pk); }
+.barra-marcas { position: absolute; inset: 0; background: repeating-linear-gradient(90deg, transparent 0 17px, rgba(13, 10, 12, 0.8) 17px 19px); }
+
+/* destello hueso al 100 % y salida de la hoja al tocar ENTRAR */
+.flash { position: absolute; inset: 0; z-index: 50; background: var(--bn); pointer-events: none; animation: flash 0.28s ease-out both; }
+@keyframes flash { 0% { opacity: 0.9; } 100% { opacity: 0; } }
+.carga.sale { animation: carga-sale 0.3s cubic-bezier(0.5, 0, 0.75, 0) both; pointer-events: none; }
+@keyframes carga-sale { to { transform: translateY(-100%); } }
+
+@media (min-width: 900px) {
+  .carga { padding-left: 40px; padding-right: 40px; }
+  .pct-num { font-size: clamp(160px, 18vw, 260px); }
+  .pct-sig { font-size: 96px; }
+  .carga-pie { padding-bottom: 24px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hoja.copiando, .entrar-wrap, .flash { animation: none; }
+  .entrar-wrap { transform: rotate(-3deg); }
+  .carga.sale { animation-duration: 0.01s; }
+}

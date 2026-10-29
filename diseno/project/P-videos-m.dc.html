@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Panel Videos</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./dl.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Londrina+Solid:wght@400;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>body{margin:0}</style>
+</helmet>
+<div class="dl grain" style="width:390px;height:844px">
+  <div class="neb"></div>
+  <div class="star ht" style="left:18px;top:60px;--s:30px;--r:12deg"></div>
+  <div class="star" style="left:344px;top:210px;--s:20px;--r:-14deg;--c:#FF2E9A"></div>
+  <button class="mn" style="left:16px;top:14px" aria-label="Abrir menú"><i></i><i></i><i></i></button>
+
+  <!-- fly-to: pecho -->
+  <div class="abs" style="left:-2px;top:-196px;width:393px;height:835px">
+    <img class="fig" src="/_blob/eba0fbca276c37c61f69ad67d34ad05e" alt="Muñeco, primer plano del pecho" style="display:block;width:100%;height:100%">
+    <div class="hs on" style="left:19%;top:30.5%;width:57%;height:24%"></div>
+  </div>
+
+  <div class="abs shu" style="left:0;right:0;bottom:0;z-index:20">
+    <div class="sheet paper" style="position:relative;height:544px;padding:34px 20px 0;overflow:hidden">
+      <div class="abs" style="left:50%;top:18px;width:56px;height:6px;background:#0D0A0C;transform:translateX(-50%)"></div>
+      <div class="ph"><h2>Videos</h2><button class="xb" aria-label="Cerrar panel"></button></div>
+
+      <div style="display:flex;gap:8px;margin-top:18px">
+        <span class="chip f-bk">Clips</span><span class="chip">Visuales</span>
+      </div>
+
+      <!-- video principal -->
+      <div class="ph-box" style="margin-top:14px;height:178px;border:2px solid #0D0A0C;box-shadow:4px 4px 0 #0D0A0C;position:relative">
+        <button class="btn yl" style="width:64px;min-height:64px;padding:0" aria-label="Reproducir clip"><svg width="24" height="24" viewBox="0 0 18 18" aria-hidden="true"><path d="M3 1 L16 9 L3 17 Z" fill="#0D0A0C"/></svg></button>
+        <span class="chip f-pk abs" style="left:10px;bottom:10px">[Embed YouTube]</span>
+      </div>
+      <div class="fd" style="font-size:26px;margin-top:12px">[Título del clip]</div>
+      <div class="lbl" style="margin-top:4px;color:#5d5258">[Dirección · año]</div>
+
+      <div class="lbl" style="margin-top:18px">Más</div>
+      <div class="row">
+        <div class="ph-box" style="width:96px;height:56px;flex:none;border:2px solid #0D0A0C"><svg width="16" height="16" viewBox="0 0 18 18" aria-hidden="true"><path d="M3 1 L16 9 L3 17 Z" fill="#F7E92B"/></svg></div>
+        <div style="flex:1;font-weight:700">[Clip 02]<div class="lbl" style="color:#5d5258;margin-top:2px">[0:00]</div></div>
+      </div>
+      <div class="row">
+        <div class="ph-box" style="width:96px;height:56px;flex:none;border:2px solid #0D0A0C"><svg width="16" height="16" viewBox="0 0 18 18" aria-hidden="true"><path d="M3 1 L16 9 L3 17 Z" fill="#F7E92B"/></svg></div>
+        <div style="flex:1;font-weight:700">[Visual 01]<div class="lbl" style="color:#5d5258;margin-top:2px">[0:00]</div></div>
+      </div>
+      <div class="abs" style="left:0;right:0;bottom:0;height:56px;background:linear-gradient(transparent,#F2EBDD)"></div>
+    </div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

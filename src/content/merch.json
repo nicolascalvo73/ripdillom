@@ -1,0 +1,17 @@
+{
+  "sello": "Tienda de mentira · parodia de fans",
+  "categorias": ["Todo", "Muñecos", "Ropa", "Cocina", "Varios"],
+  "productos": [
+    { "id": "muneco", "nombre": "El Muñequito de Dillom", "desc": "Plástico de primera. Viene con tatuajes y billete de cien incluidos.", "precio": 49999, "categoria": "Muñecos", "estrella": true, "imagenes": ["/img/muneco-v5-frente.png", "/img/muneco-v5-espalda-luz.png"] },
+    { "id": "gorra", "nombre": "Gorra La Nueva Violencia", "desc": "Tapa la cabeza, no los problemas.", "precio": 12500, "categoria": "Ropa", "imagenes": [] },
+    { "id": "remera", "nombre": "Remera Calavera con Muletas", "desc": "100% algodón, 0% existencia.", "precio": 18900, "categoria": "Ropa", "talles": ["S", "M", "L", "XL"], "imagenes": [] },
+    { "id": "buzo", "nombre": "Buzo Drip Eterno", "desc": "Gotea estilo, no gotea tinta.", "precio": 34900, "categoria": "Ropa", "talles": ["S", "M", "L", "XL"], "imagenes": [] },
+    { "id": "taza", "nombre": "Taza Ni Un Mango", "desc": "Para el café de las 4 AM.", "precio": 6900, "categoria": "Cocina", "imagenes": [] },
+    { "id": "mate", "nombre": "Mate Imperial Violento", "desc": "Cebá con rencor.", "precio": 8500, "categoria": "Cocina", "imagenes": [] },
+    { "id": "termo", "nombre": "Termo Acero Quirúrgico", "desc": "Mantiene el agua caliente y el ánimo en duda.", "precio": 27500, "categoria": "Cocina", "imagenes": [] },
+    { "id": "mantel", "nombre": "Mantel Bordado a Mano (alzada)", "desc": "Para cenas familiares incómodas.", "precio": 15900, "categoria": "Cocina", "imagenes": [] },
+    { "id": "toallitas", "nombre": "Toallitas Femeninas Dillom", "desc": "Absorción nivel meme.", "precio": 3900, "categoria": "Varios", "imagenes": [] },
+    { "id": "estampitas", "nombre": "Estampitas Bendecidas (x3)", "desc": "Protegen del mal gusto.", "precio": 1500, "categoria": "Varios", "imagenes": [] },
+    { "id": "cartuchera", "nombre": "Cartuchera para Revólver", "desc": "Es para lapiceras, tranqui.", "precio": 9900, "categoria": "Varios", "imagenes": [] }
+  ]
+}

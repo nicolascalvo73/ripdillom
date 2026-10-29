@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Tienda desktop — agregado, vacío e imagen faltante</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./dl.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Londrina+Solid:wght@400;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>body{margin:0}
+.nof{position:relative;background:#1C1418;background-image:repeating-linear-gradient(45deg,rgba(242,235,221,.14) 0 2px,transparent 2px 12px);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;color:#F2EBDD;border-bottom:2px solid #0D0A0C;overflow:hidden}
+.nof b{font-family:'Londrina Solid',sans-serif;font-weight:900;text-transform:uppercase;line-height:.88;color:#FF2E9A}
+.nof small{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-top:6px;color:#A99FA5}
+</style>
+</helmet>
+<div class="dl grain" style="width:1440px;height:900px">
+  <div class="neb" style="transform:scaleX(-1)"></div>
+  <button class="mn" style="left:32px;top:24px" aria-label="Abrir menú"><i></i><i></i><i></i></button>
+  <button class="mt" style="left:92px;top:24px" aria-label="Silenciar sonido" aria-pressed="false"><svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 9h4l5-4v14l-5-4H3z" fill="#0D0A0C"/><path d="M15 8.5q2.5 3.5 0 7M18 6q4.5 6 0 12" fill="none" stroke="#B80F66" stroke-width="2.4" stroke-linecap="round"/></svg></button>
+  <div class="abs" style="left:150px;top:156px;width:282px;height:600px">
+    <img class="fig" src="/_blob/a680a646998376252fc62afc6f15ddfc" alt="" style="position:absolute;left:-5.69%;top:0;width:109%;height:100%">
+  </div>
+
+  <div class="abs" style="top:0;bottom:0;right:0;width:820px;z-index:20;filter:drop-shadow(-6px 0 0 #0D0A0C)">
+    <div class="side paper" style="width:820px;padding:36px 36px 0;overflow:hidden">
+      <div class="ph"><h2 style="font-size:56px">Tienda</h2>
+        <div style="display:flex;gap:18px;align-items:center">
+          <button class="cartb" style="background:#FF2E9A;transform:rotate(-6deg) scale(1.08)" aria-label="Carrito, 4 productos"><svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16l-1.5 13h-13zM8 7a4 4 0 018 0" fill="none" stroke="#0D0A0C" stroke-width="2.4" stroke-linejoin="round"/></svg><span class="cnt" style="background:#F7E92B">4</span></button>
+          <button class="xb" aria-label="Cerrar panel"></button>
+        </div>
+      </div>
+
+      <div role="status" style="margin-top:16px;background:#0D0A0C;color:#F2EBDD;box-shadow:5px 5px 0 #F7E92B;padding:12px 16px;display:flex;gap:14px;align-items:center;transform:rotate(-.6deg)">
+        <span style="width:30px;height:30px;background:#F7E92B;color:#0D0A0C;display:flex;align-items:center;justify-content:center;font-weight:700;flex:none">✓</span>
+        <span style="font-size:13px"><b>Gorra Visera Violenta</b> al carrito. <span style="color:#F7E92B">Ya van 4 cosas que no existen.</span></span>
+        <button class="btn" style="margin-left:auto;min-height:44px;font-size:12px">Ver carrito</button>
+      </div>
+
+      <div class="lbl" style="margin-top:16px;color:#5d5258">Estados · agregado (1ª tarjeta) · imagen faltante (2ª) · normal (3ª)</div>
+      <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin-top:10px">
+        <div class="pc" style="box-shadow:5px 5px 0 #FF2E9A"><div class="pimg" style="height:130px"><b>Visera<br>Violenta</b><small>[Gorra]</small><span class="abs" style="right:8px;top:8px;background:#F7E92B;color:#0D0A0C;border:2px solid #0D0A0C;font-weight:700;font-size:11px;padding:2px 7px;transform:rotate(6deg)">+1</span></div><div class="in"><span class="nm">Gorra Visera Violenta</span><span class="pr">$18.500</span><button class="btn yl">✓ Agregada</button></div></div>
+        <div class="pc">
+          <div class="nof" style="height:130px;padding:8px"><svg width="38" height="38" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" fill="none" stroke="#F2EBDD" stroke-width="1.8"/><path d="M3 16l5-5 4 4 3-3 6 6M4 4l16 16" fill="none" stroke="#FF2E9A" stroke-width="1.8"/></svg><b style="font-size:24px;margin-top:6px">Sin foto</b><small>Se la comió el perro</small></div>
+          <div class="in"><span class="nm">Toallitas Femeninas Furiosas</span><span class="pr">$6.400</span><button class="btn">Agregar</button></div>
+        </div>
+        <div class="pc"><div class="pimg" style="height:130px"><b>Taza<br>tranqui</b><small>[Taza]</small></div><div class="in"><span class="nm">Taza Tranqui (mentira)</span><span class="pr">$9.800</span><button class="btn">Agregar</button></div></div>
+      </div>
+
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:22px">
+        <div class="nof" style="height:210px;border:2px solid #0D0A0C;box-shadow:4px 4px 0 #0D0A0C;padding:10px">
+          <svg width="56" height="56" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" fill="none" stroke="#F2EBDD" stroke-width="1.6"/><path d="M3 16l5-5 4 4 3-3 6 6M4 4l16 16" fill="none" stroke="#FF2E9A" stroke-width="1.6"/></svg>
+          <b style="font-size:42px;margin-top:8px">Foto no disponible</b><small>Igual no existe el producto</small>
+        </div>
+        <div style="border:2px dashed #0D0A0C;padding:22px 18px;text-align:center;color:#0D0A0C;display:flex;flex-direction:column;align-items:center;justify-content:center">
+          <div class="lbl" style="color:#5d5258">Carrito vacío</div>
+          <div class="fd" style="font-size:42px;margin-top:6px">Acá no hay nada</div>
+          <p style="font-size:13px;line-height:1.5;margin-top:6px">Tu carrito está más vacío que el bolsillo de atrás. Y eso que ni siquiera tiene bolsillo.</p>
+          <button class="btn yl" style="margin-top:12px;min-height:48px">Volver a la tienda</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":900}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

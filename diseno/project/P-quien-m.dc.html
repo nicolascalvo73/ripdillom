@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Panel Quién soy</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./dl.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Londrina+Solid:wght@400;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>body{margin:0}</style>
+</helmet>
+<div class="dl grain" style="width:390px;height:844px">
+  <div class="neb"></div>
+  <div class="star ht" style="left:320px;top:70px;--s:30px;--r:12deg"></div>
+  <div class="star" style="left:26px;top:60px;--s:20px;--r:-14deg;--c:#FF2E9A"></div>
+  <button class="mn" style="left:16px;top:14px" aria-label="Abrir menú"><i></i><i></i><i></i></button>
+
+  <!-- fly-to: pierna derecha + pie -->
+  <div class="fsh" style="left:60px;top:268px;width:260px;height:36px"></div>
+  <div class="abs" style="left:-2px;top:-520px;width:393px;height:835px">
+    <img class="fig" src="/_blob/eba0fbca276c37c61f69ad67d34ad05e" alt="Muñeco, primer plano de las piernas y los pies" style="display:block;width:100%;height:100%">
+    <div class="hs on" style="left:21%;top:63%;width:29%;height:36%"></div>
+  </div>
+
+  <div class="abs shu" style="left:0;right:0;bottom:0;z-index:20">
+    <div class="sheet paper" style="position:relative;height:544px;padding:34px 20px 0;overflow:hidden">
+      <div class="abs" style="left:50%;top:18px;width:56px;height:6px;background:#0D0A0C;transform:translateX(-50%)"></div>
+      <div class="ph"><h2>Quién soy</h2><button class="xb" aria-label="Cerrar panel"></button></div>
+
+      <div style="margin-top:22px;display:flex;gap:14px;align-items:center">
+        <div style="width:84px;height:100px;flex:none;border:2px solid #0D0A0C;box-shadow:4px 4px 0 #0D0A0C;background:#0D0A0C;display:flex;align-items:center;justify-content:center;overflow:hidden" class="ph-box"><span class="lbl" style="color:#F7E92B;text-align:center">[Ilustración<br>propia]</span></div>
+        <div><div class="fd" style="font-size:36px">rip.dillom</div><div class="lbl" style="margin-top:6px">Artista argentino</div><div class="lbl" style="margin-top:4px;color:#B80F66">Último álbum · agosto 2026</div></div>
+      </div>
+
+      <div style="margin-top:20px;font-size:14px;line-height:1.55">
+        <p>[Bio — 3 o 4 líneas escritas por vos, en tono de fan. Quién es, de dónde viene, qué hizo.]</p>
+        <p style="margin-top:10px">[Segundo párrafo opcional: el disco, la gira, el universo visual.]</p>
+      </div>
+
+      <a href="https://es.wikipedia.org/" class="btn yl" style="margin-top:20px;width:100%;justify-content:space-between">Seguir leyendo en Wikipedia <span>↗</span></a>
+      <div class="lbl" style="margin-top:16px;color:#5d5258">Sitio hecho por un fan. No oficial.</div>
+    </div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

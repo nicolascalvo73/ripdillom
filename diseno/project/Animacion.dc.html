@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Notas de animación</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./dl.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Londrina+Solid:wght@400;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>body{margin:0}
+.card{border:2px solid #0D0A0C;box-shadow:5px 5px 0 #0D0A0C;background:#F2EBDD;padding:22px;overflow:hidden}
+.h3{font-family:'Londrina Solid',sans-serif;font-weight:900;text-transform:uppercase;font-size:36px;line-height:.9;margin-bottom:12px}
+.li{display:flex;gap:12px;border-bottom:2px solid #0D0A0C;padding:7px 0;font-size:12px;line-height:1.5}
+.li:last-child{border-bottom:0}
+.li .k{width:104px;flex:none;font-weight:700;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:#B80F66}
+.tl{display:flex;align-items:center;gap:14px;height:34px}
+.tl .n{width:230px;flex:none;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase}
+.tl .t{position:relative;flex:1;height:22px;background:repeating-linear-gradient(90deg,rgba(13,10,12,.12) 0 1px,transparent 1px 70px)}
+.tl .b{position:absolute;top:0;height:22px;border:2px solid #0D0A0C;font-size:10px;font-weight:700;display:flex;align-items:center;padding:0 6px;white-space:nowrap}
+.tb{width:100%;border-collapse:collapse;font-size:11px}
+.tb th{text-align:left;text-transform:uppercase;letter-spacing:.06em;border-bottom:2px solid #0D0A0C;padding:6px 8px 6px 0}
+.tb td{border-bottom:1px solid #0D0A0C;padding:6px 8px 6px 0}
+</style>
+</helmet>
+<div class="dl paper grain" style="width:1440px;height:1700px;padding:40px 60px">
+
+  <div style="display:flex;align-items:center;gap:24px">
+    <h1 class="fd strap sh" style="font-size:72px;background:#FF2E9A;color:#0D0A0C;transform:rotate(-1deg);padding:8px 26px 14px">Notas de animación</h1>
+    <span class="lbl">Fly-to · paneles · globos · ¡epa! · carga</span>
+  </div>
+
+  <!-- línea de tiempo -->
+  <div class="card" style="margin-top:36px">
+    <div class="h3">Un toque, de punta a punta</div>
+    <p style="font-size:12px;margin-bottom:14px">Segundo toque sobre una zona ya marcada. La regla de las marcas es 100 ms.</p>
+    <div class="tl"><span class="n">Contorno de semitono</span><div class="t"><div class="b" style="left:0;width:7%;background:#F7E92B"></div></div></div>
+    <div class="tl"><span class="n">Cámara hace fly-to</span><div class="t"><div class="b" style="left:0;width:55%;background:#FF2E9A">650–800 ms · cubic-bezier(.7,0,.2,1)</div></div></div>
+    <div class="tl"><span class="n">Muñeco se corre del centro</span><div class="t"><div class="b" style="left:0;width:55%;background:#F2EBDD">view offset · mismo timing</div></div></div>
+    <div class="tl"><span class="n">Panel entra</span><div class="t"><div class="b" style="left:14%;width:33%;background:#F7E92B">420 ms · cubic-bezier(.2,.9,.2,1)</div></div></div>
+    <div class="tl"><span class="n">Contenido en cascada</span><div class="t"><div class="b" style="left:30%;width:33%;background:#F2EBDD">40 ms entre filas</div></div></div>
+    <div class="tl"><span class="n">Tira del título se pega</span><div class="t"><div class="b" style="left:33%;width:16%;background:#FF2E9A">escala 1,08 → 1</div></div></div>
+    <div class="abs" style="position:relative;display:flex;justify-content:space-between;margin-left:244px;font-size:10px;font-weight:700;margin-top:4px"><span>0</span><span>200</span><span>400</span><span>600</span><span>800 ms</span></div>
+  </div>
+
+  <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;margin-top:24px">
+
+    <div class="card">
+      <div class="h3">Fly-to por zona</div>
+      <table class="tb">
+        <thead><tr><th>Zona</th><th>Azimut</th><th>Elev.</th><th>Distancia</th><th>Ms</th></tr></thead>
+        <tbody>
+          <tr><td>Cabeza</td><td>0°</td><td>+8°</td><td>0,55</td><td>700</td></tr>
+          <tr><td>Pecho</td><td>0°</td><td>0°</td><td>0,60</td><td>700</td></tr>
+          <tr><td>Brazo derecho</td><td>−55°</td><td>0°</td><td>0,60</td><td>750</td></tr>
+          <tr><td>Brazo izquierdo</td><td>+55°</td><td>0°</td><td>0,60</td><td>750</td></tr>
+          <tr><td>Espalda</td><td>180°</td><td>0°</td><td>0,60</td><td>800</td></tr>
+          <tr><td>Billete trasero</td><td>180°</td><td>−5°</td><td>0,35</td><td>800</td></tr>
+          <tr><td>Piernas + pies</td><td>±35°</td><td>−10°</td><td>0,65</td><td>750</td></tr>
+        </tbody>
+      </table>
+      <p style="font-size:11px;line-height:1.5;margin-top:10px">Distancia relativa al encuadre completo (1,0). El foco se desplaza con view offset: arriba en móvil (−22 % del alto), a la izquierda del panel en desktop (−18 % del ancho). Al cerrar, la cámara vuelve a la pose previa en 600 ms.</p>
+    </div>
+
+    <div class="card">
+      <div class="h3">Paneles</div>
+      <div class="li"><span class="k">Móvil</span><span>Sheet sube de translateY(100%) a 0 en 420 ms. Cierre: 280 ms ease-in. Gesto de bajar más de 80 px o con velocidad mayor a 0,5 px/ms.</span></div>
+      <div class="li"><span class="k">Desktop</span><span>Panel entra desde la derecha, translateX(520px) a 0, mismo timing. Esc cierra.</span></div>
+      <div class="li"><span class="k">Cascada</span><span>Cada fila del contenido entra con translateY(12px) y opacidad, 40 ms de retraso entre una y otra, máximo 8 filas.</span></div>
+      <div class="li"><span class="k">Cambio</span><span>Con un panel abierto, tocar otra zona hace crossfade del contenido (180 ms) mientras la cámara viaja.</span></div>
+      <div class="li"><span class="k">Scroll</span><span>El panel scrollea por dentro. El muñeco no responde al arrastre mientras el panel está abierto.</span></div>
+    </div>
+
+    <div class="card">
+      <div class="h3">Globos y zonas</div>
+      <div class="li"><span class="k">Entrada</span><span>Pop seco: escala .6 → 1,08 → 1 en 120 ms, sin rebote elástico. Rotación al azar entre −6° y 6°.</span></div>
+      <div class="li"><span class="k">Salida</span><span>80 ms, opacidad y escala .9. Se va al salir el cursor o al tocar fuera.</span></div>
+      <div class="li"><span class="k">Móvil</span><span>1er toque muestra el globo y queda hasta 4 s. 2º toque en la misma zona entra. Tocar otra zona mueve el globo.</span></div>
+      <div class="li"><span class="k">Contorno</span><span>Semitono rosa + línea punteada amarilla, 100 ms. Es un solo overlay, no un shader.</span></div>
+      <div class="li"><span class="k">Tapadas</span><span>Si la zona mira para atrás, aparece el chip “↻ Girá” en el borde (180 ms). Tocarlo gira el muñeco 180° en 700 ms.</span></div>
+    </div>
+
+    <div class="card">
+      <div class="h3">¡Epa!</div>
+      <div class="li"><span class="k">Disparo</span><span>Solo al tocar o clickear la zona, nunca por hover. Cooldown de 600 ms.</span></div>
+      <div class="li"><span class="k">Salto</span><span>Sube 22 % del alto de la cabeza en 140 ms (ease-out) y vuelve con rebote de 260 ms, cubic-bezier(.3,1.6,.5,1). La sombra del piso se achica a .7 y vuelve.</span></div>
+      <div class="li"><span class="k">Globo</span><span>Pop en 100 ms sobre un estallido rosa. Se va solo a los 1.500 ms con fade de 120 ms.</span></div>
+      <div class="li"><span class="k">Navegación</span><span>Ninguna. No abre panel, no mueve la cámara. Vibración de 15 ms si el dispositivo la soporta.</span></div>
+    </div>
+
+    <div class="card">
+      <div class="h3">Carga</div>
+      <div class="li"><span class="k">Idea</span><span>El muñeco se fotocopia: una barra de escaneo baja de la cabeza a los pies. Arriba está en color, abajo en gris con semitono.</span></div>
+      <div class="li"><span class="k">Dato real</span><span>La barra sigue el porcentaje real de descarga del modelo y las texturas. Mínimo 1,2 s en pantalla para que se lea.</span></div>
+      <div class="li"><span class="k">Final</span><span>Al 100 %: destello hueso de 80 ms, la hoja se desliza 300 ms y queda el muñeco. Después, el hint.</span></div>
+    </div>
+
+    <div class="card">
+      <div class="h3">Ambiente</div>
+      <div class="li"><span class="k">Flote</span><span>El muñeco sube y baja 6 px en 4 s (ease-in-out) y gira ±3°. Se pausa al arrastrar.</span></div>
+      <div class="li"><span class="k">Parallax</span><span>3 capas: polvo .2×, confeti .5×, billetes y estrellas .9×. Siguen el arrastre y el giroscopio.</span></div>
+      <div class="li"><span class="k">Deriva</span><span>Objetos flotando en ciclos de 12 a 20 s, con desfase para que no se sincronicen.</span></div>
+      <div class="li"><span class="k">Nebulosa</span><span>Estática, solo cambia de lado al girar el muñeco. El grano es una textura fija, no se anima.</span></div>
+    </div>
+
+    <div class="card">
+      <div class="h3">Rendimiento</div>
+      <div class="li"><span class="k">Modelo</span><span>glTF de hasta 5 MB y 60 mil triángulos. Texturas KTX2 de 1K a 2K. Pixel ratio máximo de 2.</span></div>
+      <div class="li"><span class="k">Luces</span><span>Una principal, una de contorno y un mapa de entorno chico. Sombra del piso falsa (un blob).</span></div>
+      <div class="li"><span class="k">Máx. 2</span><span>Efectos pesados a la vez, de esta lista: grano a pantalla completa, semitono, bloom, partículas. En reposo corren grano y partículas.</span></div>
+      <div class="li"><span class="k">Degradar</span><span>Si baja de 45 fps durante 2 s: se apagan partículas, después el semitono, después se baja el pixel ratio a 1,5.</span></div>
+    </div>
+
+    <div class="card">
+      <div class="h3">Accesibilidad y respaldo</div>
+      <div class="li"><span class="k">Teclado</span><span>Tab recorre las zonas (botones invisibles con etiqueta). Enter entra, Esc cierra, flechas orbitan.</span></div>
+      <div class="li"><span class="k">Menos movimiento</span><span>Sin flote, sin parallax y sin salto. El fly-to pasa a fundido de 200 ms.</span></div>
+      <div class="li"><span class="k">Menú</span><span>El botón de menú está siempre. Es la única vía si falla WebGL o el modelo no baja.</span></div>
+      <div class="li"><span class="k">Horizontal</span><span>Títulos a la izquierda, muñeco al centro, hint a la derecha. Los paneles abren como panel lateral de 320 px.</span></div>
+    </div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1700}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

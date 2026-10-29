@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Panel Redes y contacto</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./dl.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Londrina+Solid:wght@400;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>body{margin:0}</style>
+</helmet>
+<div class="dl grain" style="width:390px;height:844px">
+  <div class="neb"></div>
+  <div class="star ht" style="left:300px;top:70px;--s:30px;--r:12deg"></div>
+  <div class="star" style="left:30px;top:230px;--s:20px;--r:-14deg;--c:#FF2E9A"></div>
+  <button class="mn" style="left:16px;top:14px" aria-label="Abrir menú"><i></i><i></i><i></i></button>
+
+  <!-- fly-to: brazo derecho del muñeco (izquierda de la pantalla) -->
+  <div class="abs" style="left:150px;top:-210px;width:393px;height:835px">
+    <img class="fig" src="/_blob/eba0fbca276c37c61f69ad67d34ad05e" alt="Muñeco, primer plano del brazo derecho" style="display:block;width:100%;height:100%">
+    <div class="hs on" style="left:1%;top:31%;width:22%;height:38%"></div>
+  </div>
+
+  <div class="abs shu" style="left:0;right:0;bottom:0;z-index:20">
+    <div class="sheet paper" style="position:relative;height:544px;padding:34px 20px 0;overflow:hidden">
+      <div class="abs" style="left:50%;top:18px;width:56px;height:6px;background:#0D0A0C;transform:translateX(-50%)"></div>
+      <div class="ph"><h2>Redes</h2><button class="xb" aria-label="Cerrar panel"></button></div>
+
+      <div style="display:flex;flex-direction:column;gap:12px;margin-top:22px">
+        <a href="https://instagram.com/rip.dillom" class="btn" style="justify-content:space-between;min-height:56px;font-size:15px"><span>Instagram</span><span class="lbl">@rip.dillom ↗</span></a>
+        <a href="#" class="btn yl" style="justify-content:space-between;min-height:56px;font-size:15px"><span>YouTube</span><span class="lbl">[@canal] ↗</span></a>
+        <a href="#" class="btn bn" style="justify-content:space-between;min-height:56px;font-size:15px"><span>Spotify</span><span class="lbl">[artista] ↗</span></a>
+        <a href="#" class="btn bk" style="justify-content:space-between;min-height:56px;font-size:15px"><span>X</span><span class="lbl">[@usuario] ↗</span></a>
+      </div>
+
+      <div style="margin-top:22px;border:2px dashed #0D0A0C;padding:12px 14px">
+        <div class="lbl">Contacto</div>
+        <div style="font-weight:700;margin-top:4px">[mail de management / prensa]</div>
+      </div>
+      <div class="lbl" style="margin-top:14px;color:#5d5258">Tributo fan no oficial. Sin vínculo con el artista.</div>
+    </div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

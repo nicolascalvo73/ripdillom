@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Tienda desktop — detalle</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./dl.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Londrina+Solid:wght@400;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>body{margin:0}</style>
+</helmet>
+<div class="dl grain" style="width:1440px;height:900px">
+  <div class="neb" style="transform:scaleX(-1)"></div>
+  <button class="mn" style="left:32px;top:24px" aria-label="Abrir menú"><i></i><i></i><i></i></button>
+  <button class="mt" style="left:92px;top:24px" aria-label="Silenciar sonido" aria-pressed="false"><svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 9h4l5-4v14l-5-4H3z" fill="#0D0A0C"/><path d="M15 8.5q2.5 3.5 0 7M18 6q4.5 6 0 12" fill="none" stroke="#B80F66" stroke-width="2.4" stroke-linecap="round"/></svg></button>
+  <div class="fsh" style="left:130px;top:742px;width:320px;height:40px"></div>
+  <div class="abs" style="left:150px;top:156px;width:282px;height:600px">
+    <img class="fig" src="/_blob/a680a646998376252fc62afc6f15ddfc" alt="Muñeco de espaldas" style="position:absolute;left:-5.69%;top:0;width:109%;height:100%">
+  </div>
+
+  <div class="abs" style="top:0;bottom:0;right:0;width:820px;z-index:20;filter:drop-shadow(-6px 0 0 #0D0A0C)">
+    <div class="side paper" style="width:820px;padding:36px 36px 0;overflow:hidden">
+      <div class="ph">
+        <button class="btn bn" style="min-height:44px;font-size:12px">← Tienda</button>
+        <div style="display:flex;gap:18px;align-items:center">
+          <button class="cartb" aria-label="Carrito, 3 productos"><svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16l-1.5 13h-13zM8 7a4 4 0 018 0" fill="none" stroke="#0D0A0C" stroke-width="2.4" stroke-linejoin="round"/></svg><span class="cnt">3</span></button>
+          <button class="xb" aria-label="Cerrar panel"></button>
+        </div>
+      </div>
+      <div style="display:grid;grid-template-columns:340px 1fr;gap:28px;margin-top:28px">
+        <div>
+          <div class="pimg" style="height:340px;border:2px solid #0D0A0C;box-shadow:5px 5px 0 #0D0A0C"><b style="font-size:72px">Canguro<br>cabreado</b><small>[Buzo] · La nueva violencia</small></div>
+          <div style="display:flex;gap:12px;margin-top:14px">
+            <div class="pimg" style="width:76px;height:76px;padding:4px;border:2px solid #FF2E9A"><b style="font-size:14px">Frente</b></div>
+            <div class="pimg" style="width:76px;height:76px;padding:4px;border:2px solid #0D0A0C"><b style="font-size:14px">Espalda</b></div>
+            <div class="pimg" style="width:76px;height:76px;padding:4px;border:2px solid #0D0A0C"><b style="font-size:14px">Capucha</b></div>
+          </div>
+        </div>
+        <div style="color:#0D0A0C">
+          <div class="lbl" style="color:#5d5258">Buzos</div>
+          <div class="fd" style="font-size:54px;margin-top:4px">Buzo Canguro Cabreado</div>
+          <div class="fd" style="font-size:46px;color:#B80F66;margin-top:8px">$52.000</div>
+          <p style="margin-top:12px;font-size:14px;line-height:1.55">Tiene bolsillo para guardar el enojo. No incluye el enojo. Lavar a mano, con bronca fría.</p>
+          <div class="lbl" style="margin-top:20px">Talle</div>
+          <div style="display:flex;gap:10px;margin-top:8px"><button class="sz">S</button><button class="sz on">M</button><button class="sz">L</button><button class="sz">XL</button></div>
+          <div class="lbl" style="margin-top:18px">Cantidad</div>
+          <div class="qty" style="margin-top:8px"><button aria-label="Menos">−</button><span>1</span><button aria-label="Más">+</button></div>
+          <button class="btn yl" style="width:100%;min-height:56px;margin-top:22px;font-size:16px">Agregar al carrito</button>
+          <div class="lbl" style="margin-top:10px;color:#5d5258">Tienda de mentira · el producto no existe</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":900}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

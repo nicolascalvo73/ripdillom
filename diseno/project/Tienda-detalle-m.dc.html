@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Tienda — detalle de producto</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./dl.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Londrina+Solid:wght@400;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>body{margin:0}</style>
+</helmet>
+<div class="dl grain" style="width:390px;height:844px">
+  <div class="neb" style="transform:scaleX(-1)"></div>
+  <button class="mn" style="left:16px;top:14px" aria-label="Abrir menú"><i></i><i></i><i></i></button>
+  <button class="mt" style="left:68px;top:14px" aria-label="Silenciar sonido" aria-pressed="false"><svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 9h4l5-4v14l-5-4H3z" fill="#0D0A0C"/><path d="M15 8.5q2.5 3.5 0 7M18 6q4.5 6 0 12" fill="none" stroke="#B80F66" stroke-width="2.4" stroke-linecap="round"/></svg></button>
+
+  <div class="abs" style="left:-2px;top:-90px;width:393px;height:835px">
+    <img class="fig" src="/_blob/a680a646998376252fc62afc6f15ddfc" alt="Muñeco de espaldas" style="position:absolute;left:-5.69%;top:0;width:109%;height:100%">
+  </div>
+
+  <div class="abs shu" style="left:0;right:0;bottom:0;z-index:20">
+    <div class="sheet paper" style="position:relative;height:724px;padding:34px 16px 0;overflow:hidden">
+      <div class="abs" style="left:50%;top:18px;width:56px;height:6px;background:#0D0A0C;transform:translateX(-50%)"></div>
+      <div class="ph">
+        <button class="btn bn" style="min-height:44px;padding:0 14px;font-size:12px">← Tienda</button>
+        <div style="display:flex;gap:14px;align-items:center">
+          <button class="cartb" aria-label="Carrito, 3 productos"><svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16l-1.5 13h-13zM8 7a4 4 0 018 0" fill="none" stroke="#0D0A0C" stroke-width="2.4" stroke-linejoin="round"/></svg><span class="cnt">3</span></button>
+          <button class="xb" aria-label="Cerrar panel"></button>
+        </div>
+      </div>
+
+      <div class="pimg" style="height:200px;margin-top:16px;border:2px solid #0D0A0C;box-shadow:4px 4px 0 #0D0A0C"><b style="font-size:52px">Canguro<br>cabreado</b><small>[Buzo] · La nueva violencia</small></div>
+      <div style="display:flex;gap:10px;margin-top:12px">
+        <div class="pimg" style="width:64px;height:64px;padding:4px;border:2px solid #FF2E9A"><b style="font-size:13px">Canguro</b></div>
+        <div class="pimg" style="width:64px;height:64px;padding:4px;border:2px solid #0D0A0C"><b style="font-size:13px">Espalda</b></div>
+        <div class="pimg" style="width:64px;height:64px;padding:4px;border:2px solid #0D0A0C"><b style="font-size:13px">Capucha</b></div>
+      </div>
+
+      <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-top:16px">
+        <div class="fd" style="font-size:32px">Buzo Canguro Cabreado</div>
+        <div class="fd" style="font-size:34px;color:#B80F66">$52.000</div>
+      </div>
+      <p style="margin-top:8px;font-size:13px;line-height:1.5">Tiene bolsillo para guardar el enojo. No incluye el enojo.</p>
+
+      <div class="lbl" style="margin-top:14px">Talle</div>
+      <div style="display:flex;gap:8px;margin-top:6px"><button class="sz">S</button><button class="sz on">M</button><button class="sz">L</button><button class="sz">XL</button></div>
+
+      <div style="display:flex;gap:12px;margin-top:14px;align-items:center">
+        <div class="qty"><button aria-label="Menos">−</button><span>1</span><button aria-label="Más">+</button></div>
+        <button class="btn yl" style="flex:1;min-height:48px">Agregar al carrito</button>
+      </div>
+      <div class="lbl" style="margin-top:10px;color:#5d5258">Tienda de mentira · el producto no existe</div>
+    </div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Botón de sonido — desktop</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./dl.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Londrina+Solid:wght@400;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>body{margin:0}
+.wv{position:absolute;left:-2px;top:50%;width:48px;height:48px;border-radius:50%;transform:translateY(-50%);background:radial-gradient(circle,#FF2E9A 1.3px,transparent 1.8px) 0 0/5px 5px;opacity:.9;-webkit-mask-image:radial-gradient(circle,transparent 16px,#000 17px,#000 19px,transparent 20px,transparent 24px);mask-image:radial-gradient(circle,transparent 16px,#000 17px,#000 19px,transparent 20px,transparent 24px);z-index:-1}
+.cap{font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#F2EBDD}
+</style>
+</helmet>
+<div class="dl grain" style="width:1440px;height:900px">
+  <div class="neb"></div>
+  <div class="abs" style="left:60px;top:40px"><span class="chip f-yl">Botón de sonido · desktop</span></div>
+
+  <div class="abs" style="left:60px;top:110px;display:flex;gap:70px">
+    <div><div style="position:relative;width:44px;height:44px"><div class="wv"></div><button class="mt" style="position:relative" aria-label="Silenciar sonido" aria-pressed="false"><svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 9h4l5-4v14l-5-4H3z" fill="#0D0A0C"/><path d="M15 8.5q2.5 3.5 0 7M18 6q4.5 6 0 12" fill="none" stroke="#B80F66" stroke-width="2.4" stroke-linecap="round"/></svg></button></div><div class="cap" style="margin-top:14px">Sonando</div><div class="lbl" style="color:#A99FA5;margin-top:4px">Ondas de semitono</div></div>
+    <div><button class="mt off" style="position:relative" aria-label="Activar sonido" aria-pressed="true"><svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 9h4l5-4v14l-5-4H3z" fill="#F2EBDD"/><path d="M16 9l6 6M22 9l-6 6" stroke="#FF2E9A" stroke-width="2.4" stroke-linecap="round"/></svg></button><div class="cap" style="margin-top:14px">Silenciado</div><div class="lbl" style="color:#A99FA5;margin-top:4px">Negro, cruz rosa</div></div>
+    <div><button class="mt hv" style="position:relative" aria-label="Silenciar sonido"><svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 9h4l5-4v14l-5-4H3z" fill="#0D0A0C"/><path d="M15 8.5q2.5 3.5 0 7M18 6q4.5 6 0 12" fill="none" stroke="#B80F66" stroke-width="2.4" stroke-linecap="round"/></svg></button><div class="cap" style="margin-top:14px">Hover / foco</div><div class="lbl" style="color:#A99FA5;margin-top:4px">Contorno amarillo + etiqueta "Silenciar"</div></div>
+    <div><button class="mt pr" style="position:relative" aria-label="Silenciar sonido"><svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 9h4l5-4v14l-5-4H3z" fill="#0D0A0C"/><path d="M15 8.5q2.5 3.5 0 7M18 6q4.5 6 0 12" fill="none" stroke="#B80F66" stroke-width="2.4" stroke-linecap="round"/></svg></button><div class="cap" style="margin-top:14px">Presionado</div><div class="lbl" style="color:#A99FA5;margin-top:4px">Se hunde 2 px</div></div>
+  </div>
+
+  <div class="abs" style="left:60px;top:300px"><span class="lbl" style="color:#F7E92B">Ubicación · esquina sup. izquierda, bajo la sello "Vista espalda" / junto al menú</span></div>
+  <div class="abs sh" style="left:60px;top:336px;width:640px;height:400px;background:#1C1418;border:2px solid #F2EBDD;overflow:hidden">
+    <button class="mn" style="left:16px;top:16px" aria-label="Abrir menú"><i></i><i></i><i></i></button>
+    <button class="mt" style="left:76px;top:16px" aria-label="Silenciar sonido"><svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 9h4l5-4v14l-5-4H3z" fill="#0D0A0C"/><path d="M15 8.5q2.5 3.5 0 7M18 6q4.5 6 0 12" fill="none" stroke="#B80F66" stroke-width="2.4" stroke-linecap="round"/></svg></button>
+    <div class="abs" style="left:290px;top:60px;width:70px;height:300px;background:#2a2a2e;opacity:.6"></div>
+    <div class="abs" style="left:380px;top:110px"><span class="bub" style="font-size:22px;padding:8px 14px 18px">Música</span></div>
+    <div class="abs" style="right:16px;top:16px"><span class="stamp" style="font-size:9px">Menú</span></div>
+    <div class="abs" style="left:0;right:0;bottom:6px;text-align:center"><span class="lbl" style="font-size:10px;color:#A99FA5">Home</span></div>
+  </div>
+  <div class="abs sh" style="left:740px;top:336px;width:640px;height:400px;background:#1C1418;border:2px solid #F2EBDD;overflow:hidden">
+    <button class="mt" style="left:16px;top:16px" aria-label="Silenciar sonido"><svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 9h4l5-4v14l-5-4H3z" fill="#0D0A0C"/><path d="M15 8.5q2.5 3.5 0 7M18 6q4.5 6 0 12" fill="none" stroke="#B80F66" stroke-width="2.4" stroke-linecap="round"/></svg></button>
+    <div class="abs" style="top:0;bottom:0;right:0;width:300px;background:#F2EBDD"><div class="abs" style="right:14px;top:14px;width:34px;height:34px;border:2px solid #0D0A0C;background:#FF2E9A"></div></div>
+    <div class="abs" style="left:0;width:340px;bottom:6px;text-align:center"><span class="lbl" style="font-size:10px;color:#A99FA5">Panel lateral · el botón queda a la izquierda, la X a la derecha</span></div>
+  </div>
+  <div class="abs" style="left:60px;top:770px;right:60px"><span class="lbl" style="color:#A99FA5;line-height:1.5">Mismo lugar en home y paneles. No pisa globos, zonas tocables ni la X de cierre de los paneles.</span></div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":900}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

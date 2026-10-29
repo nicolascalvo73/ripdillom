@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Panel Música</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./dl.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Londrina+Solid:wght@400;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>body{margin:0}</style>
+</helmet>
+<div class="dl grain" style="width:390px;height:844px">
+  <div class="neb"></div>
+  <div class="star ht" style="left:20px;top:210px;--s:30px;--r:12deg"></div>
+  <div class="star" style="left:340px;top:60px;--s:20px;--r:-14deg"></div>
+  <div class="cf" style="left:310px;top:230px;--r:30deg;--c:#F7E92B"></div>
+
+  <button class="mn" style="left:16px;top:14px" aria-label="Abrir menú"><i></i><i></i><i></i></button>
+
+  <!-- fly-to: cabeza -->
+  <div class="abs" style="left:-2px;top:20px;width:393px;height:835px">
+    <img class="fig" src="/_blob/eba0fbca276c37c61f69ad67d34ad05e" alt="Muñeco, primer plano de la cabeza" style="display:block;width:100%;height:100%">
+    <div class="hs on" style="left:20%;top:0;width:58%;height:30%"></div>
+  </div>
+
+  <div class="abs shu" style="left:0;right:0;bottom:0;z-index:20">
+    <div class="sheet paper" style="position:relative;height:544px;padding:34px 20px 0;overflow:hidden">
+      <div class="abs" style="left:50%;top:18px;width:56px;height:6px;background:#0D0A0C;transform:translateX(-50%)"></div>
+      <div class="ph"><h2>Música</h2><button class="xb" aria-label="Cerrar panel"></button></div>
+
+      <div style="display:flex;gap:14px;margin-top:20px;align-items:center">
+        <div style="width:96px;height:96px;flex:none;background:#FF2E9A;border:2px solid #0D0A0C;box-shadow:4px 4px 0 #0D0A0C;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden">
+          <div class="abs" style="inset:0;background:radial-gradient(circle,#0D0A0C 1.6px,transparent 2.1px) 0 0/6px 6px;opacity:.55"></div>
+          <span class="fd" style="font-size:44px;position:relative;color:#F2EBDD;text-shadow:3px 3px 0 #0D0A0C">LNV</span>
+        </div>
+        <div>
+          <div class="fd" style="font-size:30px">La nueva violencia</div>
+          <div class="lbl" style="margin-top:6px">Álbum · agosto 2026</div>
+          <div style="margin-top:8px"><span class="chip f-yl">[N° de temas]</span></div>
+        </div>
+      </div>
+
+      <!-- reproductor embebido -->
+      <div style="margin-top:18px;background:#0D0A0C;color:#F2EBDD;border:2px solid #0D0A0C;box-shadow:4px 4px 0 #FF2E9A;padding:12px;display:flex;align-items:center;gap:12px">
+        <button class="btn yl" style="width:48px;min-height:48px;padding:0" aria-label="Reproducir"><svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><path d="M3 1 L16 9 L3 17 Z" fill="#0D0A0C"/></svg></button>
+        <div style="flex:1;min-width:0">
+          <div class="lbl" style="color:#F7E92B">[Embed Spotify / YouTube Music]</div>
+          <div style="height:8px;background:#3a3037;margin-top:8px"><div style="width:34%;height:100%;background:#FF2E9A"></div></div>
+        </div>
+      </div>
+
+      <div class="lbl" style="margin-top:20px;margin-bottom:2px">Tracklist</div>
+      <div>
+        <div class="row"><span class="fd" style="font-size:26px;width:34px;color:#B80F66">01</span><span style="flex:1;font-weight:700">[Nombre del tema]</span><span class="lbl">[0:00]</span></div>
+        <div class="row"><span class="fd" style="font-size:26px;width:34px;color:#B80F66">02</span><span style="flex:1;font-weight:700">[Nombre del tema]</span><span class="lbl">[0:00]</span></div>
+        <div class="row"><span class="fd" style="font-size:26px;width:34px;color:#B80F66">03</span><span style="flex:1;font-weight:700">[Nombre del tema]</span><span class="lbl">[0:00]</span></div>
+        <div class="row"><span class="fd" style="font-size:26px;width:34px;color:#B80F66">04</span><span style="flex:1;font-weight:700">[Nombre del tema]</span><span class="lbl">[0:00]</span></div>
+        <div class="row"><span class="fd" style="font-size:26px;width:34px;color:#B80F66">05</span><span style="flex:1;font-weight:700">[Nombre del tema]</span><span class="lbl">[0:00]</span></div>
+      </div>
+      <div class="abs" style="left:0;right:0;bottom:0;height:56px;background:linear-gradient(transparent,#F2EBDD)"></div>
+    </div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

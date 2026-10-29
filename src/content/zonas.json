@@ -1,0 +1,50 @@
+[
+  {
+    "id": "cabeza", "aria": "Cabeza — Música", "globo": "Música", "color": "pk", "ruta": "/musica", "titulo": "Música",
+    "caja": { "c": [0, 0.865, 0], "s": [0.29, 0.27, 0.29] },
+    "ancla": [0.1, 0.9, 0.1],
+    "cam": { "az": 0, "el": 8, "dist": 0.55, "ms": 700, "foco": [0, 0.86, 0] }
+  },
+  {
+    "id": "pecho", "aria": "Pecho — Videos", "globo": "Videos", "color": "yl", "ruta": "/videos", "titulo": "Videos",
+    "caja": { "c": [0, 0.62, 0.06], "s": [0.34, 0.24, 0.12] },
+    "ancla": [0, 0.7, 0.12],
+    "cam": { "az": 0, "el": 0, "dist": 0.6, "ms": 700, "foco": [0, 0.62, 0] }
+  },
+  {
+    "id": "brazo-derecho", "aria": "Brazo derecho — Redes", "globo": "Redes", "color": "bn", "ruta": "/redes", "titulo": "Redes",
+    "caja": { "c": [-0.225, 0.5, 0], "s": [0.11, 0.44, 0.24] },
+    "ancla": [-0.24, 0.66, 0.08],
+    "cam": { "az": -55, "el": 0, "dist": 0.6, "ms": 750, "foco": [-0.2, 0.52, 0] }
+  },
+  {
+    "id": "brazo-izquierdo", "aria": "Brazo izquierdo — Shows", "globo": "Shows", "color": "pk", "ruta": "/shows", "titulo": "Shows",
+    "caja": { "c": [0.225, 0.5, 0], "s": [0.11, 0.44, 0.24] },
+    "ancla": [0.24, 0.66, 0.08],
+    "cam": { "az": 55, "el": 0, "dist": 0.6, "ms": 750, "foco": [0.2, 0.52, 0] }
+  },
+  {
+    "id": "espalda", "aria": "Espalda — Merch", "globo": "Merch", "color": "yl", "ruta": "/merch", "titulo": "Tienda", "ancho": 820, "alto": 724,
+    "caja": { "c": [0, 0.595, -0.06], "s": [0.34, 0.29, 0.12] },
+    "ancla": [0, 0.7, -0.12],
+    "cam": { "az": 180, "el": 0, "dist": 0.6, "ms": 800, "foco": [0, 0.6, 0] }
+  },
+  {
+    "id": "billete", "aria": "Billete — Tomá $100", "globo": "Tomá $100", "color": "pk", "ruta": "/aporte", "titulo": "Tomá $100",
+    "caja": { "c": [-0.07, 0.365, -0.13], "s": [0.1, 0.11, 0.08] },
+    "ancla": [-0.07, 0.43, -0.16],
+    "cam": { "az": 180, "el": -5, "dist": 0.35, "ms": 800, "foco": [-0.07, 0.38, -0.12] }
+  },
+  {
+    "id": "pierna-derecha", "aria": "Pierna derecha — Quién soy", "globo": "Quién soy", "color": "bn", "ruta": "/quien-soy", "titulo": "Quién soy",
+    "caja": { "c": [-0.09, 0.15, 0], "s": [0.18, 0.3, 0.26] },
+    "ancla": [-0.1, 0.27, 0.1],
+    "cam": { "az": -35, "el": -10, "dist": 0.65, "ms": 750, "foco": [-0.09, 0.18, 0] }
+  },
+  {
+    "id": "pierna-izquierda", "aria": "Pierna izquierda — Tatuajes", "globo": "Tatuajes", "color": "pk", "ruta": "/tatuador", "titulo": "Tatuador",
+    "caja": { "c": [0.09, 0.15, 0], "s": [0.18, 0.3, 0.26] },
+    "ancla": [0.1, 0.27, 0.1],
+    "cam": { "az": 35, "el": -10, "dist": 0.65, "ms": 750, "foco": [0.09, 0.18, 0] }
+  }
+]

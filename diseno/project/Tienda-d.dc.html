@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Tienda desktop — catálogo</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./dl.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Londrina+Solid:wght@400;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>body{margin:0}</style>
+</helmet>
+<div class="dl grain" style="width:1440px;height:900px">
+  <div class="neb" style="transform:scaleX(-1)"></div>
+  <div class="star ht" style="left:60px;top:150px;--s:56px;--r:-12deg"></div>
+  <div class="cf" style="left:420px;top:120px;--r:30deg;--c:#F7E92B"></div>
+  <button class="mn" style="left:32px;top:24px" aria-label="Abrir menú"><i></i><i></i><i></i></button>
+  <button class="mt" style="left:92px;top:24px" aria-label="Silenciar sonido" aria-pressed="false"><svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 9h4l5-4v14l-5-4H3z" fill="#0D0A0C"/><path d="M15 8.5q2.5 3.5 0 7M18 6q4.5 6 0 12" fill="none" stroke="#B80F66" stroke-width="2.4" stroke-linecap="round"/></svg></button>
+
+  <div class="fsh" style="left:130px;top:742px;width:320px;height:40px"></div>
+  <div class="abs" style="left:150px;top:156px;width:282px;height:600px">
+    <img class="fig" src="/_blob/a680a646998376252fc62afc6f15ddfc" alt="Muñeco de espaldas" style="position:absolute;left:-5.69%;top:0;width:109%;height:100%">
+    <div class="hs on" style="left:19%;top:28%;width:61%;height:27.5%"></div>
+  </div>
+  <div class="abs sh" style="left:60px;top:300px;z-index:25"><span class="bub bn t-br" style="--r:3deg;font-size:40px;padding:14px 24px 30px">Merch</span></div>
+
+  <div class="abs" style="top:0;bottom:0;right:0;width:820px;z-index:20;filter:drop-shadow(-6px 0 0 #0D0A0C)">
+    <div class="side paper" style="width:820px;padding:36px 36px 0;overflow:hidden">
+      <div class="ph"><h2 style="font-size:56px">Tienda</h2>
+        <div style="display:flex;gap:18px;align-items:center">
+          <button class="cartb" aria-label="Carrito, 3 productos"><svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16l-1.5 13h-13zM8 7a4 4 0 018 0" fill="none" stroke="#0D0A0C" stroke-width="2.4" stroke-linejoin="round"/></svg><span class="cnt">3</span></button>
+          <button class="xb" aria-label="Cerrar panel"></button>
+        </div>
+      </div>
+      <div style="margin-top:14px"><span class="stamp" style="display:block;text-align:center;transform:rotate(-.8deg);font-size:13px;padding:8px;border-color:#0D0A0C;box-shadow:4px 4px 0 #FF2E9A">Tienda de mentira · parodia de fans</span></div>
+
+      <div class="fl" style="flex-wrap:wrap;margin-top:14px">
+        <button class="chip on">Todo</button><button class="chip">Gorras</button><button class="chip">Remeras</button><button class="chip">Buzos</button><button class="chip">Tazas</button><button class="chip">Mates</button><button class="chip">Termos</button><button class="chip">Toallitas femeninas</button><button class="chip">Estampitas</button><button class="chip">Manteles bordados</button><button class="chip">Cartucheras para revólver</button><button class="chip">Otros</button>
+      </div>
+
+      <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin-top:18px">
+        <div class="pc"><div class="pimg" style="height:130px"><b>Visera<br>Violenta</b><small>[Gorra]</small></div><div class="in"><span class="nm">Gorra Visera Violenta</span><span class="pr">$18.500</span><button class="btn">Agregar</button></div></div>
+        <div class="pc"><div class="pimg" style="height:130px"><b>La nueva<br>violencia</b><small>[Remera]</small></div><div class="in"><span class="nm">Remera 100 % algodón, 0 % paz</span><span class="pr">$24.900</span><button class="btn">Agregar</button></div></div>
+        <div class="pc"><div class="pimg" style="height:130px"><b>Canguro<br>cabreado</b><small>[Buzo]</small></div><div class="in"><span class="nm">Buzo con bolsillo para el enojo</span><span class="pr">$52.000</span><button class="btn">Agregar</button></div></div>
+        <div class="pc"><div class="pimg" style="height:130px"><b>Taza<br>tranqui</b><small>[Taza]</small></div><div class="in"><span class="nm">Taza Tranqui (mentira)</span><span class="pr">$9.800</span><button class="btn">Agregar</button></div></div>
+        <div class="pc"><div class="pimg" style="height:130px"><b>Cartuchera<br>del 38</b><small>[Cartuchera para revólver]</small></div><div class="in"><span class="nm">Cartuchera para revólver de agua</span><span class="pr">$21.000</span><button class="btn">Agregar</button></div></div>
+        <div class="pc"><div class="pimg" style="height:130px"><b>Mantel<br>bordado</b><small>[Mantel]</small></div><div class="in"><span class="nm">Mantel bordado "Paz y amor" (al revés)</span><span class="pr">$33.400</span><button class="btn">Agregar</button></div></div>
+      </div>
+    </div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":900}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

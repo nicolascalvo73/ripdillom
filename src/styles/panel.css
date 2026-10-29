@@ -1,0 +1,176 @@
+/* Globos de cómic, paneles y chips (portados de diseno/project/dl.css) */
+.sh { filter: drop-shadow(4px 4px 0 var(--bk)); }
+
+.bub {
+  display: inline-block;
+  font-family: var(--fd);
+  font-weight: 900;
+  text-transform: uppercase;
+  line-height: 0.92;
+  letter-spacing: 0.02em;
+  font-size: 28px;
+  white-space: nowrap;
+  background: var(--bn);
+  color: var(--bk);
+  padding: 11px 20px 26px;
+  transform: rotate(var(--r, 0deg));
+}
+.bub.pk { background: var(--pk); }
+.bub.yl { background: var(--yl); }
+.bub.bk { background: var(--bk); color: var(--bn); }
+.t-bl { clip-path: polygon(2% 8%, 12% 0%, 30% 5%, 52% 0%, 74% 4%, 92% 0%, 100% 10%, 97% 34%, 100% 58%, 96% 76%, 62% 74%, 54% 77%, 16% 100%, 26% 77%, 6% 78%, 0% 58%, 3% 32%); }
+.t-br { clip-path: polygon(98% 8%, 88% 0%, 70% 5%, 48% 0%, 26% 4%, 8% 0%, 0% 10%, 3% 34%, 0% 58%, 4% 76%, 38% 74%, 46% 77%, 84% 100%, 74% 77%, 94% 78%, 100% 58%, 97% 32%); }
+
+/* la punta de la cola cae sobre el ancla: 16 % del ancho (cola izq.) o 84 % (cola der.) */
+.globo { transform-origin: 16% 100%; animation: pop 120ms cubic-bezier(0.2, 0.9, 0.2, 1) both; }
+.globo-bl { transform: translate(-16%, calc(-100% - 4px)); }
+.globo-br { transform: translate(-84%, calc(-100% - 4px)); transform-origin: 84% 100%; }
+@keyframes pop {
+  from { opacity: 0; scale: 0.6; }
+  70% { opacity: 1; scale: 1.08; }
+  to { opacity: 1; scale: 1; }
+}
+
+/* chip de borde "↻ Girá" */
+.chip-gira {
+  position: fixed;
+  right: 0;
+  top: 58%;
+  z-index: 25;
+  transform: translateX(110%);
+  transition: transform 180ms ease-out;
+}
+.chip-gira.on { transform: none; }
+.chip-gira button {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 44px;
+  padding: 8px 12px 8px 14px;
+  background: var(--bk);
+  color: var(--bn);
+  border: 2px solid var(--yl);
+  border-right: 0;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+.chip-gira .fd { font-size: 30px; color: var(--yl); }
+.chip-gira .lbl { line-height: 1.25; }
+.chip-gira em { font-style: normal; color: var(--pk); }
+
+/* paneles */
+.panel { position: fixed; z-index: 20; }
+.panel-borde { height: 100%; }
+.panel-hoja {
+  position: relative;
+  height: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+.panel-sheet { left: 0; right: 0; bottom: 0; }
+.panel-sheet .ph, .asa-zona { touch-action: none; }
+.asa-zona { position: absolute; top: 0; left: 0; right: 0; height: 34px; z-index: 2; }
+.panel-sheet .panel-borde { filter: drop-shadow(0 -4px 0 var(--bk)); }
+.panel-sheet .panel-hoja {
+  padding: 34px 20px 0;
+  clip-path: polygon(0 14px, 6% 6px, 12% 12px, 19% 2px, 26% 10px, 34% 0, 41% 9px, 50% 3px, 58% 11px, 66% 1px, 74% 9px, 82% 3px, 90% 12px, 96% 5px, 100% 10px, 100% 100%, 0 100%);
+}
+.panel-lat { top: 0; bottom: 0; right: 0; }
+.panel-lat .panel-borde { filter: drop-shadow(-6px 0 0 var(--bk)); }
+.panel-lat .panel-hoja {
+  padding: 40px 44px 0;
+  clip-path: polygon(12px 0, 100% 0, 100% 100%, 12px 100%, 0 97%, 10px 93%, 2px 89%, 12px 85%, 0 81%, 8px 77%, 1px 73%, 12px 69%, 0 65%, 9px 61%, 2px 57%, 12px 53%, 0 49%, 8px 45%, 1px 41%, 12px 37%, 0 33%, 9px 29%, 2px 25%, 12px 21%, 0 17%, 8px 13%, 1px 9%, 12px 5%);
+}
+@media (max-width: 767px) and (orientation: landscape) {
+  .panel-lat { width: 320px !important; }
+  .panel-lat .panel-hoja { padding: 20px 24px 0; }
+}
+.paper {
+  background-color: var(--bn);
+  background-image: radial-gradient(rgba(13, 10, 12, 0.08) 1px, transparent 1.4px);
+  background-size: 5px 5px;
+  color: var(--bk);
+}
+.asa { position: absolute; top: 18px; left: 50%; width: 56px; height: 6px; margin-left: -28px; background: var(--bk); }
+
+.ph { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex: none; }
+.ph h2 {
+  margin: 0;
+  font-family: var(--fd);
+  font-weight: 900;
+  text-transform: uppercase;
+  line-height: 0.9;
+  font-size: 44px;
+  background: var(--pk);
+  color: var(--bk);
+  padding: 4px 12px 6px;
+  border: 2px solid var(--bk);
+  box-shadow: 4px 4px 0 var(--bk);
+  transform: rotate(-1.5deg);
+}
+.panel-lat .ph h2 { font-size: 56px; }
+
+.xb {
+  position: relative;
+  width: 44px;
+  height: 44px;
+  flex: none;
+  padding: 0;
+  background: var(--bk);
+  border: 2px solid var(--bk);
+  box-shadow: 3px 3px 0 var(--pk);
+  cursor: pointer;
+}
+.xb::before, .xb::after { content: ''; position: absolute; left: 11px; top: 19px; width: 22px; height: 4px; background: var(--bn); transform: rotate(45deg); }
+.xb::after { transform: rotate(-45deg); }
+.xb:active { transform: translate(2px, 2px); box-shadow: 1px 1px 0 var(--pk); }
+.xb:focus-visible, .chip-gira button:focus-visible, .nav-respaldo button:focus-visible { outline: 3px dashed var(--yl); outline-offset: 2px; }
+
+.panel-cuerpo { flex: 1; min-height: 0; overflow-y: auto; margin-top: 24px; }
+.panel-fade { position: absolute; left: 0; right: 0; bottom: 0; height: 56px; background: linear-gradient(transparent, var(--bn)); pointer-events: none; }
+.vacio { color: #5d5258; }
+
+/* globo / chip / paneles no tapan el título cuando hay panel abierto */
+.hud[data-panel] .strap, .hud[data-panel] .hint { opacity: 0; }
+
+/* navegación de respaldo: invisible hasta recibir foco */
+.nav-respaldo { position: fixed; left: 8px; top: 8px; z-index: 40; }
+.nav-respaldo ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 4px; }
+.nav-respaldo button {
+  position: absolute;
+  width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%);
+  font: inherit; font-weight: 700;
+}
+.nav-respaldo button:focus-visible {
+  position: static; width: auto; height: auto; clip-path: none;
+  min-height: 44px; padding: 0 14px;
+  background: var(--yl); color: var(--bk); border: 2px solid var(--bk); box-shadow: 3px 3px 0 var(--bk);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .globo { animation: none; }
+  .chip-gira { transition: none; }
+}
+
+/* con panel abierto el título se hace compacto (desktop) o se esconde (celu, donde lo tapa el comuñe corrido) */
+.hud .title { transition: opacity 200ms; }
+@media (min-width: 768px) {
+  .hud[data-panel] .title { text-align: left; left: 40px; right: auto; font-size: 64px; transform: rotate(-2deg) scale(0.9); transform-origin: left top; }
+}
+@media (max-width: 767px) {
+  .hud[data-panel] .title { opacity: 0; }
+}
+
+#globos { position: fixed; inset: 0; z-index: 30; pointer-events: none; overflow: hidden; }
+
+/* ¡EPA!: pop de 100 ms sobre estallido rosa; se va solo a los 1.500 ms con fade de 120 ms */
+.globo-epa { animation: pop 100ms cubic-bezier(0.2, 0.9, 0.2, 1) both, epa-fuera 120ms linear 1380ms forwards; }
+.estallido {
+  position: absolute; left: 50%; top: 50%; width: 190px; height: 190px; z-index: -1;
+  transform: translate(-50%, -50%) rotate(8deg); background: var(--pk);
+  clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+}
+@keyframes epa-fuera { to { opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { .globo-epa { animation: epa-fuera 120ms linear 1380ms forwards; } }

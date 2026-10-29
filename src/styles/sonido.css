@@ -1,0 +1,40 @@
+/* Botón de mute (diseño §2.10): 44×44, sombra rosa dura; apagado = negro con sombra hueso */
+.sonido { position: fixed; left: 14px; top: 14px; z-index: 30; display: flex; flex-direction: column; align-items: flex-start; gap: 8px; }
+@media (min-width: 768px) { .sonido { left: 32px; top: 24px; } }
+
+.mt {
+  position: relative;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid var(--bk);
+  background-color: var(--bn);
+  background-image: radial-gradient(rgba(184, 15, 102, 0.35) 1px, transparent 1.5px);
+  background-size: 5px 5px;
+  box-shadow: 3px 3px 0 var(--pk);
+  cursor: pointer;
+}
+.mt.off { background-color: var(--bk); background-image: none; box-shadow: 3px 3px 0 var(--bn); }
+.mt:hover, .mt:focus-visible { outline: 3px dashed var(--yl); outline-offset: 2px; }
+.mt:active { transform: translate(2px, 2px); box-shadow: 1px 1px 0 var(--pk); }
+
+/* anillo de semitono que pulsa solo mientras suena */
+.mt-ondas {
+  position: absolute;
+  inset: -7px;
+  pointer-events: none;
+  background-image: radial-gradient(circle, var(--pk) 1.2px, transparent 1.6px);
+  background-size: 6px 6px;
+  -webkit-mask: radial-gradient(circle, transparent 54%, #000 56%, #000 70%, transparent 72%);
+  mask: radial-gradient(circle, transparent 54%, #000 56%, #000 70%, transparent 72%);
+  opacity: 0.8;
+  animation: mt-pulso 1200ms ease-in-out infinite alternate;
+}
+@keyframes mt-pulso { from { transform: scale(1); } to { transform: scale(1.08); } }
+@media (prefers-reduced-motion: reduce) { .mt-ondas { animation: none; } }
+
+.sonido-cred { color: var(--bn); opacity: 0.75; text-decoration: none; font-size: 10px; text-shadow: 0 1px 0 var(--bk); }
+.sonido-cred:hover, .sonido-cred:focus-visible { opacity: 1; text-decoration: underline; outline: none; }

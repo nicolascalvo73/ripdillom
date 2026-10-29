@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Error de WebGL y menú de respaldo</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./dl.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Londrina+Solid:wght@400;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>body{margin:0}</style>
+</helmet>
+<div class="dl grain" style="width:390px;height:844px">
+  <div class="neb"></div>
+  <div class="star ht" style="left:330px;top:150px;--s:30px;--r:12deg"></div>
+  <div class="cf" style="left:30px;top:150px;--r:-30deg;--c:#F7E92B"></div>
+
+  <h1 class="fd abs" style="left:0;right:0;top:22px;display:flex;justify-content:center;align-items:flex-end;gap:3px">
+    <span class="cut c-pk" style="font-size:44px;--r:-4deg">D</span><span class="cut c-bn" style="font-size:36px;--r:3deg">I</span><span class="cut c-yl" style="font-size:42px;--r:-2deg">L</span><span class="cut c-bk" style="font-size:38px;--r:5deg">L</span><span class="cut c-pk" style="font-size:46px;--r:-3deg">O</span><span class="cut c-bn" style="font-size:40px;--r:4deg">M</span>
+  </h1>
+
+  <!-- aviso de error -->
+  <div class="abs sh" style="left:20px;right:20px;top:98px;transform:rotate(-1deg)">
+    <div class="paper" style="padding:14px 16px 16px;clip-path:polygon(0 3%,4% 0,12% 3%,22% 0,34% 3%,48% 0,62% 3%,76% 0,90% 3%,100% 0,100% 97%,92% 100%,80% 97%,64% 100%,50% 97%,36% 100%,22% 97%,10% 100%,0 97%)">
+      <span class="chip f-pk" style="min-height:24px;font-size:10px">Error 3D</span>
+      <div class="fd" style="font-size:30px;margin-top:8px">No se pudo prender el muñeco</div>
+      <p style="margin-top:8px;font-size:12px">Tu celu no pudo abrir WebGL. Igual podés entrar a todo desde acá.</p>
+    </div>
+  </div>
+
+  <!-- menú de respaldo -->
+  <nav aria-label="Menú de respaldo" class="abs" style="left:20px;right:20px;top:264px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px">
+    <a href="#" class="btn yl" style="min-height:62px;font-size:15px;justify-content:flex-start">Música</a>
+    <a href="#" class="btn" style="min-height:62px;font-size:15px;justify-content:flex-start">Videos</a>
+    <a href="#" class="btn bn" style="min-height:62px;font-size:15px;justify-content:flex-start">Redes</a>
+    <a href="#" class="btn yl" style="min-height:62px;font-size:15px;justify-content:flex-start">Shows</a>
+    <a href="#" class="btn" style="min-height:62px;font-size:15px;justify-content:flex-start">Merch</a>
+    <a href="#" class="btn bn" style="min-height:62px;font-size:15px;justify-content:flex-start">Quién soy</a>
+    <a href="#" class="btn yl" style="min-height:62px;font-size:15px;justify-content:flex-start">Tatuador</a>
+    <a href="#" class="btn" style="min-height:62px;font-size:15px;justify-content:flex-start">Tomá $100</a>
+  </nav>
+
+  <!-- muñeco estático de respaldo -->
+  <div class="fsh" style="left:110px;top:792px;width:170px;height:22px"></div>
+  <img class="fig" src="/_blob/eba0fbca276c37c61f69ad67d34ad05e" alt="Muñeco en versión estática" style="position:absolute;left:127px;top:566px;width:104px;height:221px">
+  <div class="abs" style="left:240px;top:600px;transform:rotate(5deg)"><span class="stamp">Versión<br>sin 3D</span></div>
+  <button class="btn" style="position:absolute;left:20px;bottom:18px;min-height:44px;font-size:12px">Reintentar 3D</button>
+  <div class="lbl abs" style="right:20px;bottom:30px;color:#A99FA5">LA NUEVA VIOLENCIA</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

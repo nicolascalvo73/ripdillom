@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Carga desktop</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./dl.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Londrina+Solid:wght@400;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>body{margin:0}</style>
+</helmet>
+<div class="dl grain" style="width:1440px;height:900px">
+  <div class="neb"></div>
+  <div class="star ht" style="left:1140px;top:120px;--s:80px;--r:10deg"></div>
+  <div class="star" style="left:200px;top:700px;--s:34px;--r:-12deg"></div>
+  <div class="cf" style="left:1200px;top:640px;--r:30deg;--c:#F7E92B"></div>
+  <div class="cf" style="left:260px;top:160px;--r:-30deg"></div>
+
+  <div class="abs" style="left:60px;top:40px;display:flex;gap:14px;align-items:center">
+    <span class="chip f-yl">Fotocopiando</span>
+    <span class="lbl" style="color:#A99FA5">Tributo fan · no oficial</span>
+  </div>
+
+  <!-- hoja fotocopiada -->
+  <div class="abs sh" style="left:536px;top:70px;width:368px;height:726px;transform:rotate(1.6deg)">
+    <div class="paper" style="width:100%;height:100%;clip-path:polygon(0 1%,5% 0,12% 1.2%,20% 0,30% 1%,41% 0,52% 1.2%,63% 0,74% 1%,86% 0,100% 1%,99% 40%,100% 99%,92% 100%,80% 99%,66% 100%,52% 99%,38% 100%,24% 99%,10% 100%,0 99%,1% 60%)"></div>
+  </div>
+  <div class="abs" style="left:572px;top:98px;width:300px;height:638px;transform:rotate(1.6deg)">
+    <img src="/_blob/eba0fbca276c37c61f69ad67d34ad05e" alt="" style="position:absolute;inset:0;width:100%;height:100%;filter:grayscale(1) contrast(1.7) brightness(.85);opacity:.55">
+    <img src="/_blob/eba0fbca276c37c61f69ad67d34ad05e" alt="Muñeco armándose" style="position:absolute;inset:0;width:100%;height:100%;clip-path:inset(0 0 27% 0)">
+    <div class="scan" style="top:72%"></div>
+  </div>
+  <div class="tape" style="left:512px;top:84px;transform:rotate(-38deg)"></div>
+  <div class="tape pk" style="left:866px;top:770px;transform:rotate(-34deg)"></div>
+
+  <!-- porcentaje -->
+  <div class="abs" style="left:60px;top:260px;display:flex;align-items:flex-end;gap:14px">
+    <div class="fd" style="font-size:300px;color:#F2EBDD;text-shadow:12px 12px 0 #FF2E9A;line-height:.8">73</div>
+    <div class="fd" style="font-size:110px;color:#F7E92B;padding-bottom:10px">%</div>
+  </div>
+  <div class="abs" style="right:60px;top:360px;text-align:right;color:#F2EBDD" aria-live="polite">
+    <div class="fd" style="font-size:46px">Armando muñeco</div>
+    <div class="lbl" style="color:#A99FA5;margin-top:10px">Texturas · luces · pose</div>
+  </div>
+  <div class="abs" style="left:60px;right:60px;bottom:34px;height:26px;border:3px solid #F2EBDD;background:#0D0A0C" role="progressbar" aria-valuenow="73" aria-valuemin="0" aria-valuemax="100" aria-label="Progreso de carga">
+    <div style="width:73%;height:100%;background:#FF2E9A"></div>
+    <div style="position:absolute;inset:0;background:repeating-linear-gradient(90deg,transparent 0 21px,rgba(13,10,12,.8) 21px 24px)"></div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":900}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

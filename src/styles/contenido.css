@@ -1,0 +1,96 @@
+/* Contenido de los paneles (diseño: P-musica / P-videos / P-redes / P-shows / P-quien). */
+.btn.bn { background: var(--bn); }
+.btn.bk { background: var(--bk); color: var(--bn); box-shadow: 3px 3px 0 var(--pk); }
+.btn:active { transform: translate(2px, 2px); box-shadow: 1px 1px 0 var(--bk); }
+.btn:focus-visible { outline: 3px dashed var(--yl); outline-offset: 2px; }
+.btn[disabled], .btn.pendiente { opacity: 0.45; box-shadow: none; cursor: default; }
+.chip.f-bk { background: var(--bk); color: var(--bn); }
+.chip.f-pk { background: var(--pk); color: var(--bk); }
+.ph-box {
+  background-color: var(--bk);
+  color: var(--bn);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: radial-gradient(rgba(255, 46, 154, 0.5) 1.4px, transparent 1.9px);
+  background-size: 7px 7px;
+}
+
+.gris { color: #5d5258; }
+.rosa-osc { color: var(--pk2); }
+.grow { flex: 1; min-width: 0; }
+.nombre { font-weight: 700; }
+.sec-et { margin: 20px 0 2px; }
+.lista { list-style: none; margin: 0; padding: 0; }
+.row { display: flex; align-items: center; gap: 12px; border-bottom: 2px solid var(--bk); padding: 10px 0; min-height: 48px; }
+.row:last-child { border-bottom: 0; }
+.aviso { margin: 16px 0 0; }
+.panel-cuerpo { padding-bottom: 72px; }
+.panel-cuerpo { -webkit-overflow-scrolling: touch; overscroll-behavior: contain; }
+
+/* embed con carga diferida */
+.embed { position: relative; border: 2px solid var(--bk); box-shadow: 4px 4px 0 var(--bk); }
+.embed-play { width: 64px; min-height: 64px; padding: 0; }
+.embed-et { position: absolute; left: 10px; bottom: 10px; }
+.embed-frame { display: block; width: 100%; border: 2px solid var(--bk); box-shadow: 4px 4px 0 var(--bk); background: var(--bk); }
+
+/* música */
+.mus-cab { display: flex; gap: 14px; align-items: center; }
+.mus-tapa {
+  width: 96px; height: 96px; flex: none; background: var(--pk); border: 2px solid var(--bk); box-shadow: 4px 4px 0 var(--bk);
+  display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden;
+  background-image: radial-gradient(circle, var(--bk) 1.6px, transparent 2.1px); background-size: 6px 6px;
+}
+.mus-tapa .fd { font-size: 44px; color: var(--bn); text-shadow: 3px 3px 0 var(--bk); }
+.mus-album { font-size: 30px; }
+.mus-chip { margin-top: 8px; }
+.mus-embed { margin-top: 18px; }
+.num { font-size: 26px; width: 34px; color: var(--pk2); }
+.esc { margin: 16px 0 0; }
+
+/* videos */
+.chips { display: flex; gap: 8px; }
+.vid-principal { margin-top: 14px; }
+.vid-titulo { font-size: 26px; margin-top: 12px; }
+.miniatura { width: 96px; height: 56px; flex: none; border: 2px solid var(--bk); }
+
+/* redes */
+.redes { display: flex; flex-direction: column; gap: 12px; }
+.btn.red { justify-content: space-between; min-height: 56px; font-size: 15px; text-decoration: none; }
+.contacto { margin-top: 22px; border: 2px dashed var(--bk); padding: 12px 14px; }
+.contacto .nombre { margin-top: 4px; }
+
+/* shows */
+.fecha { width: 58px; font-size: 34px; line-height: 0.85; }
+.fecha span { font-size: 16px; color: var(--pk2); }
+.btn.entradas { min-height: 44px; padding: 0 12px; font-size: 11px; text-decoration: none; }
+.shows-vacio { font-size: 40px; margin: 18px 0 0; color: var(--pk2); }
+.tira-amarilla {
+  margin-top: 16px; background: var(--yl); border: 2px solid var(--bk); box-shadow: 4px 4px 0 var(--bk);
+  padding: 12px; transform: rotate(-1deg);
+}
+.tira-amarilla span { font-size: 26px; }
+
+/* quién soy */
+.quien-cab { display: flex; gap: 14px; align-items: center; }
+.quien-ilus { width: 84px; height: 100px; flex: none; border: 2px solid var(--bk); box-shadow: 4px 4px 0 var(--bk); overflow: hidden; }
+.quien-ilus .lbl { color: var(--yl); text-align: center; }
+.quien-ilus img { width: 100%; height: 100%; object-fit: cover; }
+.quien-nombre { font-size: 36px; }
+.quien-cab .lbl { margin-top: 6px; }
+.bio { margin-top: 20px; font-size: 14px; line-height: 1.55; }
+.bio p { margin: 0 0 10px; }
+.btn.wiki { margin-top: 10px; width: 100%; justify-content: space-between; text-decoration: none; }
+
+/* cascada de entrada de filas (§5.4): 40 ms entre filas, máx. 8 */
+@keyframes sube { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
+.lista .row { animation: sube 0.3s cubic-bezier(0.2, 0.9, 0.2, 1) both; }
+.lista .row:nth-child(2) { animation-delay: 40ms; }
+.lista .row:nth-child(3) { animation-delay: 80ms; }
+.lista .row:nth-child(4) { animation-delay: 120ms; }
+.lista .row:nth-child(5) { animation-delay: 160ms; }
+.lista .row:nth-child(6) { animation-delay: 200ms; }
+.lista .row:nth-child(7) { animation-delay: 240ms; }
+.lista .row:nth-child(n + 8) { animation-delay: 280ms; }
+@media (prefers-reduced-motion: reduce) { .lista .row { animation: none; } }
+.quien-ilus .lbl { font-size: 9px; letter-spacing: 0.04em; }

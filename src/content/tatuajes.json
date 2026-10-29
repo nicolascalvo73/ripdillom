@@ -1,0 +1,9 @@
+[
+  { "id": "drip", "nombre": "Cajita de jugo DRIP", "file": "drip.png", "x": -0.075, "y": 0.805, "alto": 0.035 },
+  { "id": "parca", "nombre": "Parca", "file": "parca.png", "x": -0.07, "y": 0.66, "alto": 0.07 },
+  { "id": "retrato", "nombre": "Cara", "file": "retrato.png", "x": 0.07, "y": 0.67, "alto": 0.04 },
+  { "id": "espinas", "nombre": "Corona de espinas", "file": "espinas.png", "x": 0.0, "y": 0.625, "alto": 0.03 },
+  { "id": "dientes", "nombre": "Dientes", "file": "dientes.png", "x": 0.0, "y": 0.565, "alto": 0.04 },
+  { "id": "asap", "nombre": "ASAP", "file": "asap.png", "x": -0.02, "y": 0.49, "alto": 0.045 },
+  { "id": "calavera-muletas", "nombre": "Calavera con muletas", "file": "calavera-muletas.png", "x": 0.1, "y": 0.52, "alto": 0.07 }
+]

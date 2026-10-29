@@ -1,0 +1,7 @@
+{
+  "titulo": "Próximas fechas · gira 2026",
+  "_nota": "Solo cargar fechas VERIFICADAS. Formato: { \"dia\": \"01\", \"mes\": \"Nov\", \"ciudad\": \"…\", \"detalle\": \"País · venue\", \"entradas\": \"https://…\" }. Sin 'entradas' se muestra el chip 'Pronto'.",
+  "fechas": [],
+  "vacio": "Fechas por anunciar",
+  "pie": "+ Fechas por anunciar"
+}

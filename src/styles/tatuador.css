@@ -1,0 +1,78 @@
+/* Modo tatuador (diseño: Tatuador-m / Tatuador-d). Capa DOM sobre el canvas; solo los controles reciben toques. */
+.tat { position: fixed; inset: 0; z-index: 25; pointer-events: none; }
+.tat > * { pointer-events: auto; }
+.tat .solo-d { display: none; }
+.gris { color: #5d5258; }
+
+.tat-top {
+  position: absolute; left: 16px; right: 16px; top: max(14px, env(safe-area-inset-top));
+  display: flex; align-items: center; justify-content: space-between; gap: 8px;
+}
+.tat-titulo { margin: 0; font-size: 30px; transform: rotate(-1.5deg); }
+.tat-titulo span { display: block; background: var(--yl); color: var(--bk); border: 2px solid var(--bk); padding: 4px 14px 6px; }
+.tat-guardar { min-height: 44px; padding: 0 12px; font-size: 12px; }
+.tat-ayuda {
+  position: absolute; left: 16px; right: 16px; top: calc(max(14px, env(safe-area-inset-top)) + 54px);
+  margin: 0; color: var(--bn); text-shadow: 0 1px 0 var(--bk); pointer-events: none;
+}
+.tat-cuenta { position: absolute; right: 16px; top: calc(max(14px, env(safe-area-inset-top)) + 82px); font-size: 10px; }
+
+/* herramientas: 4 columnas sobre la paleta */
+.tat-tools {
+  position: absolute; left: 16px; right: 16px; bottom: calc(92px + 12px + env(safe-area-inset-bottom));
+  display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px;
+}
+.tat-tools .btn { padding: 0; font-size: 11px; }
+.tat-tools .btn[aria-pressed='true'] { background: var(--yl); box-shadow: 3px 3px 0 var(--pk); }
+.tat-sel { grid-column: 1 / -1; color: var(--gr); display: none; }
+
+/* paleta: barra inferior */
+.tat .tat-paleta {
+  position: absolute; left: 0; right: 0; bottom: 0; height: calc(92px + env(safe-area-inset-bottom));
+  background: var(--bk); background-image: none; border-top: 3px solid var(--yl); color: var(--bn);
+}
+.tat-paleta-t, .tat-paleta-s { display: none; }
+.tat-tiles { display: flex; gap: 10px; padding: 8px 16px; overflow-x: auto; scrollbar-width: none; }
+.tat-tiles::-webkit-scrollbar { display: none; }
+.tile {
+  width: 72px; height: 72px; flex: none; background: var(--bn); border: 2px solid var(--bk); padding: 6px;
+  display: flex; align-items: center; justify-content: center; cursor: pointer; opacity: 0.55;
+}
+.tile img { max-width: 100%; max-height: 100%; object-fit: contain; display: block; pointer-events: none; }
+.tile.puesto { opacity: 1; }
+.tile.on { border-color: var(--yl); box-shadow: 3px 3px 0 var(--pk); }
+.tile:focus-visible { outline: 3px dashed var(--yl); outline-offset: 2px; }
+
+.tat-aviso { position: absolute; left: 0; right: 0; top: calc(max(14px, env(safe-area-inset-top)) + 112px); display: flex; justify-content: center; pointer-events: none; }
+.tat-aviso .chip { pointer-events: none; }
+
+/* escritorio: herramientas a la izquierda, paleta a la derecha */
+@media (min-width: 1024px) and (min-height: 560px) {
+  .tat .solo-m { display: none; }
+  .tat .solo-d { display: flex; }
+  .tat-top { left: 40px; right: auto; top: 28px; gap: 20px; }
+  .tat-titulo { font-size: 52px; }
+  .tat-guardar { position: absolute; left: 0; top: 74px; }
+  .tat-ayuda { left: 40px; right: auto; top: auto; bottom: 28px; max-width: 320px; }
+  .tat-cuenta { left: 40px; right: auto; top: auto; bottom: 64px; }
+  .tat-tools {
+    left: 40px; right: auto; top: 190px; bottom: auto; width: 200px; grid-template-columns: 1fr; gap: 12px;
+  }
+  .tat-tools .btn { justify-content: flex-start; padding: 0 18px; font-size: 13px; }
+  .tat-sel { display: block; }
+  .tat .tat-paleta {
+    left: auto; right: 40px; top: 40px; bottom: auto; width: 380px; height: auto; padding: 24px 22px;
+    background-color: var(--bn); background-image: radial-gradient(rgba(13, 10, 12, 0.08) 1px, transparent 1.4px);
+    background-size: 5px 5px; color: var(--bk); border-top: 0; border: 2px solid var(--bk); box-shadow: 6px 6px 0 var(--bk);
+  }
+  .tat-paleta-t { display: block; font-size: 38px; font-family: var(--fd); font-weight: 900; text-transform: uppercase; line-height: 0.9; }
+  .tat-paleta-s { display: block; margin: 4px 0 14px; }
+  .tat-tiles { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; padding: 0; overflow: visible; }
+  .tile { width: auto; height: 96px; }
+  .tile.on { box-shadow: 4px 4px 0 var(--pk); outline: 3px solid var(--bk); }
+  .tat-paleta-acc { flex-direction: column; gap: 12px; margin-top: 22px; }
+  .tat-aviso { top: 40px; left: 280px; right: 460px; }
+}
+@media (max-width: 767px) and (orientation: landscape), (max-height: 559px) {
+  .tat-ayuda, .tat-cuenta { display: none; }
+}

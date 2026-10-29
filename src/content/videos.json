@@ -1,0 +1,12 @@
+{
+  "categorias": ["Clips", "Visuales"],
+  "principal": {
+    "titulo": "[Título del clip]",
+    "detalle": "[Dirección · año]",
+    "embed": { "titulo": "[Embed YouTube]", "url": null }
+  },
+  "mas": [
+    { "titulo": "[Clip 02]", "duracion": "[0:00]", "url": null },
+    { "titulo": "[Visual 01]", "duracion": "[0:00]", "url": null }
+  ]
+}

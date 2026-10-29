@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Panel lateral desktop</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./dl.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Londrina+Solid:wght@400;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>body{margin:0}</style>
+</helmet>
+<div class="dl grain" style="width:1440px;height:900px">
+  <div class="neb"></div>
+  <div class="star ht" style="left:120px;top:560px;--s:70px;--r:12deg"></div>
+  <div class="star" style="left:760px;top:120px;--s:40px;--r:-14deg;--c:#FF2E9A"></div>
+  <div class="cf" style="left:140px;top:300px;--r:30deg;--c:#F7E92B"></div>
+  <div class="dt" style="left:100px;top:200px"></div><div class="dt" style="left:820px;top:520px"></div>
+
+  <!-- DILLOM compacto -->
+  <h1 class="fd abs" style="left:40px;top:34px;display:flex;align-items:flex-end;gap:4px">
+    <span class="cut c-pk" style="font-size:64px;--r:-4deg">D</span><span class="cut c-bn" style="font-size:52px;--r:3deg">I</span><span class="cut c-yl" style="font-size:60px;--r:-2deg">L</span><span class="cut c-bk" style="font-size:54px;--r:5deg">L</span><span class="cut c-pk" style="font-size:66px;--r:-3deg">O</span><span class="cut c-bn" style="font-size:56px;--r:4deg">M</span>
+  </h1>
+
+  <!-- fly-to: cabeza, desplazado a la izquierda del panel -->
+  <div class="abs" style="left:190px;top:130px;width:520px;height:1105px">
+    <img class="fig" src="/_blob/eba0fbca276c37c61f69ad67d34ad05e" alt="Muñeco, primer plano de la cabeza" style="display:block;width:100%;height:100%">
+    <div class="hs on" style="left:20%;top:0;width:58%;height:30%"></div>
+  </div>
+
+  <div class="abs" style="left:40px;bottom:32px;display:flex;gap:12px;align-items:center"><span class="chip f-yl">Esc para volver</span><span class="lbl" style="color:#A99FA5">Música</span></div>
+
+  <!-- panel lateral -->
+  <div class="abs" style="right:0;top:0;bottom:0;width:520px;filter:drop-shadow(-6px 0 0 #0D0A0C);z-index:20">
+    <div class="side paper" style="position:absolute;inset:0;width:auto;padding:40px 44px 0;overflow:hidden">
+      <div class="ph"><h2 style="font-size:64px">Música</h2><button class="xb" aria-label="Cerrar panel"></button></div>
+
+      <div style="display:flex;gap:20px;margin-top:30px;align-items:center">
+        <div style="width:132px;height:132px;flex:none;background:#FF2E9A;border:2px solid #0D0A0C;box-shadow:5px 5px 0 #0D0A0C;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden">
+          <div class="abs" style="inset:0;background:radial-gradient(circle,#0D0A0C 1.8px,transparent 2.3px) 0 0/7px 7px;opacity:.55"></div>
+          <span class="fd" style="font-size:62px;position:relative;color:#F2EBDD;text-shadow:4px 4px 0 #0D0A0C">LNV</span>
+        </div>
+        <div>
+          <div class="fd" style="font-size:42px">La nueva violencia</div>
+          <div class="lbl" style="margin-top:8px">Álbum · agosto 2026</div>
+          <div style="margin-top:10px"><span class="chip f-yl">[N° de temas]</span></div>
+        </div>
+      </div>
+
+      <div style="margin-top:26px;background:#0D0A0C;color:#F2EBDD;box-shadow:5px 5px 0 #FF2E9A;padding:16px;display:flex;align-items:center;gap:16px">
+        <button class="btn yl" style="width:56px;min-height:56px;padding:0" aria-label="Reproducir"><svg width="20" height="20" viewBox="0 0 18 18" aria-hidden="true"><path d="M3 1 L16 9 L3 17 Z" fill="#0D0A0C"/></svg></button>
+        <div style="flex:1;min-width:0">
+          <div class="lbl" style="color:#F7E92B">[Embed Spotify / YouTube Music]</div>
+          <div style="height:8px;background:#3a3037;margin-top:10px"><div style="width:34%;height:100%;background:#FF2E9A"></div></div>
+        </div>
+      </div>
+
+      <div class="lbl" style="margin-top:26px;margin-bottom:2px">Tracklist</div>
+      <div>
+        <div class="row"><span class="fd" style="font-size:30px;width:40px;color:#B80F66">01</span><span style="flex:1;font-weight:700">[Nombre del tema]</span><span class="lbl">[0:00]</span></div>
+        <div class="row"><span class="fd" style="font-size:30px;width:40px;color:#B80F66">02</span><span style="flex:1;font-weight:700">[Nombre del tema]</span><span class="lbl">[0:00]</span></div>
+        <div class="row"><span class="fd" style="font-size:30px;width:40px;color:#B80F66">03</span><span style="flex:1;font-weight:700">[Nombre del tema]</span><span class="lbl">[0:00]</span></div>
+        <div class="row"><span class="fd" style="font-size:30px;width:40px;color:#B80F66">04</span><span style="flex:1;font-weight:700">[Nombre del tema]</span><span class="lbl">[0:00]</span></div>
+        <div class="row"><span class="fd" style="font-size:30px;width:40px;color:#B80F66">05</span><span style="flex:1;font-weight:700">[Nombre del tema]</span><span class="lbl">[0:00]</span></div>
+        <div class="row"><span class="fd" style="font-size:30px;width:40px;color:#B80F66">06</span><span style="flex:1;font-weight:700">[Nombre del tema]</span><span class="lbl">[0:00]</span></div>
+      </div>
+      <div class="abs" style="left:0;right:0;bottom:0;height:70px;background:linear-gradient(transparent,#F2EBDD)"></div>
+    </div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":900}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

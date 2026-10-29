@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Home desktop con globo</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./dl.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Londrina+Solid:wght@400;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>body{margin:0}</style>
+</helmet>
+<div class="dl grain" style="width:1440px;height:900px">
+  <div class="neb"></div>
+  <div class="star ht" style="left:250px;top:250px;--s:70px;--r:12deg"></div>
+  <div class="star" style="left:1130px;top:300px;--s:44px;--r:-14deg"></div>
+  <div class="star" style="left:180px;top:620px;--s:26px;--c:#FF2E9A;--r:20deg"></div>
+  <div class="star ht" style="left:1180px;top:640px;--s:60px;--c:#F7E92B;--r:-8deg"></div>
+  <div class="bill" style="left:380px;top:420px;--r:-16deg;transform:rotate(-16deg) scale(1.6)"><b>$100</b></div>
+  <div class="bill" style="left:1020px;top:500px;--r:14deg;transform:rotate(14deg) scale(1.6)"><b>$100</b></div>
+  <div class="cf" style="left:420px;top:220px;--r:30deg"></div><div class="cf" style="left:1010px;top:250px;--r:-20deg;--c:#F7E92B"></div>
+  <div class="cf" style="left:300px;top:700px;--r:-40deg;--c:#F7E92B"></div><div class="cf" style="left:1120px;top:560px;--r:50deg"></div>
+  <div class="dt" style="left:360px;top:200px"></div><div class="dt" style="left:1080px;top:200px"></div><div class="dt" style="left:240px;top:480px"></div><div class="dt" style="left:1250px;top:430px"></div><div class="dt" style="left:520px;top:800px"></div>
+
+  <!-- cabecera -->
+  <div class="abs" style="left:32px;top:28px;display:flex;gap:14px;align-items:center"><span class="stamp">Tributo fan · no oficial</span></div>
+  <nav class="abs" style="right:32px;top:24px;display:flex;gap:10px;z-index:30" aria-label="Menú de respaldo">
+    <a href="#" class="btn bn" style="min-height:44px">Menú</a>
+  </nav>
+
+  <h1 class="fd abs" style="left:0;right:0;top:22px;display:flex;justify-content:center;align-items:flex-end;gap:6px">
+    <span class="cut c-pk" style="font-size:128px;--r:-4deg;box-shadow:7px 7px 0 #0D0A0C">D</span><span class="cut c-bn" style="font-size:102px;--r:3deg;margin-bottom:10px;box-shadow:7px 7px 0 #0D0A0C">I</span><span class="cut c-yl" style="font-size:120px;--r:-2deg;box-shadow:7px 7px 0 #0D0A0C">L</span><span class="cut c-bk" style="font-size:110px;--r:5deg;margin-bottom:6px">L</span><span class="cut c-pk" style="font-size:132px;--r:-3deg;box-shadow:7px 7px 0 #0D0A0C">O</span><span class="cut c-bn" style="font-size:112px;--r:4deg;margin-bottom:12px;box-shadow:7px 7px 0 #0D0A0C">M</span>
+  </h1>
+
+  <!-- muñeco -->
+  <div class="fsh" style="left:560px;top:752px;width:320px;height:40px"></div>
+  <div class="abs" style="left:579px;top:166px;width:282px;height:600px">
+    <img class="fig" src="/_blob/eba0fbca276c37c61f69ad67d34ad05e" alt="Muñeco Playmobil de Dillom" style="display:block;width:100%;height:100%">
+    <button class="hs on" aria-label="Cabeza — Música" style="left:20%;top:0;width:58%;height:30%"></button>
+    <button class="hs" aria-label="Pecho — Videos" style="left:19%;top:30.5%;width:57%;height:24%"></button>
+    <button class="hs" aria-label="Brazo derecho — Redes" style="left:1%;top:31%;width:22%;height:38%"></button>
+    <button class="hs" aria-label="Brazo izquierdo — Shows" style="left:76%;top:31%;width:23%;height:39%"></button>
+    <button class="hs" aria-label="Pierna derecha — Quién soy" style="left:21%;top:63%;width:29%;height:36%"></button>
+    <button class="hs" aria-label="Pierna izquierda — Tatuajes" style="left:50.5%;top:63%;width:31%;height:36%"></button>
+  </div>
+  <div class="abs sh" style="left:786px;top:150px;z-index:25"><span class="bub pk t-bl" style="--r:4deg;font-size:46px;padding:14px 26px 32px">Música</span></div>
+
+  <!-- aro de órbita -->
+  <div class="abs" style="left:520px;top:716px;width:400px;height:70px;border:3px dashed #F7E92B;border-radius:50%;opacity:.8"></div>
+
+  <!-- indicador de borde: zona tapada -->
+  <div class="abs sh" style="right:0;top:420px;z-index:25">
+    <div style="background:#0D0A0C;color:#F2EBDD;border:2px solid #F7E92B;border-right:0;padding:10px 16px 10px 18px;display:flex;align-items:center;gap:12px;min-height:56px">
+      <span class="fd" style="font-size:40px;color:#F7E92B">↻</span>
+      <span class="lbl" style="line-height:1.3">Girá para ver<br><span style="color:#FF2E9A">Merch · Tomá $100</span></span>
+    </div>
+  </div>
+
+  <!-- LA NUEVA VIOLENCIA -->
+  <div class="abs sh" style="left:0;right:0;bottom:22px;display:flex;justify-content:center;align-items:flex-end">
+    <h2 class="fd strap" style="font-size:52px;background:#F2EBDD;color:#0D0A0C;transform:rotate(-1.6deg);margin-right:-16px;position:relative;z-index:1">La nueva</h2>
+    <h2 class="fd strap" style="font-size:72px;background:#FF2E9A;color:#0D0A0C;transform:rotate(1.4deg);padding:8px 28px 14px">Violencia</h2>
+  </div>
+  <div class="abs" style="left:32px;bottom:28px"><span class="chip f-yl">← Arrastrá para girar · rueda para zoom →</span></div>
+  <div class="abs" style="right:32px;bottom:28px"><span class="chip f-pk">Tocá de nuevo para entrar</span></div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":900}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

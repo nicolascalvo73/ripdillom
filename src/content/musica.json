@@ -1,0 +1,14 @@
+{
+  "album": "La nueva violencia",
+  "sigla": "LNV",
+  "detalle": "Álbum · agosto 2026",
+  "cantidadTemas": "[N° de temas]",
+  "embed": { "titulo": "[Embed Spotify / YouTube Music]", "url": null },
+  "tracklist": [
+    { "nombre": "[Nombre del tema]", "duracion": "[0:00]" },
+    { "nombre": "[Nombre del tema]", "duracion": "[0:00]" },
+    { "nombre": "[Nombre del tema]", "duracion": "[0:00]" },
+    { "nombre": "[Nombre del tema]", "duracion": "[0:00]" },
+    { "nombre": "[Nombre del tema]", "duracion": "[0:00]" }
+  ]
+}

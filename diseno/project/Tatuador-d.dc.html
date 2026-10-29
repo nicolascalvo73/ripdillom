@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Modo tatuador desktop</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./dl.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Londrina+Solid:wght@400;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>body{margin:0}
+.tt{position:absolute;mix-blend-mode:multiply;opacity:.9;pointer-events:none}
+.tile{height:112px;background:#F2EBDD;border:2px solid #0D0A0C;padding:10px;display:flex;align-items:center;justify-content:center;cursor:pointer}
+.tile img{max-width:100%;max-height:100%;object-fit:contain;display:block}
+.hd{position:absolute;width:16px;height:16px;background:#F7E92B;border:2px solid #0D0A0C}
+</style>
+</helmet>
+<div class="dl grain" style="width:1440px;height:900px">
+  <div class="neb"></div>
+  <div class="abs" style="inset:0;background:rgba(13,10,12,.5)"></div>
+
+  <div class="abs" style="left:40px;top:28px;display:flex;align-items:center;gap:20px;z-index:30">
+    <button class="xb" aria-label="Salir del modo tatuador"></button>
+    <h1 class="fd strap sh" style="font-size:52px;background:#F7E92B;color:#0D0A0C;transform:rotate(-1.5deg)">Tatuador</h1>
+  </div>
+
+  <!-- herramientas -->
+  <div class="abs" style="left:40px;top:150px;width:200px;display:flex;flex-direction:column;gap:12px;z-index:30">
+    <span class="lbl" style="color:#A99FA5">Seleccionado: calavera</span>
+    <button class="btn bn" style="justify-content:flex-start">Rotar</button>
+    <button class="btn bn" style="justify-content:flex-start">Escalar</button>
+    <button class="btn bn" style="justify-content:flex-start">Espejar</button>
+    <button class="btn bn" style="justify-content:flex-start">Deshacer</button>
+    <button class="btn bk" style="justify-content:flex-start">Borrar</button>
+    <span class="chip f-yl" style="margin-top:12px;font-size:10px">4 / 7 puestos</span>
+  </div>
+
+  <!-- muñeco + tatuajes -->
+  <div class="fsh" style="left:560px;top:820px;width:320px;height:36px"></div>
+  <div class="abs" style="left:541px;top:56px;width:358px;height:762px">
+    <img class="fig" src="/_blob/eba0fbca276c37c61f69ad67d34ad05e" alt="Muñeco para tatuar" style="display:block;width:100%;height:100%">
+    <img class="tt" src="/_blob/052ac288e706d2dd4d3aee3b2e2daf3b" alt="Tatuaje: calavera con muletas" style="left:36%;top:33%;width:26%">
+    <img class="tt" src="/_blob/ca6dd496d565a30dff9ddd50d86940b8" alt="Tatuaje: ASAP" style="left:27%;top:49%;width:36%;transform:rotate(-6deg)">
+    <img class="tt" src="/_blob/f2da76b08f4d654b6779f3e685ddf9f0" alt="Tatuaje: corona de espinas" style="left:-6%;top:42%;width:26%;transform:rotate(-78deg)">
+    <img class="tt" src="/_blob/79344760ae21f0708e52b7db0c5d4e2b" alt="Tatuaje: parca" style="left:80%;top:35%;width:17%">
+    <div class="abs" style="left:34.5%;top:31.5%;width:29%;height:15.5%;outline:2px dashed #F7E92B">
+      <i class="hd" style="left:-9px;top:-9px"></i><i class="hd" style="right:-9px;top:-9px"></i><i class="hd" style="left:-9px;bottom:-9px"></i><i class="hd" style="right:-9px;bottom:-9px;background:#FF2E9A"></i>
+      <div class="abs" style="left:50%;top:-30px;width:2px;height:22px;background:#F7E92B"></div>
+      <i class="hd" style="left:50%;top:-44px;margin-left:-8px;border-radius:50%;background:#FF2E9A"></i>
+    </div>
+  </div>
+
+  <!-- paleta -->
+  <div class="abs sh" style="right:40px;top:40px;width:380px;z-index:30">
+    <div class="paper" style="padding:24px 22px 24px;clip-path:polygon(0 1%,6% 0,16% 1%,30% 0,46% 1%,62% 0,78% 1%,92% 0,100% 1%,100% 99%,90% 100%,72% 99%,54% 100%,36% 99%,18% 100%,6% 99%,0 100%)">
+      <div class="fd" style="font-size:38px">Paleta</div>
+      <div class="lbl" style="margin:4px 0 14px;color:#5d5258">7 tatuajes · tocá para sumar</div>
+      <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px">
+        <div class="tile" style="border-color:#F7E92B;box-shadow:4px 4px 0 #FF2E9A;background:#F2EBDD;outline:3px solid #0D0A0C"><img src="/_blob/052ac288e706d2dd4d3aee3b2e2daf3b" alt="Calavera con muletas"></div>
+        <div class="tile"><img src="/_blob/ca6dd496d565a30dff9ddd50d86940b8" alt="ASAP"></div>
+        <div class="tile"><img src="/_blob/2d9c508c3145283b035577dcb3517aa8" alt="Dientes"></div>
+        <div class="tile"><img src="/_blob/cefb4976d1b9ddfbc639f44e46eeec5f" alt="Cajita de jugo DRIP"></div>
+        <div class="tile"><img src="/_blob/f2da76b08f4d654b6779f3e685ddf9f0" alt="Corona de espinas"></div>
+        <div class="tile"><img src="/_blob/79344760ae21f0708e52b7db0c5d4e2b" alt="Parca"></div>
+        <div class="tile"><img src="/_blob/a675d4db93ff342cc7d55c086b5b1052" alt="Cara"></div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:12px;margin-top:22px">
+        <button class="btn yl" style="width:100%">Guardar imagen</button>
+        <button class="btn bk" style="width:100%">Compartir</button>
+      </div>
+    </div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":900}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

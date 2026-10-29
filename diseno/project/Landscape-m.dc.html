@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Orientación horizontal</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./dl.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Londrina+Solid:wght@400;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>body{margin:0}</style>
+</helmet>
+<div class="dl grain" style="width:844px;height:390px">
+  <div class="neb"></div>
+  <div class="star ht" style="left:292px;top:40px;--s:30px;--r:12deg"></div>
+  <div class="star" style="left:560px;top:300px;--s:20px;--r:-14deg"></div>
+  <div class="bill" style="left:530px;top:90px;--r:12deg"><b>$100</b></div>
+  <div class="bill" style="left:276px;top:250px;--r:-14deg"><b>$100</b></div>
+  <div class="cf" style="left:300px;top:150px;--r:30deg"></div>
+  <div class="cf" style="left:600px;top:240px;--r:-30deg;--c:#F7E92B"></div>
+  <div class="dt" style="left:270px;top:120px"></div><div class="dt" style="left:520px;top:200px"></div>
+
+  <button class="mn" style="right:16px;top:14px" aria-label="Abrir menú"><i></i><i></i><i></i></button>
+
+  <!-- columna izquierda: títulos -->
+  <h1 class="fd abs" style="left:24px;top:26px;display:flex;align-items:flex-end;gap:3px">
+    <span class="cut c-pk" style="font-size:54px;--r:-4deg">D</span><span class="cut c-bn" style="font-size:44px;--r:3deg">I</span><span class="cut c-yl" style="font-size:52px;--r:-2deg">L</span><span class="cut c-bk" style="font-size:46px;--r:5deg">L</span><span class="cut c-pk" style="font-size:56px;--r:-3deg">O</span><span class="cut c-bn" style="font-size:48px;--r:4deg">M</span>
+  </h1>
+  <div class="abs sh" style="left:20px;bottom:26px;display:flex;flex-direction:column;align-items:flex-start">
+    <h2 class="fd strap" style="font-size:28px;background:#F2EBDD;color:#0D0A0C;transform:rotate(1.6deg);margin-bottom:-6px;position:relative;z-index:1">La nueva</h2>
+    <h2 class="fd strap" style="font-size:40px;background:#FF2E9A;color:#0D0A0C;transform:rotate(-1.8deg);padding:5px 16px 9px">Violencia</h2>
+  </div>
+
+  <!-- centro: muñeco -->
+  <div class="fsh" style="left:352px;top:350px;width:142px;height:20px"></div>
+  <div class="abs" style="left:346px;top:22px;width:156px;height:331px">
+    <img class="fig" src="/_blob/eba0fbca276c37c61f69ad67d34ad05e" alt="Muñeco Playmobil de Dillom" style="display:block;width:100%;height:100%">
+    <button class="hs on" aria-label="Cabeza — Música" style="left:20%;top:0;width:58%;height:30%"></button>
+    <button class="hs" aria-label="Pecho — Videos" style="left:19%;top:30.5%;width:57%;height:24%"></button>
+    <button class="hs" aria-label="Brazo derecho — Redes" style="left:1%;top:31%;width:22%;height:38%"></button>
+    <button class="hs" aria-label="Brazo izquierdo — Shows" style="left:76%;top:31%;width:23%;height:39%"></button>
+    <button class="hs" aria-label="Pierna derecha — Quién soy" style="left:21%;top:63%;width:29%;height:36%"></button>
+    <button class="hs" aria-label="Pierna izquierda — Tatuajes" style="left:50.5%;top:63%;width:31%;height:36%"></button>
+  </div>
+  <div class="abs sh" style="left:458px;top:28px;z-index:25"><span class="bub pk t-bl" style="--r:4deg;font-size:24px;padding:9px 16px 22px">Música</span></div>
+
+  <!-- columna derecha: hint -->
+  <div class="abs" style="right:24px;bottom:26px;width:220px;display:flex;flex-direction:column;gap:8px;align-items:flex-end">
+    <span class="chip f-yl">← Arrastrá para girar →</span>
+    <span class="chip f-pk">Tocá el muñeco</span>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":844,"height":390}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

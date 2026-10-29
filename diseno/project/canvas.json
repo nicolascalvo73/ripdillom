@@ -1,0 +1,344 @@
+{
+  "v": 3,
+  "createdOnFiles": {
+    "v": 1,
+    "at": "2026-10-28T18:55:00Z"
+  },
+  "title": "Dillom · La nueva violencia — tributo fan",
+  "launch": {
+    "view": "canvas"
+  },
+  "pages": [],
+  "boards": {
+    "Sistema.dc.html": {
+      "x": 0,
+      "y": 0,
+      "w": 1440,
+      "h": 1640,
+      "title": "Sistema de diseño"
+    },
+    "Componentes.dc.html": {
+      "x": 1520,
+      "y": 0,
+      "w": 1440,
+      "h": 1720,
+      "title": "Componentes"
+    },
+    "Animacion.dc.html": {
+      "x": 3040,
+      "y": 0,
+      "w": 1440,
+      "h": 1700,
+      "title": "Notas de animación"
+    },
+    "Carga-m.dc.html": {
+      "x": 0,
+      "y": 2280,
+      "w": 390,
+      "h": 844,
+      "title": "01 · Carga"
+    },
+    "Main.dc.html": {
+      "x": 470,
+      "y": 2280,
+      "w": 390,
+      "h": 844,
+      "title": "02 · Home en reposo + hint"
+    },
+    "Home-globo-m.dc.html": {
+      "x": 940,
+      "y": 2280,
+      "w": 390,
+      "h": 844,
+      "title": "03 · Home — globo (1er toque)"
+    },
+    "Home-espalda-m.dc.html": {
+      "x": 1410,
+      "y": 2280,
+      "w": 390,
+      "h": 844,
+      "title": "04 · Home — espalda: merch + billete"
+    },
+    "Home-epa-m.dc.html": {
+      "x": 1880,
+      "y": 2280,
+      "w": 390,
+      "h": 844,
+      "title": "05 · Easter egg ¡EPA!"
+    },
+    "P-musica-m.dc.html": {
+      "x": 2350,
+      "y": 2280,
+      "w": 390,
+      "h": 844,
+      "title": "06 · Panel Música"
+    },
+    "P-videos-m.dc.html": {
+      "x": 2820,
+      "y": 2280,
+      "w": 390,
+      "h": 844,
+      "title": "07 · Panel Videos"
+    },
+    "P-redes-m.dc.html": {
+      "x": 3290,
+      "y": 2280,
+      "w": 390,
+      "h": 844,
+      "title": "08 · Panel Redes / Contacto"
+    },
+    "P-shows-m.dc.html": {
+      "x": 0,
+      "y": 3244,
+      "w": 390,
+      "h": 844,
+      "title": "09 · Panel Shows / Entradas"
+    },
+    "P-quien-m.dc.html": {
+      "x": 470,
+      "y": 3244,
+      "w": 390,
+      "h": 844,
+      "title": "11 · Panel Quién soy"
+    },
+    "P-donar-m.dc.html": {
+      "x": 940,
+      "y": 3244,
+      "w": 390,
+      "h": 844,
+      "title": "12 · Panel Tomá $100"
+    },
+    "Tatuador-m.dc.html": {
+      "x": 1410,
+      "y": 3244,
+      "w": 390,
+      "h": 844,
+      "title": "13 · Modo tatuador"
+    },
+    "Error-webgl-m.dc.html": {
+      "x": 1880,
+      "y": 3244,
+      "w": 390,
+      "h": 844,
+      "title": "14 · Error WebGL — menú de respaldo"
+    },
+    "Landscape-m.dc.html": {
+      "x": 2350,
+      "y": 3244,
+      "w": 844,
+      "h": 390,
+      "title": "15 · Orientación horizontal"
+    },
+    "Carga-d.dc.html": {
+      "x": 0,
+      "y": 6396,
+      "w": 1440,
+      "h": 900,
+      "title": "D1 · Carga"
+    },
+    "Home-d.dc.html": {
+      "x": 1520,
+      "y": 6396,
+      "w": 1440,
+      "h": 900,
+      "title": "D2 · Home con globo"
+    },
+    "Espalda-d.dc.html": {
+      "x": 3040,
+      "y": 6396,
+      "w": 1440,
+      "h": 900,
+      "title": "D3 · Espalda: merch + billete"
+    },
+    "Panel-d.dc.html": {
+      "x": 4560,
+      "y": 6396,
+      "w": 1440,
+      "h": 900,
+      "title": "D4 · Panel lateral (Música)"
+    },
+    "Tatuador-d.dc.html": {
+      "x": 6080,
+      "y": 6396,
+      "w": 1440,
+      "h": 900,
+      "title": "D5 · Modo tatuador"
+    },
+    "Tienda-catalogo-m.dc.html": {
+      "x": 0,
+      "y": 4208,
+      "w": 390,
+      "h": 844,
+      "title": "18 · Tienda — catálogo"
+    },
+    "Tienda-detalle-m.dc.html": {
+      "x": 470,
+      "y": 4208,
+      "w": 390,
+      "h": 844,
+      "title": "19 · Tienda — detalle"
+    },
+    "Tienda-carrito-m.dc.html": {
+      "x": 940,
+      "y": 4208,
+      "w": 390,
+      "h": 844,
+      "title": "20 · Tienda — carrito"
+    },
+    "Tienda-vacio-m.dc.html": {
+      "x": 1410,
+      "y": 4208,
+      "w": 390,
+      "h": 844,
+      "title": "21 · Tienda — carrito vacío"
+    },
+    "Tienda-pago-m.dc.html": {
+      "x": 1880,
+      "y": 4208,
+      "w": 390,
+      "h": 844,
+      "title": "22 · Tienda — pago \"de mentirita\""
+    },
+    "Tienda-agregado-m.dc.html": {
+      "x": 2350,
+      "y": 4208,
+      "w": 390,
+      "h": 844,
+      "title": "23 · Tienda — agregado"
+    },
+    "Tienda-sinimagen-m.dc.html": {
+      "x": 0,
+      "y": 5172,
+      "w": 390,
+      "h": 844,
+      "title": "24 · Tienda — imagen faltante"
+    },
+    "Carga-entrar-m.dc.html": {
+      "x": 470,
+      "y": 5172,
+      "w": 390,
+      "h": 844,
+      "title": "16 · Carga al 100% — ENTRAR"
+    },
+    "Audio-m.dc.html": {
+      "x": 940,
+      "y": 5172,
+      "w": 390,
+      "h": 844,
+      "title": "17 · Botón de sonido (estados)"
+    },
+    "Carga-entrar-d.dc.html": {
+      "x": 7600,
+      "y": 6396,
+      "w": 1440,
+      "h": 900,
+      "title": "D6 · Carga al 100% — ENTRAR"
+    },
+    "Tienda-d.dc.html": {
+      "x": 0,
+      "y": 7416,
+      "w": 1440,
+      "h": 900,
+      "title": "D7 · Tienda — catálogo"
+    },
+    "Tienda-detalle-d.dc.html": {
+      "x": 1520,
+      "y": 7416,
+      "w": 1440,
+      "h": 900,
+      "title": "D8 · Tienda — detalle"
+    },
+    "Tienda-carrito-d.dc.html": {
+      "x": 3040,
+      "y": 7416,
+      "w": 1440,
+      "h": 900,
+      "title": "D9 · Tienda — carrito (panel lateral)"
+    },
+    "Tienda-pago-d.dc.html": {
+      "x": 4560,
+      "y": 7416,
+      "w": 1440,
+      "h": 900,
+      "title": "D10 · Tienda — pago \"de mentirita\""
+    },
+    "Tienda-estados-d.dc.html": {
+      "x": 6080,
+      "y": 7416,
+      "w": 1440,
+      "h": 900,
+      "title": "D11 · Tienda — agregado, vacío, sin imagen"
+    },
+    "Audio-d.dc.html": {
+      "x": 7600,
+      "y": 7416,
+      "w": 1440,
+      "h": 900,
+      "title": "D12 · Botón de sonido (estados)"
+    }
+  },
+  "order": [
+    "Sistema.dc.html",
+    "Componentes.dc.html",
+    "Animacion.dc.html",
+    "Carga-m.dc.html",
+    "Main.dc.html",
+    "Home-globo-m.dc.html",
+    "Home-espalda-m.dc.html",
+    "Home-epa-m.dc.html",
+    "P-musica-m.dc.html",
+    "P-videos-m.dc.html",
+    "P-redes-m.dc.html",
+    "P-shows-m.dc.html",
+    "P-quien-m.dc.html",
+    "P-donar-m.dc.html",
+    "Tatuador-m.dc.html",
+    "Error-webgl-m.dc.html",
+    "Landscape-m.dc.html",
+    "Carga-d.dc.html",
+    "Home-d.dc.html",
+    "Espalda-d.dc.html",
+    "Panel-d.dc.html",
+    "Tatuador-d.dc.html",
+    "Tienda-catalogo-m.dc.html",
+    "Tienda-detalle-m.dc.html",
+    "Tienda-carrito-m.dc.html",
+    "Tienda-vacio-m.dc.html",
+    "Tienda-pago-m.dc.html",
+    "Tienda-agregado-m.dc.html",
+    "Tienda-sinimagen-m.dc.html",
+    "Carga-entrar-m.dc.html",
+    "Audio-m.dc.html",
+    "Carga-entrar-d.dc.html",
+    "Tienda-d.dc.html",
+    "Tienda-detalle-d.dc.html",
+    "Tienda-carrito-d.dc.html",
+    "Tienda-pago-d.dc.html",
+    "Tienda-estados-d.dc.html",
+    "Audio-d.dc.html"
+  ],
+  "notes": {
+    "n-top": {
+      "x": 0,
+      "y": -260,
+      "text": "DILLOM · LA NUEVA VIOLENCIA — sistema y notas",
+      "kind": "title1",
+      "maxW": 4480
+    },
+    "n-mob": {
+      "x": 0,
+      "y": 2020,
+      "text": "MOBILE · 390×844",
+      "kind": "title1",
+      "maxW": 3680
+    },
+    "n-desk": {
+      "x": 0,
+      "y": 6136,
+      "text": "DESKTOP · 1440×900",
+      "kind": "title1",
+      "maxW": 9120
+    }
+  },
+  "designSystems": []
+}
