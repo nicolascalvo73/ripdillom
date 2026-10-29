@@ -18,6 +18,10 @@ import { Pie } from './ui/Pie'
 import { MenuSinWebGL } from './ui/MenuSinWebGL'
 import { hayWebGL } from './lib/webgl'
 
+// posición del último pointerdown: un arrastre (orbitar, pinch, zoom) no cuenta como "tocar afuera"
+const abajo = { x: 0, y: 0 }
+window.addEventListener('pointerdown', (e) => ((abajo.x = e.clientX), (abajo.y = e.clientY)), true)
+
 // ?debug=1&az=180 → cámara inicial en ese azimut (grados), para revisar la espalda sin orbitar a mano
 const az = DEBUG ? (Number(new URLSearchParams(window.location.search).get('az')) * Math.PI) / 180 : 0
 const CAM: [number, number, number] = [3.0 * Math.sin(az), 0.55, 3.0 * Math.cos(az)]
@@ -50,7 +54,9 @@ function App3D() {
           dpr={[1, Math.min(window.devicePixelRatio, tope)]}
           camera={{ fov: 32, position: CAM, near: 0.05, far: 50 }}
           gl={{ antialias: true, alpha: true }}
-          onPointerMissed={() => ocultarGlobo()}
+          onPointerMissed={(e) => {
+            if (Math.hypot(e.clientX - abajo.x, e.clientY - abajo.y) <= 6) ocultarGlobo()
+          }}
         >
           <Suspense fallback={null}>
             <Scene />

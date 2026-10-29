@@ -118,7 +118,9 @@ function Pantalla() {
   return (
     <section className="tat" aria-label="Modo tatuador">
       <div className="tat-top">
-        <button className="xb" aria-label="Salir del modo tatuador" onClick={salir} />
+        <button className="btn bk volver" aria-label="Volver al comuñe" onClick={salir}>
+          ← Volver
+        </button>
         <h1 className="fd tat-titulo sh">
           <span>Tatuador</span>
         </h1>

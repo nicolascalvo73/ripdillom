@@ -113,6 +113,9 @@
 }
 .panel-lat .ph h2 { font-size: 56px; }
 
+.volver { flex: none; min-height: 44px; padding: 0 12px; font-size: 13px; white-space: nowrap; }
+.volver:focus-visible { outline: 3px dashed var(--yl); outline-offset: 2px; }
+
 .xb {
   position: relative;
   width: 44px;

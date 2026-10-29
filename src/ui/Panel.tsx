@@ -90,7 +90,9 @@ export function Panel() {
                     {zona.titulo}
                   </motion.h2>
                 </AnimatePresence>
-                <button ref={cerrarRef} className="xb" aria-label="Cerrar panel" onClick={cerrar} />
+                <button ref={cerrarRef} className="btn bk volver" aria-label="Volver al comuñe" onClick={cerrar}>
+                  ← Volver
+                </button>
               </header>
               <AnimatePresence mode="wait" initial={false}>
                 <motion.div

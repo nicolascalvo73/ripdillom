@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { useFrame } from '@react-three/fiber'
 import { Html, useCursor } from '@react-three/drei'
-import { ExtrudeGeometry, Shape, Vector3, type Group } from 'three'
+import { ExtrudeGeometry, Mesh, Shape, Vector3, type Group } from 'three'
 import { EPA, ZONAS, type Zona } from '../lib/zonas'
 import { irA, useEscena, useTatuando } from '../state/escena'
 import { DEBUG } from '../state/tatuajes'
@@ -11,6 +11,11 @@ const UMBRAL_TOQUE = 6 // px: más movimiento que esto es arrastre (orbitar), no
 const GLOBO_TOUCH_MS = 4000
 const EPA_GLOBO_MS = 1500
 const EPA_COOLDOWN_MS = 600
+
+// R3F ignora las props `undefined`: si `raycast` pasó alguna vez a "nada", volver a `undefined` no lo restaura
+// (las zonas quedaban muertas después de visitar el tatuador). Hay que pasar la función original explícita.
+const SIN_RAYCAST = () => null
+const RAYCAST_MESH = Mesh.prototype.raycast
 
 // tipo del último puntero (mouse / touch / pen); el click de R3F no siempre lo trae
 let tipoPuntero = 'mouse'
@@ -28,7 +33,7 @@ function Hitbox({ zona, inerte }: { zona: Zona; inerte: boolean }) {
     <mesh
       position={zona.caja.c}
       // en ?debug=1 las cajas se ven pero no atrapan nada: el modo debug arrastra tatuajes
-      raycast={DEBUG || inerte ? () => null : undefined}
+      raycast={DEBUG || inerte ? SIN_RAYCAST : RAYCAST_MESH}
       onPointerOver={(e) => {
         if (e.pointerType !== 'mouse' || e.buttons) return
         e.stopPropagation()
@@ -81,7 +86,7 @@ function Epa({ inerte }: { inerte: boolean }) {
   return (
     <mesh
       geometry={geometria}
-      raycast={DEBUG || inerte ? () => null : undefined}
+      raycast={DEBUG || inerte ? SIN_RAYCAST : RAYCAST_MESH}
       onClick={(e) => {
         e.stopPropagation()
         if (e.delta > UMBRAL_TOQUE) return
