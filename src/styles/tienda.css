@@ -27,10 +27,7 @@
 .mentirita-caja .btn { text-decoration: none; justify-content: center; }
 
 /* Aporte (P-aporte). */
-.aporte { display: flex; flex-direction: column; gap: 10px; align-items: flex-start; }
+.aporte { display: flex; flex-direction: column; gap: 14px; align-items: flex-start; }
 .aporte-aviso { margin: 0; border: 2px dashed var(--bk); padding: 10px 12px; }
-.campo { width: 100%; box-sizing: border-box; font: inherit; padding: 10px; border: 2px solid var(--bk); box-shadow: 3px 3px 0 var(--bk); background: var(--bn); color: var(--bk); }
-.campo:focus-visible { outline: 3px dashed var(--pk); outline-offset: 2px; }
-.aporte-error { margin: 0; color: var(--pk2); font-weight: 700; }
-.aporte-final { text-align: center; padding: 24px 0; }
-.aporte-titulo { font-size: 56px; margin: 0; color: var(--pk2); }
+.aporte-titulo { font-size: 56px; margin: 0; color: var(--pk2); line-height: 1; }
+.aporte .btn { text-decoration: none; }
