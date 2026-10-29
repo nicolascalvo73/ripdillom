@@ -76,3 +76,7 @@
 @media (max-width: 767px) and (orientation: landscape), (max-height: 559px) {
   .tat-ayuda, .tat-cuenta { display: none; }
 }
+
+/* subir un PNG propio */
+.tile-subir { flex-direction: column; gap: 2px; opacity: 1; border-style: dashed; background: var(--yl); color: var(--bk); font: inherit; }
+.tile-subir .fd { font-size: 34px; line-height: 0.9; }

@@ -1,11 +1,11 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useTatuando } from '../state/escena'
-import { useTatuajes, type Modo } from '../state/tatuajes'
+import { MAX_PROPIOS, srcTatuaje, useTatuajes, type Modo } from '../state/tatuajes'
+import { convertirATatuaje } from '../lib/tatuajePropio'
 import { componerImagen, compartir, descargar, puedeCompartir } from '../lib/captura'
 import '../styles/tatuador.css'
 
-const BASE = import.meta.env.BASE_URL
 
 /** Pantalla del modo tatuador (ruta /tatuador): barra superior, herramientas y paleta sobre el comuñe en el canvas. */
 export function Tatuador() {
@@ -20,7 +20,7 @@ function Pantalla() {
   const selected = useTatuajes((s) => s.selected)
   const modo = useTatuajes((s) => s.modo)
   const hayHistorial = useTatuajes((s) => s.historial.length > 0)
-  const { select, setModo, colocar, borrar, espejar, deshacer, guardar, reset, patch, commit } = useTatuajes.getState()
+  const { select, setModo, colocar, agregarPropio, borrar, espejar, deshacer, guardar, reset, patch, commit } = useTatuajes.getState()
 
   const [aviso, setAviso] = useState('')
   const timer = useRef<ReturnType<typeof setTimeout> | undefined>(undefined)
@@ -92,6 +92,20 @@ function Pantalla() {
     }
   }
 
+  const entrada = useRef<HTMLInputElement>(null)
+  const subir = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const archivo = e.target.files?.[0]
+    e.target.value = '' // permite volver a elegir el mismo archivo
+    if (!archivo) return
+    if (useTatuajes.getState().items.filter((t) => t.propio).length >= MAX_PROPIOS) return decir(`Máximo ${MAX_PROPIOS} tatuajes propios`)
+    try {
+      agregarPropio(await convertirATatuaje(archivo))
+      decir('Tatuaje agregado en blanco y negro')
+    } catch (err) {
+      decir(err instanceof Error ? err.message : 'No se pudo agregar la imagen')
+    }
+  }
+
   const Herramientas = (
     <>
       <button className="btn bn" aria-pressed={modo === 'rotar'} disabled={sinSel} onClick={() => elegirModo('rotar')}>
@@ -155,7 +169,7 @@ function Pantalla() {
 
       <div className="tat-paleta paper sh-paleta">
         <div className="fd tat-paleta-t">Paleta</div>
-        <div className="lbl gris tat-paleta-s">{items.length} tatuajes · tocá para sumar</div>
+        <div className="lbl gris tat-paleta-s">{items.length} tatuajes · tocá para sumar o subí tu PNG</div>
         <div className="tat-tiles">
           {items.map((t) => {
             const puesto = t.puesto !== false
@@ -167,10 +181,15 @@ function Pantalla() {
                 aria-label={`${t.nombre}${puesto ? ' (puesto)' : ''}`}
                 onClick={() => (puesto ? select(t.id === selected ? null : t.id) : colocar(t.id))}
               >
-                <img src={`${BASE}tatuajes/${t.file}`} alt="" />
+                <img src={srcTatuaje(t)} alt="" />
               </button>
             )
           })}
+          <button className="tile tile-subir" aria-label="Subir un PNG como tatuaje" onClick={() => entrada.current?.click()}>
+            <span className="fd">+</span>
+            <span className="lbl">PNG</span>
+          </button>
+          <input ref={entrada} type="file" accept="image/png,image/*" hidden onChange={subir} />
         </div>
         <div className="tat-paleta-acc solo-d">
           <button className="btn yl" onClick={foto}>

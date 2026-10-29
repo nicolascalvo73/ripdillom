@@ -1,9 +1,9 @@
-import { useEffect, useMemo } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { useThree } from '@react-three/fiber'
 import { Line, useTexture } from '@react-three/drei'
 import {
   Euler, Mesh, MultiplyBlending, Raycaster, SRGBColorSpace, Vector2, Vector3,
-  type BufferGeometry, type Texture,
+  TextureLoader, type BufferGeometry, type Texture,
 } from 'three'
 import type { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
 import { DecalGeometry } from 'three/examples/jsm/geometries/DecalGeometry.js'
@@ -73,6 +73,27 @@ function Decal({ skin, t, map, editable }: { skin: Mesh; t: Tatuaje; map: Textur
       {selected && editable && <Marco skin={skin} t={t} aspect={aspect} />}
     </>
   )
+}
+
+/** Tatuaje subido: la textura sale del data URL, se carga de forma asíncrona y el decal aparece cuando está lista. */
+function DecalPropio({ skin, t, editable }: { skin: Mesh; t: Tatuaje; editable: boolean }) {
+  const [map, setMap] = useState<Texture | null>(null)
+  useEffect(() => {
+    let vivo = true
+    let tex: Texture | null = null
+    new TextureLoader().load(t.file, (m) => {
+      if (!vivo) return m.dispose()
+      m.colorSpace = SRGBColorSpace
+      m.anisotropy = 8
+      tex = m
+      setMap(m)
+    })
+    return () => {
+      vivo = false
+      tex?.dispose()
+    }
+  }, [t.file])
+  return map ? <Decal skin={skin} t={t} map={map} editable={editable} /> : null
 }
 
 /** Contorno punteado amarillo del tatuaje elegido (se oculta al sacar la foto). */
@@ -207,7 +228,10 @@ export function Tatuajes({ skin }: { skin: Mesh }) {
   const tatuando = useTatuando()
   const editable = DEBUG || tatuando
   // todas las texturas en una sola suspensión (el orden de `items` no cambia: solo se editan sus campos)
-  const maps = useTexture(items.map((t) => BASE + t.file), (tex) => {
+  // los subidos por la persona van aparte: sumar uno no re-suspende la paleta base
+  const base = useMemo(() => items.filter((t) => !t.propio), [items])
+  const propios = items.filter((t) => t.propio && t.puesto !== false)
+  const maps = useTexture(base.map((t) => BASE + t.file), (tex) => {
     for (const m of Array.isArray(tex) ? tex : [tex]) {
       m.colorSpace = SRGBColorSpace
       m.anisotropy = 8
@@ -215,7 +239,10 @@ export function Tatuajes({ skin }: { skin: Mesh }) {
   })
   return (
     <>
-      {items.map((t, i) => (t.puesto === false ? null : <Decal key={t.id} skin={skin} t={t} map={maps[i]} editable={editable} />))}
+      {base.map((t, i) => (t.puesto === false ? null : <Decal key={t.id} skin={skin} t={t} map={maps[i]} editable={editable} />))}
+      {propios.map((t) => (
+        <DecalPropio key={t.id} skin={skin} t={t} editable={editable} />
+      ))}
       {editable && <Arrastre skin={skin} />}
       <Captura />
     </>

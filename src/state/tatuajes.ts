@@ -13,7 +13,15 @@ export type Tatuaje = {
   espejo?: boolean
   /** false = en la paleta, no sobre el comuñe */
   puesto?: boolean
+  /** subido por la persona: `file` es un data URL PNG */
+  propio?: boolean
 }
+
+export const MAX_PROPIOS = 6
+const PREFIJO_PNG = 'data:image/png;base64,'
+
+/** URL para mostrar el tatuaje (los de la paleta viven en /tatuajes, los propios van embebidos). */
+export const srcTatuaje = (t: Tatuaje) => (t.propio ? t.file : `${import.meta.env.BASE_URL}tatuajes/${t.file}`)
 
 export type Modo = 'mover' | 'rotar' | 'escalar'
 
@@ -34,7 +42,23 @@ function leerGuardado(): Tatuaje[] | null {
     if (!raw) return null
     const arr: unknown = JSON.parse(raw)
     if (!Array.isArray(arr)) return null
-    return BASE.map((b) => {
+    const propios: Tatuaje[] = arr
+      .filter((a): a is Tatuaje => !!a && typeof a === 'object' && (a as Tatuaje).propio === true && typeof (a as Tatuaje).file === 'string')
+      .filter((a) => a.file.startsWith(PREFIJO_PNG) && a.file.length < 600_000 && typeof a.id === 'string')
+      .slice(0, MAX_PROPIOS)
+      .map((s, i) => ({
+        id: s.id,
+        nombre: typeof s.nombre === 'string' ? s.nombre.slice(0, 40) : `Mi tatuaje ${i + 1}`,
+        file: s.file,
+        propio: true,
+        x: num(s.x, 0, -0.3, 0.3),
+        y: num(s.y, 0.6, 0, 1.1),
+        alto: num(s.alto, 0.05, 0.01, 0.2),
+        rot: num(s.rot, 0, -Math.PI * 2, Math.PI * 2),
+        espejo: s.espejo === true,
+        puesto: s.puesto !== false,
+      }))
+    const base = BASE.map((b) => {
       const s = arr.find((a) => a && typeof a === 'object' && (a as Tatuaje).id === b.id) as Partial<Tatuaje> | undefined
       if (!s) return b
       return {
@@ -47,6 +71,7 @@ function leerGuardado(): Tatuaje[] | null {
         puesto: s.puesto !== false,
       }
     })
+    return [...base, ...propios]
   } catch {
     return null
   }
@@ -64,6 +89,8 @@ type Store = {
   commit: () => void
   deshacer: () => void
   colocar: (id: string) => void
+  /** suma un tatuaje subido (data URL PNG) ya puesto sobre el comuñe; false si se llegó al máximo */
+  agregarPropio: (dataUrl: string) => boolean
   borrar: () => void
   espejar: () => void
   guardar: () => boolean
@@ -86,16 +113,29 @@ export const useTatuajes = create<Store>((set, get) => ({
       return { items: previo, historial: s.historial.slice(0, -1) }
     }),
   colocar: (id) => {
-    const b = BASE.find((t) => t.id === id)
+    const propio = get().items.find((t) => t.id === id && t.propio)
+    const b = propio ? { ...propio, x: 0, y: 0.6, alto: 0.05, rot: 0, espejo: false } : BASE.find((t) => t.id === id)
     if (!b) return
     get().commit()
     set((s) => ({ items: s.items.map((t) => (t.id === id ? { ...b, puesto: true } : t)), selected: id }))
+  },
+  agregarPropio: (dataUrl) => {
+    const n = get().items.filter((t) => t.propio).length
+    if (n >= MAX_PROPIOS) return false
+    get().commit()
+    const id = `propio-${Date.now().toString(36)}`
+    const nuevo: Tatuaje = { id, nombre: `Mi tatuaje ${n + 1}`, file: dataUrl, propio: true, x: 0, y: 0.6, alto: 0.05, puesto: true }
+    set((s) => ({ items: [...s.items, nuevo], selected: id }))
+    return true
   },
   borrar: () => {
     const id = get().selected
     if (!id) return
     get().commit()
-    set((s) => ({ items: s.items.map((t) => (t.id === id ? { ...t, puesto: false } : t)), selected: null }))
+    set((s) => ({
+      items: s.items.flatMap((t) => (t.id !== id ? [t] : t.propio ? [] : [{ ...t, puesto: false }])),
+      selected: null,
+    }))
   },
   espejar: () => {
     const id = get().selected
