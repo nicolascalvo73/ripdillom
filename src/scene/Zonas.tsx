@@ -1,8 +1,8 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { useFrame } from '@react-three/fiber'
 import { Html, useCursor } from '@react-three/drei'
-import { ExtrudeGeometry, Mesh, Shape, Vector3, type Group } from 'three'
-import { EPA, ZONAS, type Zona } from '../lib/zonas'
+import { ExtrudeGeometry, Shape, Vector3, type Group } from 'three'
+import { EPA, ID_TATUADOR, ZONAS, type Zona } from '../lib/zonas'
 import { irA, useEscena, useTatuando } from '../state/escena'
 import { DEBUG } from '../state/tatuajes'
 
@@ -12,10 +12,9 @@ const GLOBO_TOUCH_MS = 4000
 const EPA_GLOBO_MS = 1500
 const EPA_COOLDOWN_MS = 600
 
-// R3F ignora las props `undefined`: si `raycast` pasó alguna vez a "nada", volver a `undefined` no lo restaura
-// (las zonas quedaban muertas después de visitar el tatuador). Hay que pasar la función original explícita.
-const SIN_RAYCAST = () => null
-const RAYCAST_MESH = Mesh.prototype.raycast
+// En el tatuador (y en ?debug=1) las zonas no responden. Se decide en cada handler y no apagando `raycast`:
+// R3F ignora las props `undefined`, así que un raycast apagado no se restauraba al volver.
+const inerte = () => DEBUG || useEscena.getState().zona?.id === ID_TATUADOR
 
 // tipo del último puntero (mouse / touch / pen); el click de R3F no siempre lo trae
 let tipoPuntero = 'mouse'
@@ -23,7 +22,7 @@ if (typeof window !== 'undefined') {
   window.addEventListener('pointerdown', (e) => (tipoPuntero = e.pointerType), true)
 }
 
-function Hitbox({ zona, inerte }: { zona: Zona; inerte: boolean }) {
+function Hitbox({ zona }: { zona: Zona }) {
   const mostrarGlobo = useEscena((s) => s.mostrarGlobo)
   const ocultarGlobo = useEscena((s) => s.ocultarGlobo)
   const [encima, setEncima] = useState(false)
@@ -32,20 +31,21 @@ function Hitbox({ zona, inerte }: { zona: Zona; inerte: boolean }) {
   return (
     <mesh
       position={zona.caja.c}
-      // en ?debug=1 las cajas se ven pero no atrapan nada: el modo debug arrastra tatuajes
-      raycast={DEBUG || inerte ? SIN_RAYCAST : RAYCAST_MESH}
       onPointerOver={(e) => {
+        if (inerte()) return
         if (e.pointerType !== 'mouse' || e.buttons) return
         e.stopPropagation()
         setEncima(true)
         mostrarGlobo(zona.id)
       }}
       onPointerOut={(e) => {
+        setEncima(false)
         if (e.pointerType !== 'mouse') return
         setEncima(false)
         ocultarGlobo(zona.id)
       }}
       onClick={(e) => {
+        if (inerte()) return
         e.stopPropagation()
         if (e.delta > UMBRAL_TOQUE) return
         // táctil: el primer toque muestra el globo, el segundo entra
@@ -68,7 +68,7 @@ function Hitbox({ zona, inerte }: { zona: Zona; inerte: boolean }) {
 }
 
 /** Slip: trapecio invertido frontal de la cintura baja (y≈0,443) a y≈0,30, ±0,08 arriba y ±0,03 abajo, solo z>0. Solo tap/click, nunca hover. */
-function Epa({ inerte }: { inerte: boolean }) {
+function Epa() {
   const mostrarGlobo = useEscena((s) => s.mostrarGlobo)
   const rebotar = useEscena((s) => s.rebotar)
   const ultimo = useRef(0)
@@ -86,8 +86,8 @@ function Epa({ inerte }: { inerte: boolean }) {
   return (
     <mesh
       geometry={geometria}
-      raycast={DEBUG || inerte ? SIN_RAYCAST : RAYCAST_MESH}
       onClick={(e) => {
+        if (inerte()) return
         e.stopPropagation()
         if (e.delta > UMBRAL_TOQUE) return
         const ahora = performance.now()
@@ -128,7 +128,7 @@ function Globo() {
   if (!zona) return null
   return (
     <group ref={grupo} position={zona.ancla} key={zona.id}>
-      <Html portal={PORTAL} zIndexRange={[25, 20]} style={{ pointerEvents: 'none' }}>
+      <Html portal={PORTAL} zIndexRange={[25, 20]} pointerEvents="none" style={{ pointerEvents: 'none' }}>
         <div className={`globo globo-${cola}${zona.id === EPA.id ? ' globo-epa' : ''}`}>
           {zona.id === EPA.id && <span className="estallido" aria-hidden="true" />}
           <div className="sh">
@@ -143,8 +143,8 @@ function Globo() {
 }
 
 export function Zonas() {
-  // en el tatuador el muñeco es lienzo: las zonas no responden
-  const inerte = useTatuando()
+  // en el tatuador el muñeco es lienzo: no se muestran globos
+  const tatuando = useTatuando()
   // al cambiar de pantalla o perder el puntero, no dejar un globo colgado
   const ocultar = useEscena((s) => s.ocultarGlobo)
   useEffect(() => {
@@ -156,10 +156,10 @@ export function Zonas() {
   return (
     <>
       {ZONAS.map((z) => (
-        <Hitbox key={z.id} zona={z} inerte={inerte} />
+        <Hitbox key={z.id} zona={z} />
       ))}
-      <Epa inerte={inerte} />
-      {!inerte && <Globo />}
+      <Epa />
+      {!tatuando && <Globo />}
     </>
   )
 }
