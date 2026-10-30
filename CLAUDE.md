@@ -1,4 +1,4 @@
-# rip.dillom — La nueva violencia (Mondilab, tributo fan no oficial)
+# rip.dillom — La nueva violencia (Mondilab)
 
 Leer primero, en este orden:
 1. `docs/PROMPT-claude-code.md` — instrucciones del proyecto (stack, zonas, tienda, audio, aporte con Mercado Pago, fases con checkpoints).

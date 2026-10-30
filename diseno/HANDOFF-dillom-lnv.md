@@ -1,8 +1,8 @@
-# HANDOFF · Dillom — La nueva violencia (tributo fan)
+# HANDOFF · Dillom — La nueva violencia
 
 Paquete para desarrollo en **React + React Three Fiber**. Fuente de verdad visual: el proyecto de diseño publicado (lienzo con 50+ frames). Este documento fija valores exactos; donde el diseño no definió algo se marca **[PROPUESTA]** (decisión mía para destrabar, a confirmar) o **[PENDIENTE]** (falta contenido).
 
-Alcance: experiencia de una sola pantalla, sin scroll en home, mobile first (390×844) y desktop (1440×900). Tributo fan **no oficial**: sin logo oficial ni fotos del artista.
+Alcance: experiencia de una sola pantalla, sin scroll en home, mobile first (390×844) y desktop (1440×900). Sin logo oficial ni fotos del artista.
 
 ---
 
@@ -195,7 +195,7 @@ Otros: `.mn` (menú hamburguesa 44×44, hueso, sombra rosa), `.xb` (cerrar), `.c
 
 ### 2.11 Sello de tienda de mentira
 
-`.stamp` ancho completo, centrado, rotado −1° (mobile) / −.8° (desktop). Texto **"Tienda de mentira · parodia de fans"**, borde 2 px negro, sombra `3px 3px 0 #FF2E9A`. **Fijo y siempre visible** bajo el título de la tienda, en el catálogo, el carrito y las variantes. No debe poder ocultarse.
+`.stamp` ancho completo, centrado, rotado −1° (mobile) / −.8° (desktop). Texto **"Tienda de mentira"**, borde 2 px negro, sombra `3px 3px 0 #FF2E9A`. **Fijo y siempre visible** bajo el título de la tienda, en el catálogo, el carrito y las variantes. No debe poder ocultarse.
 
 ### 2.12 Otros componentes
 
@@ -373,28 +373,27 @@ Flote del muñeco ±6 px en 4 s (ease-in-out) con giro ±3°, pausa al arrastrar
 ## 7. Textos exactos de interfaz
 
 ### 7.1 Global / home
-- Sello: "Tributo fan · no oficial" (también "Tributo fan / no oficial" en dos líneas en el sello superior).
-- Título: **DILLOM** (letras recortadas); strap: "La nueva" / "Violencia".
+- - Título: **DILLOM** (letras recortadas); strap: "La nueva" / "Violencia".
 - Hints: "Arrastrá para girar · tocá el muñeco" (mobile) · "← Arrastrá para girar · rueda para zoom →" (desktop) · "Tocá de nuevo para entrar" (tras el globo) · "← Arrastrá para girar →" + "Tocá el muñeco" (horizontal) · "Tocá la espalda · tocá el billete" (mobile, espalda) · "Tocá el billete o la espalda" (desktop, espalda).
 - Chip de borde: "↻ Girá · Merch · $100" (mobile) · "Girá para ver · Merch · Tomá $100" (desktop, de frente) · "Girá para ver · Música · Videos" (desktop, de espalda).
 - Menú: "Menú" · `aria-label` "Abrir menú". Cierre: "Cerrar panel". Esc: "Esc para volver".
 - Vista espalda: sello "Vista espalda".
 
 ### 7.2 Carga
-"Fotocopiando" · "Tributo fan · no oficial" · "Armando muñeco" · "Texturas · luces · pose" · al 100 %: chip "Listo" · "Muñeco listo" · "Todo cargado" · botón "ENTRAR" · "Con sonido · podés silenciarlo".
+"Fotocopiando" · "Armando muñeco" · "Texturas · luces · pose" · al 100 %: chip "Listo" · "Muñeco listo" · "Todo cargado" · botón "ENTRAR" · "Con sonido · podés silenciarlo".
 
 ### 7.3 Paneles
 - **Música**: "Música" · "LNV" · "La nueva violencia" · "Álbum · agosto 2026" · "Tracklist" · filas "01 [Nombre del tema] [0:00]".
 - **Videos**: "Videos" · "Clips" · "Visuales" · "Más".
-- **Redes**: "Redes" · "Instagram @rip.dillom ↗" · "YouTube [@canal] ↗" · "Spotify [artista] ↗" · "X [@usuario] ↗" · "Contacto" · "Tributo fan no oficial. Sin vínculo con el artista."
+- **Redes**: "Redes" · "Instagram @rip.dillom ↗" · "YouTube [@canal] ↗" · "Spotify [artista] ↗" · "X [@usuario] ↗" · "Contacto" · "Sin vínculo con el artista."
 - **Shows**: "Shows" · "Próximas fechas · gira 2026" · 01 Nov Santiago de Chile (Chile · [venue]) · 05 Nov Ciudad de México (México · [venue]) · 14 Nov Montevideo (Uruguay · [venue]) · ?? Nov La Plata (Argentina · a confirmar, "Pronto") · ?? Dic Buenos Aires (Argentina · a confirmar, "Pronto") · botón "Entradas ↗" · "+ Fechas por anunciar".
-- **Quién soy**: "Quién soy" · "rip.dillom" · "Artista argentino" · "Último álbum · agosto 2026" · "Seguir leyendo en Wikipedia ↗" · "Sitio hecho por un fan. No oficial."
-- **Tomá $100**: título "Tomá $100" · "Esta web la hizo un fan, a mano. Si te gustó, tirále unos pesos a quien la armó." · "Elegí cuánto" · $100 / $500 / $1.000 / Otro · botón "Donar $100 ↗" · "Aporte voluntario para el creador de la web. No va al artista ni a su equipo. Tributo fan no oficial."
+- **Quién soy**: "Quién soy" · "rip.dillom" · "Artista argentino" · "Último álbum · agosto 2026" · "Seguir leyendo en Wikipedia ↗" · ""
+- **Tomá $100**: título "Tomá $100" · "Esta web la hizo una persona, a mano. Si te gustó, tirále unos pesos a quien la armó." · "Elegí cuánto" · $100 / $500 / $1.000 / Otro · botón "Donar $100 ↗" · "Aporte voluntario para el creador de la web. No va al artista ni a su equipo.."
 - **Tatuador**: "Tatuador" · "Guardar" · "Rotar" · "Escalar" · "Espejar" · "Borrar" · "Deshacer" · "4 / 7 puestos" · desktop: "Seleccionado: calavera" · "Paleta" · "7 tatuajes · tocá para sumar" · "Guardar imagen" · "Compartir".
 - **Error 3D**: "Error 3D" · "No se pudo prender el muñeco" · "Tu celu no pudo abrir WebGL. Igual podés entrar a todo desde acá." · botones (Música, Videos, Redes, Shows, Merch, Quién soy, Tatuador, Tomá $100) · "Versión sin 3D" · "Reintentar 3D" · "LA NUEVA VIOLENCIA".
 
 ### 7.4 Tienda
-- Título del panel: "Tienda". Sello: "Tienda de mentira · parodia de fans".
+- Título del panel: "Tienda". Sello: "Tienda de mentira".
 - Filtros: Todo · Gorras · Remeras · Buzos · Tazas · Mates · Termos · Toallitas femeninas · Estampitas · Manteles bordados · Cartucheras para revólver · Otros.
 - Productos de ejemplo (ARS): Gorra Visera Violenta $18.500 · Remera 100 % algodón, 0 % paz $24.900 · Buzo con bolsillo para el enojo / Buzo Canguro Cabreado $52.000 · Taza Tranqui (mentira) $9.800 · Mate Mala Leche, ya cebado $15.300 · Termo Tóxico de 1 litro $38.700 · Cartuchera para revólver de agua $21.000 · Mantel bordado "Paz y amor" (al revés) $33.400 · Toallitas Femeninas Furiosas $6.400.
 - Detalle: "← Tienda" · "Talle" (S M L XL) · "Cantidad" · "Agregar al carrito" · "Tienda de mentira · el producto no existe" · descripción de ejemplo: "Tiene bolsillo para guardar el enojo. No incluye el enojo."
@@ -402,7 +401,7 @@ Flote del muñeco ±6 px en 4 s (ease-in-out) con giro ±3°, pausa al arrastrar
 - Aviso: "**Gorra Visera Violenta** al carrito." + "Ya van 4 cosas que no existen." + botón "Ver" (mobile) / "Ver carrito" (desktop).
 - Carrito: "Carrito" · "Subtotal (3 cosas que no existen)" · "Ir a pagar" · `aria-label` "Quitar <producto>" · "Menos" / "Más".
 - Vacío: "Acá no hay nada" · "Tu carrito está más vacío que el bolsillo de atrás. Y eso que ni siquiera tiene bolsillo." · "Volver a la tienda".
-- Pago: "RECHAZADO" · "AHRE QUE ERA DE MENTIRITA" · "Nada de esto existe y no se puede comprar. Es una parodia hecha por un fan: no se cobró nada, no se mandó nada, no hay stock de nada." · "Volver a la tienda" · "Vaciar carrito" · "Tomá $100" · "El aporte va al creador de la web, no al artista".
+- Pago: "RECHAZADO" · "AHRE QUE ERA DE MENTIRITA" · "Nada de esto existe y no se puede comprar. Es una tienda de mentira: no se cobró nada, no se mandó nada, no hay stock de nada." · "Volver a la tienda" · "Vaciar carrito" · "Tomá $100" · "El aporte va al creador de la web, no al artista".
 - Sin imagen: "Sin foto" · "Se la comió el perro" · "Foto no disponible" · "Igual no existe el producto".
 
 ### 7.5 Reglas de contenido de la tienda

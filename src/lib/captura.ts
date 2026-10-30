@@ -50,7 +50,7 @@ export async function componerImagen(): Promise<Blob | null> {
   g.textAlign = 'right'
   g.fillStyle = 'rgba(242,235,221,.8)'
   g.font = '700 24px "Space Mono", ui-monospace, monospace'
-  g.fillText('rip.dillom · tributo fan no oficial', W - 40, H - 40)
+  g.fillText('rip.dillom', W - 40, H - 40)
   return new Promise((r) => c.toBlob(r, 'image/png'))
 }
 

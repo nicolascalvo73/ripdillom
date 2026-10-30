@@ -1,5 +1,5 @@
 /* Botón de mute (diseño §2.10): 44×44, sombra rosa dura; apagado = negro con sombra hueso */
-.sonido { position: fixed; left: 14px; top: 14px; z-index: 30; display: flex; flex-direction: column; align-items: flex-start; gap: 8px; }
+.sonido { position: fixed; left: 14px; top: 14px; z-index: 30; display: flex; flex-direction: row; align-items: flex-start; gap: 10px; }
 @media (min-width: 768px) { .sonido { left: 32px; top: 24px; } }
 
 .mt {
@@ -36,5 +36,5 @@
 @keyframes mt-pulso { from { transform: scale(1); } to { transform: scale(1.08); } }
 @media (prefers-reduced-motion: reduce) { .mt-ondas { animation: none; } }
 
-.sonido-cred { color: var(--bn); opacity: 0.75; text-decoration: none; font-size: 10px; text-shadow: 0 1px 0 var(--bk); }
+.sonido-cred { line-height: 1; white-space: nowrap; color: var(--bn); opacity: 0.75; text-decoration: none; font-size: 10px; text-shadow: 0 1px 0 var(--bk); }
 .sonido-cred:hover, .sonido-cred:focus-visible { opacity: 1; text-decoration: underline; outline: none; }

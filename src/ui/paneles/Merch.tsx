@@ -140,7 +140,7 @@ function Carrito({ volver }: { volver: () => void }) {
         <div className="mentirita" role="alertdialog" aria-modal="true" aria-label="Era de mentirita">
           <div className="mentirita-caja">
             <h3 className="fd">AHRE QUE ERA DE MENTIRITA</h3>
-            <p>Los productos no existen y no se puede comprar nada. No pedimos datos personales ni tarjeta. Es una parodia de fans.</p>
+            <p>Los productos no existen y no se puede comprar nada. No pedimos datos personales ni tarjeta.</p>
             <button className="btn" onClick={() => setModal(false)}>
               Volver a la tienda
             </button>

@@ -182,7 +182,7 @@ export function QuienSoy() {
       <a className="btn yl wiki" href={quien.wikipedia} target="_blank" rel="noopener noreferrer">
         Seguir leyendo en Wikipedia <span>↗</span>
       </a>
-      <p className="lbl gris aviso">{quien.aviso}</p>
+      {quien.aviso && <p className="lbl gris aviso">{quien.aviso}</p>}
     </>
   )
 }

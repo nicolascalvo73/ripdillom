@@ -75,7 +75,6 @@ export function Loader() {
 
       <div className="carga-top">
         <span className="chip f-yl">{termino ? 'Listo' : 'Fotocopiando'}</span>
-        <span className="lbl carga-gris">Tributo fan · no oficial</span>
       </div>
 
       <div className="carga-hoja-zona">

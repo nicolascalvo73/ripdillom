@@ -1,4 +1,4 @@
-/* DILLOM · LA NUEVA VIOLENCIA — tributo fan. Sistema compartido por todos los frames */
+/* DILLOM · LA NUEVA VIOLENCIA. Sistema compartido por todos los frames */
 :root{--pk:#FF2E9A;--pk2:#B80F66;--yl:#F7E92B;--bk:#0D0A0C;--bk2:#1C1418;--bn:#F2EBDD;--bn2:#D9CDB6;--gr:#A99FA5}
 .dl{position:relative;overflow:hidden;background:var(--bk);color:var(--bn);font-family:'Space Mono',ui-monospace,monospace;font-size:13px;line-height:1.4;box-sizing:border-box}
 .dl *{box-sizing:border-box}

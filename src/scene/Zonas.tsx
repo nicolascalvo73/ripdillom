@@ -114,6 +114,7 @@ const PORTAL = { get current() { return document.getElementById('globos') as HTM
 /** Globo de cómic anclado a la zona activa. La cola cambia de lado según la mitad de pantalla donde cae. */
 function Globo() {
   const id = useEscena((s) => s.globo)
+  const ocultarGlobo = useEscena((s) => s.ocultarGlobo)
   const zona = id === EPA.id ? EPA : ZONAS.find((z) => z.id === id)
   const grupo = useRef<Group>(null)
   const [cola, setCola] = useState<'bl' | 'br'>('bl')
@@ -126,12 +127,25 @@ function Globo() {
   })
 
   if (!zona) return null
+  // en táctil el globo también es tocable (segundo toque); con mouse sigue sin atrapar el puntero para no romper el hover
+  const tocable = tipoPuntero !== 'mouse' && zona.id !== EPA.id
   return (
     <group ref={grupo} position={zona.ancla} key={zona.id}>
       <Html portal={PORTAL} zIndexRange={[25, 20]} pointerEvents="none" style={{ pointerEvents: 'none' }}>
         <div className={`globo globo-${cola}${zona.id === EPA.id ? ' globo-epa' : ''}`}>
           {zona.id === EPA.id && <span className="estallido" aria-hidden="true" />}
-          <div className="sh">
+          <div
+            className="sh"
+            style={tocable ? { pointerEvents: 'auto', cursor: 'pointer' } : undefined}
+            onClick={
+              tocable
+                ? () => {
+                    ocultarGlobo()
+                    irA(zona.ruta)
+                  }
+                : undefined
+            }
+          >
             <span className={`bub ${zona.color === 'bn' ? '' : zona.color} t-${cola}`} style={{ '--r': cola === 'bl' ? '4deg' : '-4deg' } as React.CSSProperties}>
               {zona.globo}
             </span>

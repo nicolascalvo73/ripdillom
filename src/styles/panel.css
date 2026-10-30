@@ -41,7 +41,7 @@
   transition: transform 180ms ease-out;
 }
 .chip-gira.on { transform: none; }
-@media (max-width: 767px) { .chip-gira { top: auto; bottom: 56px; } }
+@media (max-width: 767px) { .chip-gira { top: auto; bottom: calc(56px + 4rem); } }
 .chip-gira button {
   display: flex;
   align-items: center;

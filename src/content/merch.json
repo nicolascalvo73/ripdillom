@@ -1,5 +1,5 @@
 {
-  "sello": "Tienda de mentira · parodia de fans",
+  "sello": "Tienda de mentira",
   "categorias": ["Todo", "Muñecos", "Ropa", "Cocina", "Varios"],
   "productos": [
     { "id": "muneco", "nombre": "El Muñequito de Dillom", "desc": "Plástico de primera. Viene con tatuajes y billete de cien incluidos.", "precio": 49999, "categoria": "Muñecos", "estrella": true, "imagenes": ["/img/muneco-v5-frente.png", "/img/muneco-v5-espalda-luz.png"] },
