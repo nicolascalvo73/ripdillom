@@ -2,13 +2,22 @@
   "album": "La nueva violencia",
   "sigla": "LNV",
   "detalle": "Álbum · agosto 2026",
-  "cantidadTemas": "[N° de temas]",
-  "embed": { "titulo": "[Embed Spotify / YouTube Music]", "url": null },
+  "cantidadTemas": "14 temas",
+  "embed": { "titulo": "Escuchar en Spotify", "url": "https://open.spotify.com/embed/album/6OFtCmtiEuIhIXnwz5QTZk" },
   "tracklist": [
-    { "nombre": "[Nombre del tema]", "duracion": "[0:00]" },
-    { "nombre": "[Nombre del tema]", "duracion": "[0:00]" },
-    { "nombre": "[Nombre del tema]", "duracion": "[0:00]" },
-    { "nombre": "[Nombre del tema]", "duracion": "[0:00]" },
-    { "nombre": "[Nombre del tema]", "duracion": "[0:00]" }
+    { "nombre": "La Nueva Violencia", "duracion": "2:16" },
+    { "nombre": "Vedette", "duracion": "2:29" },
+    { "nombre": "Papá Se Volvió Loco", "duracion": "2:34" },
+    { "nombre": "Gente Común", "duracion": "4:51" },
+    { "nombre": "Souvenir", "duracion": "3:56" },
+    { "nombre": "Superdiversión", "duracion": "2:54" },
+    { "nombre": "Cocodrilo", "duracion": "3:16" },
+    { "nombre": "Minas", "duracion": "2:42" },
+    { "nombre": "Fashion", "duracion": "2:44" },
+    { "nombre": "Nadie Coge Gratis", "duracion": "3:39" },
+    { "nombre": "Palermo Hollywood", "duracion": "3:31" },
+    { "nombre": "Elvis Interludio", "duracion": "0:25" },
+    { "nombre": "Maniquí", "duracion": "4:17" },
+    { "nombre": "Amigos", "duracion": "3:09" }
   ]
 }

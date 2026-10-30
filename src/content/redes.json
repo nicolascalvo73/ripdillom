@@ -2,7 +2,7 @@
   "redes": [
     { "nombre": "Instagram", "handle": "@rip.dillom", "url": "https://instagram.com/rip.dillom", "estilo": "pk" },
     { "nombre": "YouTube", "handle": "[@canal]", "url": null, "estilo": "yl" },
-    { "nombre": "Spotify", "handle": "[artista]", "url": null, "estilo": "bn" },
+    { "nombre": "Spotify", "handle": "Dillom", "url": "https://open.spotify.com/album/6OFtCmtiEuIhIXnwz5QTZk", "estilo": "bn" },
     { "nombre": "X", "handle": "[@usuario]", "url": null, "estilo": "bk" }
   ],
   "contacto": "[mail de management / prensa]",
