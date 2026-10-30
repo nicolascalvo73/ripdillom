@@ -1,10 +1,10 @@
 {
   "redes": [
     { "nombre": "Instagram", "handle": "@rip.dillom", "url": "https://instagram.com/rip.dillom", "estilo": "pk" },
-    { "nombre": "YouTube", "handle": "[@canal]", "url": null, "estilo": "yl" },
+    { "nombre": "YouTube", "handle": "@dillom", "url": "https://www.youtube.com/@dillom", "estilo": "yl" },
     { "nombre": "Spotify", "handle": "Dillom", "url": "https://open.spotify.com/album/6OFtCmtiEuIhIXnwz5QTZk", "estilo": "bn" },
-    { "nombre": "X", "handle": "[@usuario]", "url": null, "estilo": "bk" }
+    { "nombre": "X", "handle": "@dillom666", "url": "https://x.com/dillom666", "estilo": "bk" }
   ],
-  "contacto": "[mail de management / prensa]",
+  "contacto": null,
   "aviso": "Sin vínculo con el artista."
 }

@@ -1,12 +1,19 @@
 {
-  "categorias": ["Clips", "Visuales"],
+  "categorias": ["Clips"],
+  "canal": "https://www.youtube.com/@dillom",
   "principal": {
-    "titulo": "[Título del clip]",
-    "detalle": "[Dirección · año]",
-    "embed": { "titulo": "[Embed YouTube]", "url": null }
+    "titulo": "Cocodrilo",
+    "detalle": "Videoclip · La nueva violencia",
+    "embed": { "titulo": "Cocodrilo (Videoclip)", "url": "https://www.youtube.com/embed/DWlrG7eT8_4" }
   },
   "mas": [
-    { "titulo": "[Clip 02]", "duracion": "[0:00]", "url": null },
-    { "titulo": "[Visual 01]", "duracion": "[0:00]", "url": null }
+    { "titulo": "Pelotuda", "detalle": "Videoclip oficial", "url": "https://www.youtube.com/watch?v=9asMQnRyjck" },
+    { "titulo": "Opa", "detalle": "Videoclip oficial", "url": "https://www.youtube.com/watch?v=TL13-B-mMjI" },
+    { "titulo": "Dudade", "detalle": "Videoclip oficial", "url": "https://www.youtube.com/watch?v=jsctHyUggvo" },
+    { "titulo": "Draco", "detalle": "Videoclip oficial", "url": "https://www.youtube.com/watch?v=rQSInHni99M" },
+    { "titulo": "Ola de suicidios", "detalle": "Videoclip oficial", "url": "https://www.youtube.com/watch?v=RjnSYXkxWZM" },
+    { "titulo": "La primera", "detalle": "Videoclip oficial", "url": "https://www.youtube.com/watch?v=rd5YDHcTcEk" },
+    { "titulo": "Piso 13", "detalle": "Videoclip oficial", "url": "https://www.youtube.com/watch?v=G1LndonJWrA" },
+    { "titulo": "Sauce", "detalle": "Videoclip oficial", "url": "https://www.youtube.com/watch?v=iL5pleWMsV4" }
   ]
 }

@@ -78,19 +78,25 @@ export function Videos() {
       <div className="lbl sec-et">Más</div>
       <ul className="lista">
         {videos.mas.map((v, i) => (
-          <li className="row" key={i}>
-            <div className="ph-box miniatura" aria-hidden="true">
-              <svg width="16" height="16" viewBox="0 0 18 18">
-                <path d="M3 1 L16 9 L3 17 Z" fill="#F7E92B" />
-              </svg>
-            </div>
-            <div className="grow nombre">
-              {v.titulo}
-              <div className="lbl gris">{v.duracion}</div>
-            </div>
+          <li key={i}>
+            <Enlace url={v.url} className="row">
+              <div className="ph-box miniatura" aria-hidden="true">
+                <svg width="16" height="16" viewBox="0 0 18 18">
+                  <path d="M3 1 L16 9 L3 17 Z" fill="#F7E92B" />
+                </svg>
+              </div>
+              <div className="grow nombre">
+                {v.titulo}
+                <div className="lbl gris">{v.detalle}</div>
+              </div>
+            </Enlace>
           </li>
         ))}
       </ul>
+      <Enlace url={videos.canal} className="btn red">
+        <span>Ver el canal</span>
+        <span className="lbl">YouTube ↗</span>
+      </Enlace>
     </>
   )
 }
@@ -106,10 +112,12 @@ export function Redes() {
           </Enlace>
         ))}
       </div>
-      <div className="contacto">
-        <div className="lbl">Contacto</div>
-        <div className="nombre">{redes.contacto}</div>
-      </div>
+      {redes.contacto && (
+        <div className="contacto">
+          <div className="lbl">Contacto</div>
+          <div className="nombre">{redes.contacto}</div>
+        </div>
+      )}
       <p className="lbl gris aviso">{redes.aviso}</p>
     </>
   )
