@@ -105,7 +105,7 @@ export function Sonido() {
   if (!entro) return null
 
   return (
-    <div className="sonido">
+    <div className="sonido" hidden={hayPanel}>
       <button
         className={`mt${silenciado ? ' off' : ''}`}
         aria-pressed={silenciado}

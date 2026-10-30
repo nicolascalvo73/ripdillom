@@ -1,13 +1,23 @@
 import { create } from 'zustand'
+import merch from '../content/merch.json'
 
 const CLAVE = 'ripdillom:carrito'
 
 export type Linea = { id: string; variante?: string; cant: number }
 
+/** Una línea guardada vale solo si el producto sigue en el catálogo y la variante es una de las suyas. */
+function vigente(l: Linea) {
+  const p = (merch.productos as { id: string; variantes: string[] }[]).find((x) => x.id === l.id)
+  if (!p) return false
+  return p.variantes.length ? p.variantes.includes(l.variante ?? '') : l.variante === undefined
+}
+
 function leer(): Linea[] {
   try {
     const v = JSON.parse(localStorage.getItem(CLAVE) ?? '[]')
-    return Array.isArray(v) ? v.filter((l) => l && typeof l.id === 'string' && l.cant > 0) : []
+    return Array.isArray(v)
+      ? v.filter((l) => l && typeof l.id === 'string' && l.cant > 0 && vigente(l)).map((l) => ({ ...l, cant: Math.min(99, Math.floor(l.cant)) }))
+      : []
   } catch {
     return []
   }

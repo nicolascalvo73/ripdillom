@@ -1,0 +1,123 @@
+{
+  "moneda": "ARS",
+  "categorias": [
+    "Todo",
+    "Casa",
+    "Juguetes",
+    "Libros",
+    "Música",
+    "Ropa",
+    "Varios"
+  ],
+  "productos": [
+    {
+      "id": "muneco",
+      "nombre": "Muñequito",
+      "categoria": "Juguetes",
+      "precio": 89900,
+      "destacado": true,
+      "etiqueta": "EDICIÓN LIMITADA",
+      "desc": "El mismo de la web, pero en tu mano. Se queda quieto, posa y no opina. Incluye flequillo recto y tatuajes que no se borran con nada.",
+      "variantes": [],
+      "vista3d": true,
+      "imagen": "/img/merch/muneco.jpg",
+      "prompt_imagen": "A plastic toy figure in a retro toy blister box: shirtless figure with a straight bowl-cut fringe, black dress trousers, small black line tattoos on the torso. The box has the cut-out title MANIQUÍ and a sticker saying EDICIÓN LIMITADA. Product photo in a dirty photocopy and halftone aesthetic: flat studio lighting, hot pink (#FF2E9A) and acid yellow (#F7E92B) background with coarse black halftone dots and film grain, off-white paper texture, torn tape corners, hard black drop shadow, slightly misregistered print. Square 1:1 framing, product centered with plenty of margin. Any text uses rough cut-out collage letters. No logos, no brand names, no real people, no faces.",
+      "cancion": "Maniquí",
+      "alt": "Muñequito de Dillom en blister, edición limitada"
+    },
+    {
+      "id": "curitas",
+      "nombre": "Curitas",
+      "categoria": "Varios",
+      "precio": 3200,
+      "desc": "Caja de 20 curitas para gente común con heridas poco comunes. No curan nada, pero quedan lindas.",
+      "variantes": [],
+      "imagen": "/img/merch/curitas.jpg",
+      "prompt_imagen": "A flat cardboard box of 20 adhesive bandages with a few bandages laid out beside it. The box says CURITAS and, smaller, GENTE COMÚN. Product photo in a dirty photocopy and halftone aesthetic: flat studio lighting, hot pink (#FF2E9A) and acid yellow (#F7E92B) background with coarse black halftone dots and film grain, off-white paper texture, torn tape corners, hard black drop shadow, slightly misregistered print. Square 1:1 framing, product centered with plenty of margin. Any text uses rough cut-out collage letters. No logos, no brand names, no real people, no faces.",
+      "cancion": "Gente Común",
+      "alt": "Caja de 20 curitas"
+    },
+    {
+      "id": "mantel",
+      "nombre": "Mantel bordado",
+      "categoria": "Casa",
+      "precio": 33400,
+      "desc": "Bordado a mano con glamour de barrio caro. Apto para cenas con luces tenues y comentarios filosos. Lavar aparte de las apariencias.",
+      "variantes": [
+        "Chico",
+        "Grande"
+      ],
+      "imagen": "/img/merch/mantel.jpg",
+      "prompt_imagen": "A rectangular tablecloth seen from above with an embroidered border, an embroidered upside-down heart and the embroidered words PALERMO HOLLYWOOD, cross-stitch texture, pink and yellow threads on off-white cloth. Product photo in a dirty photocopy and halftone aesthetic: flat studio lighting, hot pink (#FF2E9A) and acid yellow (#F7E92B) background with coarse black halftone dots and film grain, off-white paper texture, torn tape corners, hard black drop shadow, slightly misregistered print. Square 1:1 framing, product centered with plenty of margin. Any text uses rough cut-out collage letters. No logos, no brand names, no real people, no faces.",
+      "cancion": "Palermo Hollywood",
+      "etiqueta_variante": "Tamaño",
+      "alt": "Mantel bordado a punto cruz"
+    },
+    {
+      "id": "boxers",
+      "nombre": "Boxers unisex",
+      "categoria": "Ropa",
+      "precio": 14900,
+      "desc": "Unisex porque la moda no distingue. Elástico que sí cede, a diferencia de otras cosas. Se ven más de lo que deberían.",
+      "variantes": [
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "imagen": "/img/merch/boxers.jpg",
+      "prompt_imagen": "A pair of boxer briefs folded flat, front view, black fabric with a repeating pink and yellow halftone pattern and the waistband printed FASHION. No model. Product photo in a dirty photocopy and halftone aesthetic: flat studio lighting, hot pink (#FF2E9A) and acid yellow (#F7E92B) background with coarse black halftone dots and film grain, off-white paper texture, torn tape corners, hard black drop shadow, slightly misregistered print. Square 1:1 framing, product centered with plenty of margin. Any text uses rough cut-out collage letters. No logos, no brand names, no real people, no faces.",
+      "cancion": "Fashion",
+      "etiqueta_variante": "Talle",
+      "alt": "Boxers unisex negros"
+    },
+    {
+      "id": "manual",
+      "nombre": "Manual de geografía",
+      "categoria": "Libros",
+      "precio": 18700,
+      "desc": "Todo sobre mapas y lugares a los que ir (y de los que volver con algo). Tapa dura, 412 páginas, 0 aprobadas. Incluye mapa que no se vuelve a doblar nunca.",
+      "variantes": [],
+      "imagen": "/img/merch/manual.jpg",
+      "prompt_imagen": "A hardcover school textbook at a slight angle, pink cover with yellow halftone, a crude cut-out world map graphic and the title MANUAL DE GEOGRAFÍA. No other text. Product photo in a dirty photocopy and halftone aesthetic: flat studio lighting, hot pink (#FF2E9A) and acid yellow (#F7E92B) background with coarse black halftone dots and film grain, off-white paper texture, torn tape corners, hard black drop shadow, slightly misregistered print. Square 1:1 framing, product centered with plenty of margin. Any text uses rough cut-out collage letters. No logos, no brand names, no real people, no faces.",
+      "cancion": "Souvenir",
+      "alt": "Manual de geografía, tapa dura"
+    },
+    {
+      "id": "cana",
+      "nombre": "Caña de pescar",
+      "categoria": "Varios",
+      "precio": 45200,
+      "desc": "Para pescar lo que sea, aunque muerda. Telescópica, cabe en la mochila. Carnada no incluida; cuidado con las lágrimas.",
+      "variantes": [],
+      "imagen": "/img/merch/cana.jpg",
+      "prompt_imagen": "A telescopic fishing rod with a reel lying diagonally, wrapped in pink and yellow tape bands printed COCODRILO. Product photo in a dirty photocopy and halftone aesthetic: flat studio lighting, hot pink (#FF2E9A) and acid yellow (#F7E92B) background with coarse black halftone dots and film grain, off-white paper texture, torn tape corners, hard black drop shadow, slightly misregistered print. Square 1:1 framing, product centered with plenty of margin. Any text uses rough cut-out collage letters. No logos, no brand names, no real people, no faces.",
+      "cancion": "Cocodrilo",
+      "alt": "Caña de pescar telescópica con reel"
+    },
+    {
+      "id": "barco",
+      "nombre": "Barco pirata",
+      "categoria": "Juguetes",
+      "precio": 76500,
+      "desc": "Para armar y para hundir. Incluye velas, un cañón inofensivo y bandera pirata. Piezas chiquitas: manténgase alejado del aburrimiento.",
+      "variantes": [],
+      "imagen": "/img/merch/barco.jpg",
+      "prompt_imagen": "A generic plastic toy pirate ship in an open toy box, with a black-and-pink flag showing a crude skull and the word SUPERDIVERSIÓN on the sail. No toy-brand marks of any kind. Product photo in a dirty photocopy and halftone aesthetic: flat studio lighting, hot pink (#FF2E9A) and acid yellow (#F7E92B) background with coarse black halftone dots and film grain, off-white paper texture, torn tape corners, hard black drop shadow, slightly misregistered print. Square 1:1 framing, product centered with plenty of margin. Any text uses rough cut-out collage letters. No logos, no brand names, no real people, no faces.",
+      "cancion": "Superdiversión",
+      "alt": "Barco pirata de juguete"
+    },
+    {
+      "id": "cassette",
+      "nombre": "Cassette",
+      "categoria": "Música",
+      "precio": 9900,
+      "desc": "Cassette coleccionista del disco. Viene rebobinado, con carátula de recorte y funda transparente. No incluye reproductor.",
+      "variantes": [],
+      "imagen": "/img/merch/cassette.jpg",
+      "prompt_imagen": "A compact audio cassette tape beside its clear plastic case, the label printed with ELVIS INTERLUDIO in pink and yellow halftone, seen flat from above. Product photo in a dirty photocopy and halftone aesthetic: flat studio lighting, hot pink (#FF2E9A) and acid yellow (#F7E92B) background with coarse black halftone dots and film grain, off-white paper texture, torn tape corners, hard black drop shadow, slightly misregistered print. Square 1:1 framing, product centered with plenty of margin. Any text uses rough cut-out collage letters. No logos, no brand names, no real people, no faces.",
+      "alt": "Cassette con su funda"
+    }
+  ],
+  "estilo_comun": "Product photo in a dirty photocopy and halftone aesthetic: flat studio lighting, hot pink (#FF2E9A) and acid yellow (#F7E92B) background with coarse black halftone dots and film grain, off-white paper texture, torn tape corners, hard black drop shadow, slightly misregistered print. Square 1:1 framing, product centered with plenty of margin. Any text uses rough cut-out collage letters. No logos, no brand names, no real people, no faces."
+}

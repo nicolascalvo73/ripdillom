@@ -9,7 +9,17 @@
 
 ## PROMPT
 
-Vas a construir **"rip.dillom — La nueva violencia"**, un proyecto como **Mondilab de Mondi Studio**. Desplegado en `labs.mondistudio.com.ar/ripdillom`. Mobile-first, sin scroll en el home, inmersivo.
+Vas a construir **"rip.dillom — La nueva violencia"**, un tributo fan (no oficial) como **Mondilab de Mondi Studio**. Desplegado en `labs.mondistudio.com.ar/ripdillom`. Mobile-first, sin scroll en el home, inmersivo.
+
+### Documentos de diseño (leer primero)
+`diseno/HANDOFF-dillom-lnv.md` es la especificación exacta (tokens, componentes, frames, textos, animación, rendimiento); los frames exportados están en `diseno/frames/` y, si existen, los `*.dc.html` originales en `diseno/project/`. **Precedencia:** (1) este prompt gana sobre el handoff en lo que lo contradice; (2) el handoff gana sobre tu criterio en valores visuales. Contradicciones ya resueltas:
+- El globo de la espalda dice **TIENDA** (el handoff dice "Merch" por error; el panel también se llama Tienda).
+- Rutas: `/musica`, `/videos`, `/redes`, `/shows`, `/tienda`, `/dona`, `/quien-soy`, `/tatuador` (BrowserRouter con fallback SPA en Cloudflare Pages, no hash).
+- El botón de mute va en **todas** las pantallas (el diseño lo dibujó solo en algunas), en la posición indicada en el handoff.
+- El modelo ya tiene ~65 000 triángulos: aceptá hasta 70 000 (no el límite de 60 000 del handoff) y comprimí con Meshopt; el objetivo de peso es ≤ 5 MB.
+- Tablet (768–1023 px) no está diseñada: usá la lógica desktop con panel de 520 px.
+- Textos de globos que faltan: usar el nombre de la sección (Videos, Redes, Shows, Quién soy, Tatuajes).
+- Las fechas de Shows del handoff son un ejemplo tomado de un afiche: van en `shows.json` y deben marcarse "a confirmar" salvo que yo las verifique.
 
 ### Qué es
 Una escena 3D: un muñeco estilo Playmobil de Dillom flota en una nebulosa; el usuario lo orbita y hace zoom. Texto "DILLOM" arriba y "LA NUEVA VIOLENCIA" abajo. Cada parte del cuerpo abre una sección. El diseño ya está hecho en Claude Design (adjunto: frames, sistema de diseño, notas de animación). **El diseño manda**: colores, tipografías (Londrina Solid + Space Mono), globos de cómic, paneles, tiempos.
@@ -43,10 +53,10 @@ Construí un **modo debug** (`?debug=1`) para arrastrar decals sobre el muñeco 
 | Pecho | frente, y 0.50–0.74, \|x\|<0.17 | /videos | VIDEOS |
 | Brazo derecho | x<−0.17, y 0.30–0.72 | /redes | REDES |
 | Brazo izquierdo | x>+0.17, y 0.30–0.72 | /shows | SHOWS |
-| Espalda | z<0, y 0.45–0.74 | /merch | TIENDA |
+| Espalda | z<0, y 0.45–0.74 | /tienda | TIENDA |
 | Pierna derecha + pie | x<0, y<0.30 | /quien-soy | QUIÉN SOY |
 | Pierna izquierda + pie | x>0, y<0.30 | /tatuador | TATUAJES |
-| Billete $100 | bolsillo trasero derecho (x≈−0.07, y≈0.36, z≈−0.14) | /aporte | TOMÁ $100 |
+| Billete $100 | bolsillo trasero derecho (x≈−0.07, y≈0.36, z≈−0.14) | /dona | TOMÁ $100 |
 | Entrepierna (easter egg) | trapecio invertido frontal tipo slip: de la cintura baja (y≈0.443) a y≈0.30, ancho ±0.08 arriba a ±0.03 abajo, solo z>0 | ninguna | ¡EPA! (al tocar, 1.5 s, el muñeco rebota) |
 Las zonas de piernas arrancan debajo de y=0.30 para no pisar la del easter egg. **Probar en celular** que no se activen por error. Si la zona está de espaldas a la cámara, mostrar indicador de borde "↻ girá".
 
@@ -68,11 +78,11 @@ Nebulosa con shader propio (ruido fbm, paleta negro/rosa/amarillo), más grano y
 - Rutas con React Router; cada sección es un panel DOM (bottom sheet en mobile, lateral en desktop) sobre el canvas, que persiste montado entre rutas (no recargar el 3D).
 - Contenido editable en `src/content/*.json`: `musica`, `videos`, `redes`, `shows`, `merch`, `quien-soy`, `aporte`. Usar placeholders entre corchetes donde falten datos (tracklist, bio, handles, links). **No inventes datos reales**: fechas de shows solo si están verificadas; si no, estado "fechas por anunciar".
 - Música/Videos: embeds de Spotify/YouTube con carga diferida (click-to-load para no bajar peso).
-- Merch (`/merch`) = **mini tienda de mentira**. Catálogo en `src/content/merch.json` (id, nombre, descripción corta y graciosa, precio en ARS, categoría, imágenes, talles/variantes opcionales). Productos (todos inexistentes, imágenes generadas con IA, tema "La nueva violencia"): **el muñequito de Dillom (producto estrella, primero en la grilla y destacado)**, gorras, remeras, buzos, tazas, mates, termos, toallitas femeninas, estampitas, manteles bordados, cartucheras para revólver, y más. El detalle del muñequito de Dillom muestra una **vista 3D giratoria del mismo modelo** (Canvas liviano cargado de forma diferida, con `muneco-v5-frente.png` como imagen de respaldo/miniatura). Funcionalidad: grilla con filtros por categoría, detalle de producto (galería, talle/variante, cantidad), **carrito** (drawer/panel: agregar, quitar, cambiar cantidad, subtotal; estado con Zustand, persistido en localStorage con try/catch), botón "Ir a pagar". Al avanzar al pago **no hay pago real**: se abre un modal en el estilo del diseño con el mensaje **"AHRE QUE ERA DE MENTIRITA"**, aclarando que los productos no existen y no se puede comprar; botones "Volver a la tienda", "Vaciar carrito" y, opcional, "Tomá $100" que lleva a `/aporte`. Dejar claro en toda la tienda (banner fijo o sello visible) que es una **tienda de mentira**. No pedir datos personales ni tarjeta en ningún paso. Las imágenes de producto son placeholders hasta que las genere yo: usá un componente que tolere imagen faltante (fondo de fotocopia + nombre del producto). Sin logos oficiales ni fotos del artista en los productos.
-- Aporte "Tomá $100" (`/aporte`): formulario simple (monto en ARS con atajos tipo $100/$500/$1000 y campo libre, nombre opcional, mensaje opcional corto). Al enviar, el front hace POST a `/api/aporte`; esa **Pages Function** crea una preferencia de **Mercado Pago Checkout Pro** (API de preferencias) y devuelve el `init_point`, al que se redirige al usuario. Requisitos de seguridad:
+- Tienda (`/tienda`) = mini tienda. Catálogo en `src/content/merch.json` (semilla `docs/merch.json`): 8 productos con nombre visible = lo que es el objeto (Muñequito, Curitas, Mantel bordado, Boxers unisex, Manual de geografía, Caña de pescar, Barco pirata, Cassette); las gráficas con títulos de canciones ya vienen dentro de las imágenes (`public/img/merch/<id>.jpg`, finales). Muñequito = destacado, primero, con vista 3D giratoria diferida del mismo modelo. Categorías: Todo, Casa, Juguetes, Libros, Música, Ropa, Varios. Funcionalidad: grilla con filtros, detalle (galería, variante con su etiqueta Talle/Tamaño, cantidad), carrito (Zustand + localStorage con try/catch), "Ir a pagar". **La tienda se presenta como una tienda normal: no hay banner, sello, texto ni aclaración de que es de mentira en ningún lugar.** La única excepción es el último paso: al tocar "Ir a pagar" se abre el modal "AHRE QUE ERA DE MENTIRITA" (los productos no existen, no se cobra nada), con "Volver a la tienda", "Vaciar carrito" y "Tomá $100" (`/dona`). No pedir datos personales ni tarjeta. Sin logos oficiales ni fotos del artista.
+- Aporte "Tomá $100" (`/dona`): formulario simple (monto en ARS con atajos tipo $100/$500/$1000 y campo libre, nombre opcional, mensaje opcional corto). Al enviar, el front hace POST a `/api/aporte`; esa **Pages Function** crea una preferencia de **Mercado Pago Checkout Pro** (API de preferencias) y devuelve el `init_point`, al que se redirige al usuario. Requisitos de seguridad:
   - El **Access Token de Mercado Pago vive solo como variable secreta de entorno** (`MP_ACCESS_TOKEN` en Cloudflare); NUNCA en el código del front, en el repo ni en logs. Incluir `.env.example` sin valores y `.gitignore` que excluya `.env*`.
   - Validar en el servidor: monto numérico entero, mínimo y máximo razonables (configurables, ej. 100–100000 ARS), moneda ARS, longitud del nombre/mensaje; sanitizar. Ignorar cualquier precio que no pase la validación. Rate limit básico y CORS limitado al dominio propio.
-  - Título de la preferencia fijo ("Aporte para el creador de la web"), `back_urls` (success/failure/pending) a pantallas dentro del sitio (`/aporte/gracias`, etc.) y `external_reference` generado en el servidor.
+  - Título de la preferencia fijo ("Aporte para el creador de la web"), `back_urls` (success/failure/pending) a pantallas dentro del sitio (`/dona/gracias`, etc.) y `external_reference` generado en el servidor.
   - Aclarar en el formulario que el aporte va al creador de la web, no al artista; no guardar datos de tarjeta ni de pago (todo ocurre en Mercado Pago).
   - Manejo de errores claro (API caída, monto inválido) con mensajes en el estilo del diseño. Modo de prueba con credenciales de test mientras se desarrolla.
   - No implementes webhooks ni base de datos en esta versión; opcional como mejora futura.
@@ -80,7 +90,7 @@ Nebulosa con shader propio (ruido fbm, paleta negro/rosa/amarillo), más grano y
 - Modo tatuador (`/tatuador`): pantalla dedicada, paleta de los 7 tatuajes, arrastrar/rotar/escalar sobre el muñeco, deshacer, reset, guardar en localStorage (siempre con try/catch) y exportar PNG (captura del canvas con marca discreta de la web).
 - Pantalla de carga con progreso real (`useProgress`) que termina en el botón ENTRAR (ver Audio).
 - Fallback sin WebGL: menú simple con las mismas secciones. Navegación de respaldo siempre disponible (también para teclado/lectores de pantalla): hotspots con rol de botón y `aria-label`; respetar `prefers-reduced-motion`.
-- Footer: al final del proyecto, "Powered by Mondi Studio" enlazando a mondistudio.com.ar (dejarlo como último paso, no ahora).
+- Footer/aviso: "Proyecto de fans, no oficial". Al final del proyecto, "Powered by Mondi Studio" enlazando a mondistudio.com.ar (dejarlo como último paso, no ahora).
 - SEO: meta, Open Graph con una captura del muñeco, `title` por ruta.
 
 ### Legal / criterio

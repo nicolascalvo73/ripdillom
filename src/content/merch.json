@@ -1,17 +1,107 @@
 {
-  "sello": "Tienda de mentira",
-  "categorias": ["Todo", "Muñecos", "Ropa", "Cocina", "Varios"],
+  "moneda": "ARS",
+  "categorias": [
+    "Todo",
+    "Casa",
+    "Juguetes",
+    "Libros",
+    "Música",
+    "Ropa",
+    "Varios"
+  ],
   "productos": [
-    { "id": "muneco", "nombre": "El Muñequito de Dillom", "desc": "Plástico de primera. Viene con tatuajes y billete de cien incluidos.", "precio": 49999, "categoria": "Muñecos", "estrella": true, "imagenes": ["/img/muneco-v5-frente.png", "/img/muneco-v5-espalda-luz.png"] },
-    { "id": "gorra", "nombre": "Gorra La Nueva Violencia", "desc": "Tapa la cabeza, no los problemas.", "precio": 12500, "categoria": "Ropa", "imagenes": [] },
-    { "id": "remera", "nombre": "Remera Calavera con Muletas", "desc": "100% algodón, 0% existencia.", "precio": 18900, "categoria": "Ropa", "talles": ["S", "M", "L", "XL"], "imagenes": [] },
-    { "id": "buzo", "nombre": "Buzo Drip Eterno", "desc": "Gotea estilo, no gotea tinta.", "precio": 34900, "categoria": "Ropa", "talles": ["S", "M", "L", "XL"], "imagenes": [] },
-    { "id": "taza", "nombre": "Taza Ni Un Mango", "desc": "Para el café de las 4 AM.", "precio": 6900, "categoria": "Cocina", "imagenes": [] },
-    { "id": "mate", "nombre": "Mate Imperial Violento", "desc": "Cebá con rencor.", "precio": 8500, "categoria": "Cocina", "imagenes": [] },
-    { "id": "termo", "nombre": "Termo Acero Quirúrgico", "desc": "Mantiene el agua caliente y el ánimo en duda.", "precio": 27500, "categoria": "Cocina", "imagenes": [] },
-    { "id": "mantel", "nombre": "Mantel Bordado a Mano (alzada)", "desc": "Para cenas familiares incómodas.", "precio": 15900, "categoria": "Cocina", "imagenes": [] },
-    { "id": "toallitas", "nombre": "Toallitas Femeninas Dillom", "desc": "Absorción nivel meme.", "precio": 3900, "categoria": "Varios", "imagenes": [] },
-    { "id": "estampitas", "nombre": "Estampitas Bendecidas (x3)", "desc": "Protegen del mal gusto.", "precio": 1500, "categoria": "Varios", "imagenes": [] },
-    { "id": "cartuchera", "nombre": "Cartuchera para Revólver", "desc": "Es para lapiceras, tranqui.", "precio": 9900, "categoria": "Varios", "imagenes": [] }
+    {
+      "id": "muneco",
+      "nombre": "Muñequito",
+      "categoria": "Juguetes",
+      "precio": 89900,
+      "destacado": true,
+      "etiqueta": "EDICIÓN LIMITADA",
+      "desc": "El mismo de la web, pero en tu mano. Se queda quieto, posa y no opina. Incluye flequillo recto y tatuajes que no se borran con nada.",
+      "variantes": [],
+      "vista3d": true,
+      "imagen": "/img/merch/muneco.jpg",
+      "alt": "Muñequito de Dillom en blister, edición limitada"
+    },
+    {
+      "id": "curitas",
+      "nombre": "Curitas",
+      "categoria": "Varios",
+      "precio": 3200,
+      "desc": "Caja de 20 curitas para gente común con heridas poco comunes. No curan nada, pero quedan lindas.",
+      "variantes": [],
+      "imagen": "/img/merch/curitas.jpg",
+      "alt": "Caja de 20 curitas"
+    },
+    {
+      "id": "mantel",
+      "nombre": "Mantel bordado",
+      "categoria": "Casa",
+      "precio": 33400,
+      "desc": "Bordado a mano con glamour de barrio caro. Apto para cenas con luces tenues y comentarios filosos. Lavar aparte de las apariencias.",
+      "variantes": [
+        "Chico",
+        "Grande"
+      ],
+      "imagen": "/img/merch/mantel.jpg",
+      "etiqueta_variante": "Tamaño",
+      "alt": "Mantel bordado a punto cruz"
+    },
+    {
+      "id": "boxers",
+      "nombre": "Boxers unisex",
+      "categoria": "Ropa",
+      "precio": 14900,
+      "desc": "Unisex porque la moda no distingue. Elástico que sí cede, a diferencia de otras cosas. Se ven más de lo que deberían.",
+      "variantes": [
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "imagen": "/img/merch/boxers.jpg",
+      "etiqueta_variante": "Talle",
+      "alt": "Boxers unisex negros"
+    },
+    {
+      "id": "manual",
+      "nombre": "Manual de geografía",
+      "categoria": "Libros",
+      "precio": 18700,
+      "desc": "Todo sobre mapas y lugares a los que ir (y de los que volver con algo). Tapa dura, 412 páginas, 0 aprobadas. Incluye mapa que no se vuelve a doblar nunca.",
+      "variantes": [],
+      "imagen": "/img/merch/manual.jpg",
+      "alt": "Manual de geografía, tapa dura"
+    },
+    {
+      "id": "cana",
+      "nombre": "Caña de pescar",
+      "categoria": "Varios",
+      "precio": 45200,
+      "desc": "Para pescar lo que sea, aunque muerda. Telescópica, cabe en la mochila. Carnada no incluida; cuidado con las lágrimas.",
+      "variantes": [],
+      "imagen": "/img/merch/cana.jpg",
+      "alt": "Caña de pescar telescópica con reel"
+    },
+    {
+      "id": "barco",
+      "nombre": "Barco pirata",
+      "categoria": "Juguetes",
+      "precio": 76500,
+      "desc": "Para armar y para hundir. Incluye velas, un cañón inofensivo y bandera pirata. Piezas chiquitas: manténgase alejado del aburrimiento.",
+      "variantes": [],
+      "imagen": "/img/merch/barco.jpg",
+      "alt": "Barco pirata de juguete"
+    },
+    {
+      "id": "cassette",
+      "nombre": "Cassette",
+      "categoria": "Música",
+      "precio": 9900,
+      "desc": "Cassette coleccionista del disco. Viene rebobinado, con carátula de recorte y funda transparente. No incluye reproductor.",
+      "variantes": [],
+      "imagen": "/img/merch/cassette.jpg",
+      "alt": "Cassette con su funda"
+    }
   ]
 }

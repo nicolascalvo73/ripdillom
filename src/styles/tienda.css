@@ -1,26 +1,35 @@
-/* Tienda de mentira (P-merch). */
-.sello { margin-bottom: 12px; }
+/* Tienda (P-merch). */
 .ver-carrito { margin-bottom: 12px; }
 .filtros { flex-wrap: wrap; margin-bottom: 14px; }
 .grilla { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
-.grilla .estrella { grid-column: 1 / -1; }
 .prod { all: unset; box-sizing: border-box; cursor: pointer; display: flex; flex-direction: column; gap: 6px; width: 100%; border: 2px solid var(--bk); box-shadow: 4px 4px 0 var(--bk); padding: 8px; background: var(--bn); }
 .prod:active { transform: translate(2px, 2px); box-shadow: 2px 2px 0 var(--bk); }
 .prod:focus-visible { outline: 3px dashed var(--pk); outline-offset: 2px; }
 .prod .fd { font-size: 20px; line-height: 1.05; }
-.foto { display: block; width: 100%; aspect-ratio: 1; object-fit: contain; background: var(--bn2); }
-.estrella .foto { aspect-ratio: 16 / 9; }
+.foto { display: block; width: 100%; aspect-ratio: 1; object-fit: cover; background: var(--bn2); }
+.tienda .tienda-et { position: absolute; left: 8px; top: 8px; min-height: 0; min-width: 0; pointer-events: none; }
+.prod { position: relative; }
+.prod .tienda-et { left: 14px; top: 14px; }
+.visor { position: relative; width: 100%; max-width: 420px; }
+.vista3d { width: 100%; aspect-ratio: 1; border: 2px solid var(--bk); box-shadow: 4px 4px 0 var(--bk); background: var(--bn2); touch-action: pan-y; }
 .foto-vacia { padding: 8px; text-align: center; }
 .foto-vacia .fd { font-size: 18px; }
-.galeria { display: flex; gap: 8px; margin-top: 8px; }
-.mini { all: unset; cursor: pointer; width: 56px; border: 2px solid var(--bk); }
-.mini.on { border-color: var(--pk); }
+.galeria { display: flex; gap: 8px; }
+.mini { all: unset; box-sizing: border-box; cursor: pointer; width: 56px; height: 56px; border: 2px solid var(--bk); display: flex; align-items: center; justify-content: center; background: var(--bn2); }
+.mini .foto { height: 100%; }
+.mini.on { border-color: var(--pk); box-shadow: 2px 2px 0 var(--pk); }
+.mini:focus-visible { outline: 3px dashed var(--pk); outline-offset: 2px; }
+.mini-3d { font-size: 20px; }
 .tienda-detalle, .tienda-carrito { display: flex; flex-direction: column; gap: 10px; align-items: flex-start; }
-.tienda-detalle .foto { max-height: 320px; border: 2px solid var(--bk); box-shadow: 4px 4px 0 var(--bk); }
+.tienda-detalle .visor > .foto { border: 2px solid var(--bk); box-shadow: 4px 4px 0 var(--bk); }
 .tienda-nombre { font-size: 30px; margin: 0; }
 .tienda-precio { font-size: 28px; color: var(--pk2); }
 .talles, .cant { display: flex; gap: 8px; align-items: center; }
 .talle { cursor: pointer; }
+/* áreas táctiles ≥ 44 px */
+.tienda .btn, .tienda .chip { min-height: 44px; min-width: 44px; }
+.tienda-carrito .row { flex-wrap: wrap; }
+@media (min-width: 768px) { .grilla { grid-template-columns: repeat(3, 1fr); } }
 .mentirita { position: absolute; inset: 0; z-index: 5; display: flex; align-items: center; justify-content: center; padding: 16px; background: rgba(13, 10, 12, 0.7); }
 .mentirita-caja { background: var(--bn); border: 3px solid var(--bk); box-shadow: 6px 6px 0 var(--pk); padding: 18px; display: flex; flex-direction: column; gap: 10px; max-width: 360px; }
 .mentirita-caja h3 { font-size: 34px; margin: 0; line-height: 1; }
