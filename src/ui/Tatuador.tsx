@@ -20,6 +20,8 @@ function Pantalla() {
   const selected = useTatuajes((s) => s.selected)
   const modo = useTatuajes((s) => s.modo)
   const hayHistorial = useTatuajes((s) => s.historial.length > 0)
+  // getState() de Zustand: acciones estables, no es llamar al hook como valor
+  // oxlint-disable-next-line react/hooks
   const { select, setModo, colocar, agregarPropio, borrar, espejar, deshacer, guardar, reset, patch, commit } = useTatuajes.getState()
 
   const [aviso, setAviso] = useState('')

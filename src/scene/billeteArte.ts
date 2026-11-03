@@ -67,6 +67,8 @@ export function useTexturaBillete() {
 
   useEffect(() => {
     dibujar(canvas)
+    // las texturas de three.js se mutan por diseño: needsUpdate avisa que el canvas cambió
+    // oxlint-disable-next-line react/immutability
     textura.needsUpdate = true
     document.fonts?.load('900 40px "Londrina Solid"').then(() => {
       dibujar(canvas)

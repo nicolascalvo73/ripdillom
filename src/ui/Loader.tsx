@@ -17,7 +17,9 @@ const FRASES = [
 function usePorcentaje(objetivo: number) {
   const [valor, setValor] = useState(0)
   const objetivoRef = useRef(objetivo)
-  objetivoRef.current = objetivo
+  useEffect(() => {
+    objetivoRef.current = objetivo
+  }, [objetivo])
 
   useEffect(() => {
     let raf = 0

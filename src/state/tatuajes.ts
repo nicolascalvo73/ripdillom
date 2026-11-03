@@ -58,7 +58,7 @@ function leerGuardado(): Tatuaje[] | null {
         espejo: s.espejo === true,
         puesto: s.puesto !== false,
       }))
-    const base = BASE.map((b) => {
+    const fijos = BASE.map((b) => {
       const s = arr.find((a) => a && typeof a === 'object' && (a as Tatuaje).id === b.id) as Partial<Tatuaje> | undefined
       if (!s) return b
       return {
@@ -71,7 +71,7 @@ function leerGuardado(): Tatuaje[] | null {
         puesto: s.puesto !== false,
       }
     })
-    return [...base, ...propios]
+    return [...fijos, ...propios]
   } catch {
     return null
   }

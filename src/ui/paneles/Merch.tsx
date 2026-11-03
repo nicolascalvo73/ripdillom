@@ -228,6 +228,8 @@ function Carrito({ volver }: { volver: () => void }) {
         </>
       )}
       {modal && (
+        // el onKeyDown atrapa el foco y cierra con Escape dentro del diálogo
+        // oxlint-disable-next-line jsx-a11y/no-noninteractive-element-interactions
         <div className="mentirita" role="alertdialog" aria-modal="true" aria-label="Era de mentirita" ref={dialogo} onKeyDown={teclado}>
           <div className="mentirita-caja">
             <h3 className="fd">AHRE QUE ERA DE MENTIRITA</h3>

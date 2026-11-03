@@ -18,7 +18,9 @@ const ray = new Raycaster()
 let pressed = false
 
 /** Genera el decal en el espacio del comuñe en reposo (ignora el flote del grupo padre). */
-function buildDecal(skin: Mesh, t: Tatuaje, aspect: number): BufferGeometry {
+type Pose = Pick<Tatuaje, 'x' | 'y' | 'alto' | 'rot' | 'espejo'>
+
+function buildDecal(skin: Mesh, t: Pose, aspect: number): BufferGeometry {
   const z = zSuperficie(skin, t.x, t.y, 1, 0.1)
   const saved = skin.matrixWorld.clone()
   skin.matrixWorld.copy(skin.matrix)
@@ -35,10 +37,9 @@ function buildDecal(skin: Mesh, t: Tatuaje, aspect: number): BufferGeometry {
 function Decal({ skin, t, map, editable }: { skin: Mesh; t: Tatuaje; map: Texture; editable: boolean }) {
   const img = map.image as { width: number; height: number }
   const aspect = img.width / img.height
-  const geometry = useMemo(
-    () => buildDecal(skin, t, aspect),
-    [skin, t.x, t.y, t.alto, t.rot, t.espejo, aspect], // eslint-disable-line react-hooks/exhaustive-deps
-  )
+  // depende de los campos de t, no de la identidad del objeto
+  const { x, y, alto, rot, espejo } = t
+  const geometry = useMemo(() => buildDecal(skin, { x, y, alto, rot, espejo }, aspect), [skin, x, y, alto, rot, espejo, aspect])
   useEffect(() => () => geometry.dispose(), [geometry])
   const select = useTatuajes((s) => s.select)
   const selected = useTatuajes((s) => s.selected === t.id)

@@ -134,6 +134,8 @@ function Globo() {
       <Html portal={PORTAL} zIndexRange={[25, 20]} pointerEvents="none" style={{ pointerEvents: 'none' }}>
         <div className={`globo globo-${cola}${zona.id === EPA.id ? ' globo-epa' : ''}`}>
           {zona.id === EPA.id && <span className="estallido" aria-hidden="true" />}
+          {/* atajo solo táctil: con teclado se navega por los hotspots y la navegación de respaldo */}
+          {/* oxlint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions */}
           <div
             className="sh"
             style={tocable ? { pointerEvents: 'auto', cursor: 'pointer' } : undefined}
