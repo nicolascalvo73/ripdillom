@@ -1,7 +1,18 @@
 {
-  "titulo": "Próximas fechas · gira 2026",
-  "_nota": "Solo cargar fechas VERIFICADAS. Formato: { \"dia\": \"01\", \"mes\": \"Nov\", \"ciudad\": \"…\", \"detalle\": \"País · venue\", \"entradas\": \"https://…\" }. Sin 'entradas' se muestra el chip 'Pronto'.",
-  "fechas": [],
+  "titulo": "Próximas fechas · La gira violenta",
+  "_nota": "Solo fechas VERIFICADAS (revisado el 2026-11-03 en prensa de Ocesa, la diaria, realidadsm, La Guía del Ocio, Crock/Remezcla y La Nación). Formato: { fecha: 'AAAA-MM-DD', hasta?: fin si dura varios días, ciudad, detalle, entradas?: link de compra verificado, chip?: boletería si no hay link directo, estado?: 'agotado' }. Las fechas que ya pasaron se ocultan solas; se muestran las próximas 10.",
+  "fechas": [
+    { "fecha": "2026-11-05", "ciudad": "Ciudad de México", "detalle": "México · Foro Puebla", "estado": "agotado" },
+    { "fecha": "2026-11-06", "ciudad": "Ciudad de México", "detalle": "México · Foro Puebla", "estado": "agotado" },
+    { "fecha": "2026-11-07", "ciudad": "Ciudad de México", "detalle": "México · Foro Puebla", "estado": "agotado" },
+    { "fecha": "2026-11-08", "ciudad": "Ciudad de México", "detalle": "México · Foro Puebla · fecha agregada", "entradas": "https://www.ocesa.com.mx/todos-los-eventos/dillom-boletos-ae1604656" },
+    { "fecha": "2026-11-14", "ciudad": "Montevideo", "detalle": "Uruguay · Rural del Prado", "chip": "RedTickets" },
+    { "fecha": "2026-11-21", "ciudad": "Neuquén", "detalle": "Argentina · Mood Live", "chip": "Protickets" },
+    { "fecha": "2026-12-12", "ciudad": "Buenos Aires", "detalle": "Argentina · Club Ferro Carril Oeste", "estado": "agotado" },
+    { "fecha": "2026-12-13", "ciudad": "Buenos Aires", "detalle": "Argentina · Club Ferro Carril Oeste", "entradas": "https://www.enigmatickets.com/event/0fbd1c9b-8ac6-4060-a984-4f75476c1905" },
+    { "fecha": "2027-03-12", "hasta": "2027-03-14", "ciudad": "Lollapalooza Argentina", "detalle": "San Isidro · Hipódromo · día a confirmar", "chip": "All Access" },
+    { "fecha": "2027-05-08", "ciudad": "Miami", "detalle": "Estados Unidos · ZeyZey", "chip": "En venta" }
+  ],
   "vacio": "Fechas por anunciar",
-  "pie": "+ Fechas por anunciar"
+  "pie": "+ Gira por Estados Unidos en mayo 2027"
 }

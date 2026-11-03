@@ -127,3 +127,7 @@ html, body, #root {
 
 /* el tatuador trae su propia barra superior */
 .hud[data-tatuador] { display: none; }
+
+/* Sin barras de scroll visibles: se sigue scrolleando con rueda, touch y teclado */
+* { scrollbar-width: none; -ms-overflow-style: none; }
+*::-webkit-scrollbar { display: none; width: 0; height: 0; }

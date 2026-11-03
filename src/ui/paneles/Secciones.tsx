@@ -1,4 +1,4 @@
-import type { ReactNode } from 'react'
+import { useState, type ReactNode } from 'react'
 import redes from '../../content/redes.json'
 import shows from '../../content/shows.json'
 import quien from '../../content/quien-soy.json'
@@ -41,33 +41,58 @@ export function Redes() {
   )
 }
 
+type Fecha = { fecha: string; hasta?: string; ciudad: string; detalle: string; entradas?: string; chip?: string; estado?: string }
+
+const MESES = ['ene', 'feb', 'mar', 'abr', 'may', 'jun', 'jul', 'ago', 'sep', 'oct', 'nov', 'dic']
+const dia = (iso: string) => new Date(`${iso}T12:00:00`)
+const MAX_FECHAS = 10
+
 export function Shows() {
-  const hay = shows.fechas.length > 0
+  const [hoy] = useState(() => {
+    const d = new Date()
+    d.setHours(0, 0, 0, 0)
+    return d
+  })
+  // las que ya pasaron se ocultan solas; se muestran las próximas 10
+  const proximas = (shows.fechas as Fecha[])
+    .filter((f) => dia(f.hasta ?? f.fecha) >= hoy)
+    .sort((a, b) => a.fecha.localeCompare(b.fecha))
+    .slice(0, MAX_FECHAS)
   return (
     <>
       <div className="lbl sec-et">{shows.titulo}</div>
-      {hay ? (
+      {proximas.length > 0 ? (
         <ul className="lista">
-          {(shows.fechas as { dia: string; mes: string; ciudad: string; detalle: string; entradas?: string }[]).map((f, i) => (
-            <li className="row" key={i}>
-              <div className="fd fecha">
-                {f.dia}
-                <br />
-                <span>{f.mes}</span>
-              </div>
-              <div className="grow">
-                <b>{f.ciudad}</b>
-                <div className="lbl gris">{f.detalle}</div>
-              </div>
-              {f.entradas ? (
-                <a className="btn entradas" href={f.entradas} target="_blank" rel="noopener noreferrer">
-                  Entradas ↗
-                </a>
-              ) : (
-                <span className="chip">Pronto</span>
-              )}
-            </li>
-          ))}
+          {proximas.map((f) => {
+            const d = dia(f.fecha)
+            const otroAnio = d.getFullYear() !== hoy.getFullYear()
+            const agotado = f.estado === 'agotado'
+            return (
+              <li className={`row show${agotado ? ' agotado' : ''}`} key={f.fecha + f.ciudad}>
+                <div className={`fd fecha${f.hasta ? ' rango' : ''}`}>
+                  {f.hasta ? `${d.getDate()}–${dia(f.hasta).getDate()}` : String(d.getDate()).padStart(2, '0')}
+                  <br />
+                  <span>
+                    {MESES[d.getMonth()]}
+                    {otroAnio && <small> {String(d.getFullYear()).slice(2)}</small>}
+                  </span>
+                </div>
+                <div className="grow">
+                  <b>{f.ciudad}</b>
+                  <div className="lbl gris">{f.detalle}</div>
+                </div>
+                {agotado ? (
+                  <span className="chip f-pk">Agotado</span>
+                ) : f.entradas ? (
+                  <a className="btn entradas" href={f.entradas} target="_blank" rel="noopener noreferrer">
+                    Entradas ↗
+                  </a>
+                ) : (
+                  <span className="chip">{f.chip ?? 'Pronto'}</span>
+                )}
+              </li>
+            )
+          })}
         </ul>
       ) : (
         <p className="shows-vacio fd">{shows.vacio}</p>
