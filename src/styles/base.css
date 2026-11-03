@@ -92,9 +92,18 @@ html, body, #root {
   left: 0;
   right: 0;
   text-align: center;
-  color: var(--bn);
+  color: var(--yl);
   opacity: 0.85;
+  text-shadow: 1px 1px 0 var(--bk);
+  animation: hint-pulso 2.4s ease-in-out infinite;
 }
+
+@keyframes hint-pulso {
+  0%, 100% { opacity: 0.55; transform: translateY(0); }
+  50% { opacity: 1; transform: translateY(-3px); }
+}
+
+@media (prefers-reduced-motion: reduce) { .hint { animation: none; } }
 
 /* modo debug (?debug=1) */
 .debug {

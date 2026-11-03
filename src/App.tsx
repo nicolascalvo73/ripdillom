@@ -133,7 +133,7 @@ function App3D() {
       <Pie />
       <div className="hud" data-panel={hayPanel ? '' : undefined} data-tatuador={tatuando ? '' : undefined}>
         <h1 className="fd title">Dillom</h1>
-        <p className="lbl hint">Arrastrá para girar · tocá el comuñe</p>
+        <p className="lbl hint">Tocá el comuñe para entrar · arrastrá para girar</p>
         <div className="fd strap">
           <span>La nueva violencia</span>
         </div>
