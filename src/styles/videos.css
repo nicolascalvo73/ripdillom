@@ -1,0 +1,103 @@
+/* Panel de videos: tele arriba + "marcas de altura en el marco de la puerta", una silueta del comuñe por clip. */
+
+.vid-tele {
+  position: relative; aspect-ratio: 16 / 9; background: var(--bk); border: 2px solid var(--bk); box-shadow: 5px 5px 0 var(--pk); overflow: hidden;
+}
+.vid-frame { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; display: block; }
+.vid-poster {
+  position: absolute; inset: 0; padding: 0; border: 0; background: var(--bk); cursor: pointer;
+  display: flex; align-items: center; justify-content: center; animation: vid-entra 0.35s ease-out both;
+}
+.vid-poster img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; filter: saturate(0.85) contrast(1.05); }
+.vid-poster::after {
+  /* semitono rosa encima de la miniatura, como el resto del sitio */
+  content: ''; position: absolute; inset: 0; pointer-events: none; mix-blend-mode: multiply; opacity: 0.35;
+  background-image: radial-gradient(var(--pk) 1.2px, transparent 1.7px); background-size: 6px 6px;
+}
+.vid-play {
+  position: relative; z-index: 1; width: 68px; height: 68px; display: flex; align-items: center; justify-content: center; padding-left: 4px;
+  background: var(--yl); color: var(--bk); border: 2px solid var(--bk); box-shadow: 4px 4px 0 var(--pk); transition: transform 0.15s;
+}
+.vid-poster:hover .vid-play { transform: scale(1.08) rotate(-4deg); }
+.vid-poster:focus-visible { outline: 3px dashed var(--yl); outline-offset: -6px; }
+@keyframes vid-entra { from { opacity: 0; transform: scale(1.04); } to { opacity: 1; transform: none; } }
+
+.vid-ficha { display: flex; gap: 12px; align-items: flex-start; margin-top: 14px; animation: vid-entra 0.35s ease-out both; }
+.vid-titulo { font-size: 28px; margin: 0 0 4px; }
+.vid-etapa { flex: none; transform: rotate(3deg); }
+
+.vid-nav { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-top: 12px; }
+.vid-nav .btn { min-height: 44px; padding: 0 12px; font-size: 12px; }
+
+/* la pared con la regla: líneas cada 10 px, más marcadas cada 50 */
+.crecer {
+  position: relative; margin-top: 8px; overflow-x: auto; overscroll-behavior-x: contain; scroll-snap-type: x proximity;
+  border: 2px solid var(--bk); box-shadow: 4px 4px 0 var(--bk);
+  background-color: var(--bn2);
+  background-image:
+    linear-gradient(to top, rgba(13, 10, 12, 0.28) 1px, transparent 1px),
+    linear-gradient(to top, rgba(13, 10, 12, 0.1) 1px, transparent 1px);
+  background-size: 100% 50px, 100% 10px;
+  background-position: 0 calc(100% - 44px);
+  background-attachment: local;
+  scrollbar-width: thin;
+}
+.crecer-pista {
+  list-style: none; margin: 0; padding: 26px 14px 0; display: flex; align-items: flex-end; gap: 0; min-height: 268px;
+  /* piso */
+  background: linear-gradient(to top, var(--bk) 0 44px, transparent 44px);
+  width: max-content;
+}
+.crecer-pista > li { position: relative; scroll-snap-align: center; display: flex; align-items: flex-end; }
+/* cambio de año: línea punteada y el año grande atrás */
+.crecer-pista > li.anio-nuevo { margin-left: 14px; padding-left: 12px; }
+.crecer-pista > li.anio-nuevo::before {
+  content: ''; position: absolute; left: 0; top: -26px; bottom: 44px; border-left: 2px dashed rgba(13, 10, 12, 0.45);
+}
+.crecer-pista > li.anio-nuevo::after {
+  /* el año escrito a lo largo de la línea, como en una regla */
+  content: attr(data-anio); position: absolute; left: -9px; bottom: 50px; writing-mode: vertical-rl; transform: rotate(180deg);
+  font-family: var(--fd); font-weight: 900; font-size: 18px; color: var(--bk); letter-spacing: 0.06em; pointer-events: none;
+  background: var(--bn2); padding: 4px 0;
+}
+.crecer-pista > li:first-child { margin-left: 0; }
+
+.hito {
+  position: relative; width: 94px; display: flex; flex-direction: column; align-items: center; justify-content: flex-end;
+  padding: 0 0 50px; border: 0; background: none; cursor: pointer; color: var(--bk); font: inherit;
+}
+.hito:focus-visible { outline: 3px dashed var(--pk); outline-offset: -2px; }
+
+/* la marca de lápiz a la altura de la cabeza, con la fecha escrita */
+.hito-marca { position: relative; width: 70px; height: 0; border-top: 2px solid var(--bk); margin-bottom: 4px; }
+.hito-fecha {
+  position: absolute; left: 50%; bottom: 3px; transform: translateX(-50%) rotate(-4deg); white-space: nowrap;
+  font-family: var(--fm); font-size: 11px; font-weight: 700; text-transform: lowercase;
+}
+
+.silueta {
+  display: block; color: var(--bk); transform-origin: 50% 100%;
+  animation: crece 0.55s cubic-bezier(0.2, 0.9, 0.3, 1.25) both; animation-delay: calc(var(--i) * 45ms);
+  transition: color 0.15s;
+}
+@keyframes crece { from { transform: scaleY(0.15); opacity: 0; } to { transform: none; opacity: 1; } }
+
+.hito-titulo {
+  position: absolute; left: 4px; right: 4px; bottom: 6px; color: var(--bn); font-size: 10px; font-weight: 700; line-height: 1.15;
+  text-align: center; text-transform: uppercase; letter-spacing: 0.04em;
+  display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
+}
+
+.hito:hover .silueta { color: var(--pk2); }
+.hito.sel .silueta { color: var(--pk); animation: crece 0.55s cubic-bezier(0.2, 0.9, 0.3, 1.25) both, salta 0.5s ease-out 0.1s; filter: drop-shadow(3px 3px 0 var(--bk)); }
+.hito.sel .hito-marca { border-top-color: var(--pk); border-top-width: 3px; }
+.hito.sel .hito-fecha { color: var(--pk2); }
+.hito.sel .hito-titulo { color: var(--yl); }
+@keyframes salta { 0% { transform: none; } 35% { transform: translateY(-10px); } 65% { transform: none; } 80% { transform: translateY(-3px); } 100% { transform: none; } }
+
+.btn.vid-canal { margin-top: 18px; width: 100%; }
+
+@media (prefers-reduced-motion: reduce) {
+  .silueta, .hito.sel .silueta, .vid-poster, .vid-ficha { animation: none; }
+  .vid-play { transition: none; }
+}

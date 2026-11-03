@@ -1,11 +1,7 @@
 import type { ReactNode } from 'react'
-import musica from '../../content/musica.json'
-import videos from '../../content/videos.json'
 import redes from '../../content/redes.json'
 import shows from '../../content/shows.json'
 import quien from '../../content/quien-soy.json'
-import { Embed } from './Embed'
-import { useLateral } from '../useLateral'
 
 /** Enlace externo; si todavía no hay URL se muestra igual, deshabilitado, con el placeholder entre corchetes. */
 function Enlace({ url, className, children }: { url: string | null; className: string; children: ReactNode }) {
@@ -20,84 +16,6 @@ function Enlace({ url, className, children }: { url: string | null; className: s
     <a className={className} href={url} target="_blank" rel="noopener noreferrer">
       {children}
     </a>
-  )
-}
-
-const pad = (n: number) => String(n).padStart(2, '0')
-
-export function Musica() {
-  const lateral = useLateral()
-  return (
-    <>
-      <div className="mus-cab">
-        <div className="mus-tapa">
-          <span className="fd">{musica.sigla}</span>
-        </div>
-        <div>
-          <div className="fd mus-album">{musica.album}</div>
-          <div className="lbl">{musica.detalle}</div>
-          <div className="mus-chip">
-            <span className="chip f-yl">{musica.cantidadTemas}</span>
-          </div>
-        </div>
-      </div>
-      <div className="mus-embed">
-        <Embed titulo={musica.embed.titulo} url={musica.embed.url} alto={152} etiqueta="Cargar reproductor" />
-      </div>
-      <div className="lbl sec-et">Tracklist</div>
-      <ol className="lista">
-        {musica.tracklist.map((t, i) => (
-          <li className="row" key={i}>
-            <span className="fd num">{pad(i + 1)}</span>
-            <span className="grow nombre">{t.nombre}</span>
-            <span className="lbl">{t.duracion}</span>
-          </li>
-        ))}
-      </ol>
-      {lateral && <p className="lbl gris esc">Esc para volver</p>}
-    </>
-  )
-}
-
-export function Videos() {
-  const p = videos.principal
-  return (
-    <>
-      <div className="chips">
-        {videos.categorias.map((c, i) => (
-          <span key={c} className={`chip${i === 0 ? ' f-bk' : ''}`}>
-            {c}
-          </span>
-        ))}
-      </div>
-      <div className="vid-principal">
-        <Embed titulo={p.embed.titulo} url={p.embed.url} alto={178} etiqueta="Reproducir clip" />
-      </div>
-      <div className="fd vid-titulo">{p.titulo}</div>
-      <div className="lbl gris">{p.detalle}</div>
-      <div className="lbl sec-et">Más</div>
-      <ul className="lista">
-        {videos.mas.map((v, i) => (
-          <li key={i}>
-            <Enlace url={v.url} className="row">
-              <div className="ph-box miniatura" aria-hidden="true">
-                <svg width="16" height="16" viewBox="0 0 18 18">
-                  <path d="M3 1 L16 9 L3 17 Z" fill="#F7E92B" />
-                </svg>
-              </div>
-              <div className="grow nombre">
-                {v.titulo}
-                <div className="lbl gris">{v.detalle}</div>
-              </div>
-            </Enlace>
-          </li>
-        ))}
-      </ul>
-      <Enlace url={videos.canal} className="btn red">
-        <span>Ver el canal</span>
-        <span className="lbl">YouTube ↗</span>
-      </Enlace>
-    </>
   )
 }
 

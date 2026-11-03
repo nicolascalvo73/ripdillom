@@ -11,6 +11,8 @@ const FADE_MUTE = 200
 const FADE_DUCK = 300
 const DUCK_PANEL = 0.67 // 0,6 → 0,4 al abrir un panel
 const DUCK_EMBED = 0.15
+/** paneles con su propio reproductor: el fondo se calla del todo mientras están abiertos */
+const CALLAN = new Set(['cabeza', 'pecho'])
 
 /** Rampa lineal del volumen de un <audio>; devuelve la función que la cancela. */
 function rampa(el: HTMLAudioElement, destino: number, ms: number, fin?: () => void) {
@@ -34,6 +36,7 @@ export function Sonido() {
   const alternar = useAudio((s) => s.alternar)
   const embeds = useAudio((s) => s.embeds)
   const hayPanel = useEscena((s) => !!s.zona)
+  const calla = useEscena((s) => !!s.zona && CALLAN.has(s.zona.id))
 
   const el = useRef<HTMLAudioElement | null>(null)
   const cancelar = useRef<() => void>(() => {})
@@ -73,26 +76,29 @@ export function Sonido() {
       a.preload = 'auto'
       el.current = a
     }
-    const activo = !silenciado && !oculta.current
+    const activo = !silenciado && !calla && !oculta.current
     const prev = ultimo.current
     const ms = !sonando.current ? FADE_ENTRADA : prev.activo !== activo ? FADE_MUTE : FADE_DUCK
     ultimo.current = { activo, nivel }
     if (activo) sonando.current = true
     aplicar(activo, nivel, ms)
-  }, [entro, silenciado, nivel])
+    // aplicar se recrea en cada render y solo lee refs: sumarla reiniciaría las rampas
+    // oxlint-disable-next-line react/exhaustive-effect-dependencies
+  }, [entro, silenciado, calla, nivel])
 
   useEffect(() => {
     const f = () => {
       oculta.current = document.hidden
       if (!entro) return
-      const activo = !silenciado && !document.hidden
+      const activo = !silenciado && !calla && !document.hidden
       ultimo.current = { activo, nivel }
       // al volver a la pestaña, retoma desde el volumen actual sin pegar un salto
       aplicar(activo, nivel, document.hidden ? 0 : FADE_DUCK)
     }
     document.addEventListener('visibilitychange', f)
     return () => document.removeEventListener('visibilitychange', f)
-  }, [entro, silenciado, nivel])
+    // oxlint-disable-next-line react/exhaustive-effect-dependencies
+  }, [entro, silenciado, calla, nivel])
 
   useEffect(
     () => () => {

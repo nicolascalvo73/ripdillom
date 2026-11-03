@@ -1,0 +1,166 @@
+/* Panel de música: reproductor de YouTube (visible, mínimo 200×200 por las reglas de YouTube) + tracklist con salto a cada tema. */
+
+/* disco: el vinilo asoma detrás de la tapa y gira mientras suena */
+.mus-disco { position: relative; width: 96px; height: 96px; flex: none; margin-right: 26px; }
+.mus-disco .mus-tapa { position: relative; z-index: 1; }
+.vinilo-riel {
+  position: absolute; top: 5px; left: 5px; width: 86px; height: 86px;
+  transform: translateX(12px); transition: transform 0.6s cubic-bezier(0.2, 0.9, 0.2, 1);
+}
+.musica.on .vinilo-riel { transform: translateX(34px); }
+.vinilo {
+  display: flex; align-items: center; justify-content: center; width: 100%; height: 100%; border-radius: 50%;
+  background:
+    radial-gradient(circle, var(--pk) 0 15px, var(--bk) 15.5px 17px, transparent 17.5px),
+    repeating-radial-gradient(circle, #1c1418 0 2px, #2b2026 2.5px 3.5px);
+  border: 2px solid var(--bk);
+  animation: gira 2.4s linear infinite paused;
+}
+.vinilo .fd { font-size: 11px; color: var(--bk); }
+.musica.on .vinilo { animation-play-state: running; }
+@keyframes gira { to { transform: rotate(360deg); } }
+
+/* deck: tele + info arriba, controles abajo */
+.deck {
+  margin-top: 18px; display: grid; grid-template-columns: 200px minmax(0, 1fr); gap: 12px 14px;
+  background: var(--bk); color: var(--bn); border: 2px solid var(--bk); box-shadow: 5px 5px 0 var(--pk); padding: 12px;
+  transition: box-shadow 0.3s;
+}
+.musica.on .deck { box-shadow: 5px 5px 0 var(--yl); }
+
+.tele {
+  position: relative; width: 200px; height: 200px; background: #000; border: 2px solid var(--bn); border-radius: 14px; overflow: hidden;
+}
+.tele-pantalla, .tele-pantalla iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; display: block; }
+.tele-tapa {
+  position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; padding: 0; border: 0;
+  background: #000; color: var(--bk); cursor: pointer; font: inherit;
+}
+.tele-tapa[disabled] { cursor: progress; }
+.tele-tapa:focus-visible { outline: 3px dashed var(--yl); outline-offset: -6px; }
+/* estática de TV sin señal */
+.estatica {
+  position: absolute; inset: -50%; opacity: 0.55;
+  background-image:
+    repeating-radial-gradient(circle at 17% 32%, #fff 0 0.6px, transparent 0.6px 2.2px),
+    repeating-radial-gradient(circle at 71% 64%, var(--pk) 0 0.6px, transparent 0.6px 3px),
+    repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.08) 0 1px, transparent 1px 3px);
+  animation: ruido 0.25s steps(4) infinite;
+}
+@keyframes ruido {
+  0% { transform: translate(0, 0); } 25% { transform: translate(-6%, 4%); }
+  50% { transform: translate(5%, -3%); } 75% { transform: translate(-3%, -6%); } 100% { transform: translate(0, 0); }
+}
+.tele-play {
+  position: relative; width: 64px; height: 64px; display: flex; align-items: center; justify-content: center;
+  background: var(--yl); border: 2px solid var(--bk); box-shadow: 3px 3px 0 var(--pk); padding-left: 4px;
+  transition: transform 0.15s;
+}
+.tele-tapa:hover .tele-play { transform: scale(1.08) rotate(-4deg); }
+.tele-et { position: absolute; left: 8px; bottom: 8px; }
+
+.deck-info { min-width: 0; display: flex; flex-direction: column; gap: 10px; padding-top: 2px; }
+.deck-info .lbl { color: var(--gr); }
+.deck-tema {
+  position: relative; font-size: 30px; color: var(--bn); overflow-wrap: anywhere;
+  animation: entra 0.5s cubic-bezier(0.2, 0.9, 0.2, 1) both;
+}
+/* glitch al cambiar de tema: copias rosa y amarilla desfasadas */
+.deck-tema::before, .deck-tema::after {
+  content: attr(data-texto); position: absolute; inset: 0; pointer-events: none; mix-blend-mode: screen;
+}
+.deck-tema::before { color: var(--pk); animation: glitch-a 0.6s steps(2) both; }
+.deck-tema::after { color: var(--yl); animation: glitch-b 0.6s steps(2) both; }
+@keyframes entra { from { opacity: 0; transform: translateY(14px) skewX(-8deg); } to { opacity: 1; transform: none; } }
+@keyframes glitch-a {
+  0% { transform: translate(-6px, 0); clip-path: inset(0 0 60% 0); } 40% { transform: translate(4px, 0); clip-path: inset(40% 0 20% 0); }
+  80% { transform: translate(-2px, 0); clip-path: inset(70% 0 0 0); } 100% { transform: none; clip-path: inset(0 0 100% 0); }
+}
+@keyframes glitch-b {
+  0% { transform: translate(6px, 0); clip-path: inset(50% 0 0 0); } 40% { transform: translate(-4px, 0); clip-path: inset(10% 0 60% 0); }
+  80% { transform: translate(2px, 0); clip-path: inset(0 0 80% 0); } 100% { transform: none; clip-path: inset(100% 0 0 0); }
+}
+
+/* ecualizador: decorativo (el audio de YouTube no se puede analizar), late solo mientras suena */
+.eq { display: flex; align-items: flex-end; gap: 3px; height: 54px; margin-top: auto; }
+.eq span, .eq-mini span {
+  flex: 1; height: 100%; background: var(--pk); transform-origin: bottom; transform: scaleY(0.12);
+  animation: late 0.9s ease-in-out infinite alternate paused;
+  animation-delay: calc(var(--i) * -137ms); animation-duration: calc(560ms + var(--i) * 53ms);
+}
+.eq span:nth-child(3n) { background: var(--yl); }
+.eq span:nth-child(4n + 1) { background: var(--bn); }
+.musica.on .eq span, .musica.on .eq-mini span { animation-play-state: running; }
+@keyframes late {
+  0% { transform: scaleY(0.12); } 30% { transform: scaleY(0.85); } 55% { transform: scaleY(0.35); }
+  80% { transform: scaleY(1); } 100% { transform: scaleY(0.25); }
+}
+
+.deck-ctrl { grid-column: 1 / -1; }
+.deck-barra {
+  -webkit-appearance: none; appearance: none; width: 100%; height: 22px; margin: 0; background: transparent; cursor: pointer;
+}
+.deck-barra::-webkit-slider-runnable-track {
+  height: 8px; border: 2px solid var(--bn);
+  background: linear-gradient(90deg, var(--pk) var(--p, 0%), transparent var(--p, 0%));
+}
+.deck-barra::-moz-range-track {
+  height: 4px; border: 2px solid var(--bn);
+  background: linear-gradient(90deg, var(--pk) var(--p, 0%), transparent var(--p, 0%));
+}
+.deck-barra::-webkit-slider-thumb {
+  -webkit-appearance: none; width: 16px; height: 22px; margin-top: -9px; background: var(--yl); border: 2px solid var(--bk);
+}
+.deck-barra::-moz-range-thumb { width: 12px; height: 18px; border-radius: 0; background: var(--yl); border: 2px solid var(--bk); }
+.deck-barra:disabled { opacity: 0.35; cursor: default; }
+.deck-barra:focus-visible { outline: 3px dashed var(--yl); outline-offset: 2px; }
+.deck-tiempos { display: flex; justify-content: space-between; color: var(--gr); margin-top: 4px; }
+.deck-botones { display: flex; justify-content: center; gap: 12px; margin-top: 8px; }
+.deck-btn { width: 52px; min-height: 48px; padding: 0; color: var(--bk); box-shadow: 3px 3px 0 var(--pk); }
+.deck-play { width: 72px; }
+
+/* tracklist: cada tema es un botón que salta a su minuto */
+.temas .tema {
+  width: 100%; background: none; border: 0; border-bottom: 2px solid var(--bk); font: inherit; color: inherit;
+  text-align: left; cursor: pointer; position: relative; padding-left: 4px; padding-right: 4px;
+  transition: transform 0.15s, background-color 0.15s;
+}
+.temas li:last-child .tema { border-bottom: 0; }
+.temas .tema:hover { transform: translateX(6px); background-color: rgba(255, 46, 154, 0.12); }
+.temas .tema:focus-visible { outline: 3px dashed var(--pk); outline-offset: -3px; }
+.temas .tema.activo {
+  background: linear-gradient(90deg, rgba(255, 46, 154, 0.32) var(--p, 0%), rgba(247, 233, 43, 0.35) var(--p, 0%));
+}
+.temas .tema.activo .num, .temas .tema.activo .nombre { color: var(--bk); }
+.eq-mini { display: flex; align-items: flex-end; gap: 2px; width: 34px; height: 22px; flex: none; }
+.eq-mini span { background: var(--pk2); }
+
+.btn.mus-spotify { margin-top: 18px; width: 100%; justify-content: space-between; text-decoration: none; }
+
+/* celus: el título va arriba a lo ancho y el ecualizador queda parado al lado de la tele */
+@media (max-width: 480px) {
+  .deck {
+    grid-template-columns: 200px minmax(0, 1fr);
+    grid-template-areas: 'lbl lbl' 'tema tema' 'tele eq' 'ctrl ctrl';
+    gap: 8px 12px;
+  }
+  .deck-info { display: contents; }
+  .deck-info > .lbl { grid-area: lbl; }
+  .deck-tema { grid-area: tema; font-size: 28px; margin-bottom: 4px; }
+  .tele { grid-area: tele; }
+  .eq { grid-area: eq; height: auto; margin-top: 0; align-self: stretch; }
+  .deck-ctrl { grid-area: ctrl; }
+}
+/* muy angostos: la tele a lo ancho (sigue midiendo al menos 200×200) */
+@media (max-width: 359px) {
+  .deck { grid-template-columns: minmax(0, 1fr); grid-template-areas: 'lbl' 'tema' 'tele' 'eq' 'ctrl'; }
+  .tele { width: 100%; }
+  .eq { height: 32px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .vinilo, .estatica, .eq span, .eq-mini span, .deck-tema, .deck-tema::before, .deck-tema::after { animation: none; }
+  .vinilo-riel, .temas .tema { transition: none; }
+  .temas .tema:hover { transform: none; }
+  .musica.on .eq span { transform: scaleY(0.6); }
+}
