@@ -224,6 +224,10 @@ function Captura() {
   return null
 }
 
+/** URLs de la paleta base (las mismas que pide `useTexture`), para limpiar su caché al reintentar. */
+export const urlsTatuajesBase = () =>
+  useTatuajes.getState().items.filter((t) => !t.propio).map((t) => BASE + t.file)
+
 export function Tatuajes({ skin }: { skin: Mesh }) {
   const items = useTatuajes((s) => s.items)
   const tatuando = useTatuando()

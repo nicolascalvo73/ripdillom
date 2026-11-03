@@ -1,6 +1,9 @@
-import { Suspense, useState } from 'react'
+import { Component, Fragment, Suspense, useState, type ReactNode } from 'react'
+import { useGLTF, useTexture } from '@react-three/drei'
 import { Canvas } from '@react-three/fiber'
 import { Scene } from './scene/Scene'
+import { MODEL_URL } from './scene/Muneco'
+import { urlsTatuajesBase } from './scene/Tatuajes'
 import { DebugPanel } from './ui/DebugPanel'
 import { Loader } from './ui/Loader'
 import { Listo } from './scene/Listo'
@@ -26,9 +29,54 @@ window.addEventListener('pointerdown', (e) => ((abajo.x = e.clientX), (abajo.y =
 const az = DEBUG ? (Number(new URLSearchParams(window.location.search).get('az')) * Math.PI) / 180 : 0
 const CAM: [number, number, number] = [3.0 * Math.sin(az), 0.55, 3.0 * Math.cos(az)]
 
-export default function App() {
-  const [webgl] = useState(hayWebGL)
-  if (webgl) return <App3D />
+const REINTENTOS = 3
+const ESPERA_MS = [1000, 2000, 3000]
+
+/** drei guarda en caché la promesa fallida: hay que borrarla o el reintento relee el mismo error. */
+function limpiarCargas() {
+  useGLTF.clear(MODEL_URL)
+  useTexture.clear(urlsTatuajesBase())
+}
+
+/**
+ * Si la escena 3D revienta al montar (típico: una descarga que se cortó en el celular) reintenta hasta 3 veces
+ * y recién después cae al menú de respaldo, en vez de dejar la pantalla en blanco.
+ * Los errores de WebGL no se reintentan: no los arregla volver a pedir los archivos.
+ */
+class Respaldo3D extends Component<{ children: ReactNode }, { fallo: boolean; intento: number }> {
+  state = { fallo: false, intento: 0 }
+  timer = 0
+  static getDerivedStateFromError() {
+    return { fallo: true }
+  }
+  componentDidCatch(error: unknown) {
+    const esWebGL = /webgl/i.test(String((error as Error)?.message ?? error))
+    console.error(`Escena 3D caída (intento ${this.state.intento + 1}/${REINTENTOS + 1}):`, error)
+    if (esWebGL) return this.setState({ intento: REINTENTOS })
+    if (this.state.intento >= REINTENTOS) return
+    this.timer = window.setTimeout(() => {
+      limpiarCargas()
+      this.setState((s) => ({ fallo: false, intento: s.intento + 1 }))
+    }, ESPERA_MS[this.state.intento])
+  }
+  componentWillUnmount() {
+    clearTimeout(this.timer)
+  }
+  render() {
+    if (!this.state.fallo) return <Fragment key={this.state.intento}>{this.props.children}</Fragment>
+    if (this.state.intento >= REINTENTOS) return <SinWebGL />
+    return (
+      <>
+        <Fondo />
+        <p className="lbl" style={{ position: 'relative', zIndex: 6, textAlign: 'center', paddingTop: '45vh' }}>
+          Reintentando…
+        </p>
+      </>
+    )
+  }
+}
+
+function SinWebGL() {
   return (
     <>
       <RutaSync />
@@ -37,6 +85,16 @@ export default function App() {
       <Panel />
       <Pie />
     </>
+  )
+}
+
+export default function App() {
+  const [webgl] = useState(hayWebGL)
+  if (!webgl) return <SinWebGL />
+  return (
+    <Respaldo3D>
+      <App3D />
+    </Respaldo3D>
   )
 }
 

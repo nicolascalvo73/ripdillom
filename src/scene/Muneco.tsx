@@ -9,7 +9,7 @@ import { reducirMovimiento } from '../lib/movimiento'
 import { bezier } from '../lib/bezier'
 import { useEscena } from '../state/escena'
 
-const MODEL_URL = `${import.meta.env.BASE_URL}models/dilloms.opt.glb`
+export const MODEL_URL = `${import.meta.env.BASE_URL}models/dilloms.opt.glb`
 
 // plástico brillante: clearcoat alto y roughness baja; face_ink queda mate
 const PLASTICO: Record<string, { clearcoat: number; roughness: number }> = {
