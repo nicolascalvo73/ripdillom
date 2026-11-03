@@ -21,7 +21,7 @@ npm run typecheck  # tsc -b
 
 | Variable | Dónde | Para qué |
 |---|---|---|
-| `BASE_PATH` | build | Ruta base del sitio. Por defecto `/ripdillom/`. En `npm run dev` siempre es `/`. |
+| `BASE_PATH` | build | Ruta base del sitio. Por defecto `/dillom/`. En `npm run dev` siempre es `/`. |
 
 No hay secretos: el aporte usa un link de pago de Mercado Pago (ver Decisiones), así que no hace falta `MP_ACCESS_TOKEN`.
 
